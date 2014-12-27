@@ -71,9 +71,9 @@ vol(){
 }
 
 dte(){
-  dte="$(date "+%I:%M")"
+  dte="$(date "+%l:%M %p")"
   echo -e "\x02$dte\x01"
 }
 
 # Pipe to status bar
-xsetroot -name "$(bat) • CPU $(cpu) • MEM $(mem) • HDD $(hdd) • NET $(int) • VOL $(vol) • $(dte) "
+xsetroot -name "$(bat) • CPU $(cpu) • MEM $(mem) • HDD $(hdd) • NET $(int) • VOL $(vol) •$(dte) "
