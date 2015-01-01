@@ -27,5 +27,8 @@ xrdb -load .Xresources
 # Start terminal daemon
 urxvtd &
 
-$ Launch dwm
+# Start our keybind daemon
+sxhkd &
+
+# Launch dwm
 exec $HOME/.bin/dwm-start
