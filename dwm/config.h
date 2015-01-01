@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]            = "Droid Sans Mono for Powerline:size=11:antialias=true:autohint=false";
+static const char font[] = "Droid Sans Mono for Powerline:size=11:antialias=true:autohint=false";
 
 #define NUMCOLORS 9 
 static const char colors[NUMCOLORS][ColLast][9] = {
@@ -17,31 +17,22 @@ static const char colors[NUMCOLORS][ColLast][9] = {
     { "#212121", "#899CA1", "#121212" }, // 8 = grey
 };
 
-/* Subsumed by the statuscolors patch
-static const char normbordercolor[] = "#444444";
-static const char normbgcolor[]     = "#222222";
-static const char normfgcolor[]     = "#bbbbbb";
-static const char selbordercolor[]  = "#005577";
-static const char selbgcolor[]      = "#005577";
-static const char selfgcolor[]      = "#eeeeee";
-*/
-
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "base", "web", "term", "media"};
+static const char *tags[] = { "term", "web", "comms", "media"};
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 1,       False,       -1 },
     { "Dwb",      NULL,       NULL,       1 << 1,       False,       -1 },
     { "Chromium", NULL,       NULL,       1 << 1,       False,       -1 },
-    { "URxvt",    NULL,       NULL,       1 << 2,       False,       -1 },
+    { "URxvt",    NULL,       NULL,       1 << 0,       False,       -1 },
 };
 
 /* layout(s) */
@@ -69,7 +60,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG], "-nf", colors[0][ColFG], "-sb", colors[1][ColBG], "-sf", colors[1][ColFG], NULL };
-static const char *termcmd[]  = { "urxvtc", NULL };
+static const char *termcmd[]  = { "urxvtc", "-e", "fish"};
 static const char *killcmd[]  = { "killall", "xinit"};
 
 static Key keys[] = {
