@@ -52,7 +52,7 @@ hdd(){
   if (( drives > 3 )); then
     echo -e "\x08${hd[@]:0:3} \x06${hd[@]:3:1}\x01"
   else
-    echo -e "\x08${hd[@]}\x01"
+    echo -e "\x05${hd[@]}\x01"
   fi
 }
 

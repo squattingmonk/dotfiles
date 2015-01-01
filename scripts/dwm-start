@@ -2,12 +2,12 @@
 # Script to start dwm in loop
 
 while true; do
-		$HOME/.bin/dwm-status
-    	sleep 2
+	$HOME/.bin/dwm-status
+   	sleep 2
 done &
 
 while true; do
 	dwm >/dev/null
 	# to log stderrors to a file
-	# dwm 2> ~/Build/dwm/dwm.log
+	# dwm 2> ~/Builds/dwm/dwm.log
 done
