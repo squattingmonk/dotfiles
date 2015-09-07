@@ -8,4 +8,4 @@ HEIGHT=$(echo $RES | awk -F "x" '{print $2}')
 prompt="                                        execute"
 font="Droid Sans Mono for Powerline"
 
-dmenu_run -i -h $HEIGHT -w $WIDTH -q -o .6 -p "$prompt" -fn "$font" -nb "#222222" -nf "#999999" -sb "#222222" -sf "#ffffff"
+dmenu_run -i -h $HEIGHT -w $WIDTH -q -p "$prompt" -fn "$font" -nb "#222222" -nf "#999999" -sb "#222222" -sf "#ffffff"
