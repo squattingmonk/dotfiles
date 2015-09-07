@@ -1,0 +1,6 @@
+#!/bin/bash
+
+prompt="                                        execute"
+font="Droid Sans Mono for Powerline"
+
+dmenu_run -i -h 1080 -w 1920 -q -o .6 -p "$prompt" -fn "$font" -nb "#222222" -nf "#999999" -sb "#222222" -sf "#ffffff"

@@ -1,0 +1,24 @@
+! Colors
+!#include "~/.config/colors/dark"
+
+#define bg [70]#222222
+#define fg     #999999
+
+! Urxvt
+URxvt.scrollBar: false
+URxvt*.termName: rxvt-unicode-256color
+URxvt.font: xft:Droid Sans Mono for Powerline:size=11
+URxvt*.depth: 32
+URxvt.background: bg
+URxvt.foreground: fg
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+! Xft settings
+Xft.dpi:       96
+Xft.antialias: true
+Xft.rgba:      rgb
+Xft.hinting:   false
+Xft.hintstyle: hintslight

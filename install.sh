@@ -1,12 +1,12 @@
 #!/bin/bash
 
-BASEDIR="~/.dotfiles"
+BASEDIR=$(pwd)
 
 # git
 ln -s ${BASEDIR}/git/gitconfig ~/.gitconfig
 
 # bin
-ln -s ${BASEDIR}/bin/ ~/bin/
+ln -s ${BASEDIR}/bin/ ~/.bin/
 
 # bspwm
 ln -s ${BASEDIR}/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
@@ -16,4 +16,4 @@ ln -s ${BASEDIR}/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
 
 # X11
 ln -s ${BASEDIR}/X11/xinitrc ~/.xinitrc
-ln -s ${BASEDIR}/X11/Xdefaults ~/.Xdefaults
+ln -s ${BASEDIR}/X11/Xresources ~/.Xresources
