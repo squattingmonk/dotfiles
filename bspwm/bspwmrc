@@ -10,7 +10,7 @@ compton &
 xsetroot -cursor_name left_ptr &
 
 # Start a terminal
-urxvtd &
+urxvtd -f -o -q
 urxvtc &
 
 # Launch our keybind daemon
