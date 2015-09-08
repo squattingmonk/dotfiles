@@ -1,27 +1,29 @@
 #!/bin/bash
-LINKOPTIONS="sf"
-BASEDIR=$(pwd)
+BASEDIR=$(dirname $(readlink -f $0))
 
 # git
 ln -sf ${BASEDIR}/git/gitconfig ~/.gitconfig
 
 # bin
-#ln -s ${BASEDIR}/bin ~/.bin
+mkdir -pv ~/.bin
+for file in $(dir ${BASEDIR}/bin); do
+    ln -s ${BASEDIR}/bin/${file} ~/.bin/${file}
+done
 
 # bspwm
 mkdir -pv ~/.config/bspwm
-ln -sf ${BASEDIR}/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
+ln -s ${BASEDIR}/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
 
 # sxhkd
 mkdir -pv ~/.config/sxhkd
-ln -sf ${BASEDIR}/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
+ln -s ${BASEDIR}/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
 
 # vim
 ln -sf ${BASEDIR}/vim/vimrc ~/.vimrc
 
 mkdir -pv ~/.vim/colors
 for file in ${BASEDIR}/vim/colors/{.,}*; do
-    ln -${LINKOPTIONS} ${file} ~/.vim/colors/$(basename ${file})
+    ln -s ${file} ~/.vim/colors/$(basename ${file})
 done
 
 # X11
