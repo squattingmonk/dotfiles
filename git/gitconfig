@@ -3,3 +3,5 @@
 	name = Michael A. Sinclair
 [core]
 	editor = vim
+[push]
+	default = simple

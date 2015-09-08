@@ -4,6 +4,10 @@ BASEDIR=$(dirname $(readlink -f $0))
 # git
 ln -sf ${BASEDIR}/git/gitconfig ~/.gitconfig
 
+# bash
+ln -sf ${BASEDIR}/bash/bashrc ~/.bashrc
+ln -sf ${BASEDIR}/bash/bash_profile ~/.bash_profile
+
 # bin
 mkdir -pv ~/.bin
 for file in $(dir ${BASEDIR}/bin); do
@@ -29,3 +33,4 @@ done
 # X11
 ln -sf ${BASEDIR}/X11/xinitrc ~/.xinitrc
 ln -sf ${BASEDIR}/X11/Xresources ~/.Xresources
+xrdb merge ~/.Xresources
