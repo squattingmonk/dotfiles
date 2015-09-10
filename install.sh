@@ -25,7 +25,7 @@ ln -sf ${BASEDIR}/git/gitconfig ~/.gitconfig
 # gtk
 mkdir -pv ~/.config/gtk-3.0
 ln -sf ${BASEDIR}/gtk/gtkrc-3.0 ~/.config/gtk-3.0/settings.ini
-ln -sf ${BASEDIR}/gtk/gtkrc-2.0 ~/.gitkrc-2.0
+ln -sf ${BASEDIR}/gtk/gtkrc-2.0 ~/.gtkrc-2.0
 
 # sxhkd
 mkdir -pv ~/.config/sxhkd
