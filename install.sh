@@ -27,6 +27,9 @@ mkdir -pv ~/.config/gtk-3.0
 ln -sf ${BASEDIR}/gtk/gtkrc-3.0 ~/.config/gtk-3.0/settings.ini
 ln -sf ${BASEDIR}/gtk/gtkrc-2.0 ~/.gtkrc-2.0
 
+# powerline prompt
+ln -sf ${BASEDIR}/promptline.sh ~/.promptline.sh
+
 # sxhkd
 mkdir -pv ~/.config/sxhkd
 ln -sf ${BASEDIR}/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc

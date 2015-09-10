@@ -30,11 +30,13 @@ bspc config gapless_monocle       true
 bspc config focus_by_distance     true
 bspc config focus_follows_pointer true
 
-bspc monitor -d term web comms media
+bspc monitor -d term web docs comms media
 
-bspc rule -a Chromium desktop=^2 fullscreen=on
+bspc rule -a Chromium desktop=^2 fullscreen=on floating=on
+bspc rule -a libreoffice desktop=^3 fullscreen=on floating=on
 
 bspwm desktop web -l monocle
+bspwm desktop docs -l monocle
 
-# Panel 
+# Panel
 #panel &

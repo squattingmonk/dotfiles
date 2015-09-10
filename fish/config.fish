@@ -13,3 +13,12 @@ set -U fish_user_paths $HOME/.bin $fish_user_paths
 set -x BROWSER     chromium
 set -x EDITOR      vim
 set -x SXHKD_SHELL /bin/sh
+
+# Use powerline symbols in our prompt
+function fish_prompt
+  env FISH_VERSION=$FISH_VERSION PROMPTLINE_LAST_EXIT_CODE=$status bash ~/.promptline.sh left
+end
+
+function fish_right_prompt
+  env FISH_VERSION=$FISH_VERSION PROMPTLINE_LAST_EXIT_CODE=$status bash ~/.promptline.sh right
+end
