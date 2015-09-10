@@ -34,6 +34,11 @@ for file in $(dir ${BASEDIR}/vim/colors); do
     ln -sf ${BASEDIR}/vim/colors/${file} ~/.vim/colors/${file}
 done
 
+mkdir -pv ~/.vim/autoload
+for file in $(dir ${BASEDIR}/vim/autoload); do
+    ln -sf ${BASEDIR}/vim/autoload/${file} ~/.vim/autoload/${file}
+done
+
 # X11
 ln -sf ${BASEDIR}/X11/xinitrc ~/.xinitrc
 ln -sf ${BASEDIR}/X11/Xresources ~/.Xresources
