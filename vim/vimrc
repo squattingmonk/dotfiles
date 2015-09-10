@@ -1,42 +1,71 @@
-" Begin Vundle (vim plugin manager) config
-set nocompatible        " be iMproved, required
-filetype off            " required
+" begin plugins
+" ------------------------------------------------------------------------------
+" Run our plugin manager
+call plug#begin('~/.vim/plugged')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+Plug 'junegunn/vim-easy-align'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-fugitive'
 
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#end()
 
-" Let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" Airline statusline plugin
-Plugin 'bling/vim-airline'
-
-" Color schemes
-" Plugin 'flazz/vim-colorschemes'
-
-" All of your Plugins must be added before the following line
-call vundle#end()           " required
-filetype plugin indent on   " required
-" to ignore indent changes instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :Plugin install   - installs plugins; append '!' to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append '!' to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append '!' to auto-approve
-"
-" See :h vundle for more details or wiki for FAQ
-
-" End Vundle config -----
-
-" Use powerline fonts for airline plugin
+" Airline plugin
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
 let g:airline_powerline_fonts = 1
+let g:airline_theme = 'papercolor'
+
+" Fugitive plugin
+" Only do this part when compiled with support for autocommands
+if has("autocmd")
+    augroup vimrcEx
+        autocmd!
+
+        " Follow symlinks when opening a file {{{
+        " NOTE: this happens with directory symlinks anyway (due to Vim's chdir/getcwd
+        "       magic when getting filenames).
+        " Sources:
+        "  - https://github.com/tpope/vim-fugitive/issues/147#issuecomment-7572351
+        "  - http://www.reddit.com/r/vim/comments/yhsn6/is_it_possible_to_work_around_the_symlink_bug/c5w91qw
+        function! MyFollowSymlink(...)
+            if exists('w:no_resolve_symlink') && w:no_resolve_symlink
+                return
+            endif
+            let fname = a:0 ? a:1 : expand('%')
+            if fname =~ '^\w\+:/'
+                " Do not mess with 'fugitive://' etc.
+                return
+            endif
+            let fname = simplify(fname)
+
+            let resolvedfile = resolve(fname)
+            if resolvedfile == fname
+                return
+            endif
+            let resolvedfile = fnameescape(resolvedfile)
+            let sshm = &shm
+            set shortmess+=A  " silence ATTENTION message about swap file (would get displayed twice)
+            exec 'file ' . resolvedfile
+            let &shm=sshm
+
+            " Re-init fugitive.
+            call fugitive#detect(resolvedfile)
+            if &modifiable
+                " Only display a note when editing a file, especially not for `:help`.
+                redraw  " Redraw now, to avoid hit-enter prompt.
+                echomsg 'Resolved symlink: =>' resolvedfile
+            endif
+        endfunction
+        command! FollowSymlink call MyFollowSymlink()
+        command! ToggleFollowSymlink let w:no_resolve_symlink = !get(w:, 'no_resolve_symlink', 0) | echo "w:no_resolve_symlink =>" w:no_resolve_symlink
+        au BufReadPost * nested call MyFollowSymlink(expand('%'))
+    augroup END
+endif
+
+" end plugins
+" ------------------------------------------------------------------------------
+
+" be iMproved
+set nocompatible
 
 " Turn line numbers on
 set nu
@@ -47,6 +76,9 @@ syntax on
 " Set color scheme
 color miro8
 
+" Make sure the statusline is always on
+set laststatus=2
+
 " Default indentation: 4 spaces
 set ts=4 sts=4 sw=4 expandtab
 
@@ -55,8 +87,9 @@ set ts=4 sts=4 sw=4 expandtab
 nnoremap j gj
 nnoremap k gk
 
-" Remap <Esc> to jj in insert mode
+" Remap <Esc> to jj and kk in insert mode
 inoremap jj <Esc>
+inoremap kk <Esc>
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
