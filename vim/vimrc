@@ -52,6 +52,10 @@ nnoremap k gk
 inoremap jj <Esc>
 inoremap kk <Esc>
 
+" Remap up and down keys to move lines up and down
+nnoremap <up> ddkP
+nnoremap <down> ddp
+
 " Allow saving of files as sudo when I forget to start vim using sudo
 cmap W w !sudo tee % > /dev/null
 
