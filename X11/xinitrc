@@ -14,5 +14,8 @@ fi
 # Load our X resources
 xrdb -load .Xresources
 
+# Make caps-lock useful
+setxkbmap -option caps:swapescape
+
 # Start our window manager
 exec bspwm
