@@ -6,8 +6,16 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
 
 call plug#end()
+
+" EasyAlign Plugin
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " Airline plugin
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
@@ -43,6 +51,9 @@ nnoremap k gk
 " Remap <Esc> to jj and kk in insert mode
 inoremap jj <Esc>
 inoremap kk <Esc>
+
+" Allow saving of files as sudo when I forget to start vim using sudo
+cmap W w !sudo tee % > /dev/null
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
