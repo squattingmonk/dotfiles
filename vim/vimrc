@@ -43,9 +43,6 @@ set laststatus=2
 " Default indentation: 4 spaces
 set ts=4 sts=4 sw=4 expandtab
 
-" Turn on search highlighting
-set hlsearch
-
 " Remap j and k to move up a row instead of a line
 " (useful for line wraps)
 nnoremap j gj
