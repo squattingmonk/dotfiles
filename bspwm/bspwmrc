@@ -20,7 +20,7 @@ urxvtd -f -o -q
 urxvtc &
 
 # Launch our keybind daemon
-sxhkd $HOME/.config/sxhkd/sxhkdrc.bspwm &
+sxhkd $HOME/.config/sxhkd/sxhkdrc.bspwm > /dev/null &
 
 # Panel configuration
 
