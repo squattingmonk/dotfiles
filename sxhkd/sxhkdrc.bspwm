@@ -2,27 +2,35 @@
 # bspwm hotkeys
 #
 
+# Quit bspwm
 super + alt + Escape
 	bspc quit
 
+# Close the focused window
 super + w
 	bspc window -c
 
+# Next desktop
 super + t
 	bspc desktop -l next
 
+# Balance tree
 super + b
 	bspc desktop -B
 
+# Toggle floating/fullscreen
 super + {s,f}
 	bspc window -t {floating,fullscreen}
 
+# set focus on previous window/desktop
 super + {grave,Tab}
 	bspc {window,desktop} -f last
 
+# Swap the focused window with the last one
 super + apostrophe
 	bspc window -s last
 
+# Set focus to windows in "historical" order
 super + {o,i}
 	bspc control --record-history off; \
 	bspc window {older,newer} -f; \
@@ -31,44 +39,69 @@ super + {o,i}
 super + y
 	bspc window -w last.manual
 
+# Swap this window with the largest one in the layout
 super + m
 	bspc window -s biggest
 
+# Switch/move windows
 super + {_,shift + }{h,j,k,l}
 	bspc window -{f,s} {left,down,up,right}
 
+# Switch windows sequentially
 super + {_,shift + }c
 	bspc window -f {next,prev}
 
+# Rotate binary tree backward/forward
 super + {comma,period}
 	bspc desktop -C {backward,forward}
 
+# Flip (mirror) binary tree horizontally/vertically
+super + alt + {comma,period}
+    bspc desktop -F {vertical,horizontal}
+
+# Switch desktops sequentially
 super + bracket{left,right}
 	bspc desktop -f {prev,next}
 
+# Pre-select next window split location
 super + ctrl + {h,j,k,l}
 	bspc window -p {left,down,up,right}
 
+# Cancel pre-selection of next window/desktop
 super + ctrl + {_,shift + }space
 	bspc {window -p cancel,desktop -c}
 
+# Resize window outwards
 super + alt + {h,j,k,l}
 	bspc window -e {left -10,down +10,up -10,right +10}
 
+# Resize window inwards
 super + alt + shift + {h,j,k,l}
 	bspc window -e {right -10,up +10,down -10,left +10}
 
+# Set the splitting ratio of the focused window
 super + ctrl + {1-9}
 	bspc window -r 0.{1-9}
 
+# Set focus to desktop / send window to desktop
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,window -d} ^{1-9,10}
 
+# Click to focus
 ~button1
 	bspc pointer -g focus
 
-super + button{1-3}
-	; bspc pointer -g {move,resize_side,resize_corner}
+# Dynamic window gaps (mostly just showing off...)
+super + button{4,5}
+   bspc config -d focused window_gap $((`bspc config -d focused window_gap` {+,-} 2 ))
 
+# Move/resize window
+super + button{1-3}
+    bspc pointer -g {move,resize_side,resize_corner}
+
+super + !button{1-3}
+   bspc pointer -t %i %i
+
+# Terminate the current pointer action (don't change this)
 super + @button{1-3}
 	bspc pointer -u
