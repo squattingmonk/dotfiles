@@ -1,13 +1,19 @@
 #! /bin/sh
 
+# Load our X resources
+xrdb -load .Xresources
+
+# Make caps-lock useful
+setxkbmap -option caps:escape
+
+# Make our cursor nice and pretty
+xsetroot -cursor_name left_ptr &
+
 # Set our background wallpaper
 source $HOME/.fehbg &
 
 # Start our compositor
 compton &
-
-# Make our cursor nice and pretty
-xsetroot -cursor_name left_ptr &
 
 # Start a terminal
 urxvtd -f -o -q
