@@ -30,6 +30,7 @@ ln -sf ${BASEDIR}/gtk/gtkrc-2.0 ~/.gtkrc-2.0
 # sxhkd
 mkdir -pv ~/.config/sxhkd
 ln -sf ${BASEDIR}/sxhkd/sxhkdrc ~/.config/sxhkd/sxhkdrc
+ln -sf ${BASEDIR}/sxhkd/sxhkdrc.bspwm ~/.config/sxhkd/sxhkdrc.bspwm
 
 # vim
 ln -sf ${BASEDIR}/vim/vimrc ~/.vimrc
