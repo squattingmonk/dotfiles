@@ -8,6 +8,15 @@ super + Return
 super + p
 	launcher
 
+XF86Audio{Raise,Lower}Volume
+    amixer sset Master 5%{+,-} unmute
+
+XF86AudioMute
+    amixer sset Master toggle
+
+XF86MonBrightness{Down,Up}
+    xbacklight -{dec,inc} 10
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
