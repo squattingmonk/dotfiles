@@ -4,4 +4,4 @@
 
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 curl -o /etc/pacman.d/mirrorlist https://www.archlinux.org/mirrorlist/all
-reflector --verbose -l 10 -p http --sort rate --save /etc/pacman.d/mirrorlist
+reflector --verbose --country 'United States' -l 10 -p http --sort rate --save /etc/pacman.d/mirrorlist
