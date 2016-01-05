@@ -16,8 +16,11 @@ mkdir -pv ~/.config/bspwm
 ln -sf ${BASEDIR}/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
 
 # fish
-mkdir -pv ~/.config/fish
+mkdir -pv ~/.config/fish/functions
 ln -sf ${BASEDIR}/fish/config.fish ~/.config/fish/config.fish
+for gile in $(dir ${BASEDIR}/fish/functions); do
+    ln -sf ${BASEDIR}/fish/functions/${file} ~/.config/fish/functions/${file}
+done
 
 # git
 ln -sf ${BASEDIR}/git/gitconfig ~/.gitconfig
@@ -34,6 +37,8 @@ ln -sf ${BASEDIR}/sxhkd/sxhkdrc.bspwm ~/.config/sxhkd/sxhkdrc.bspwm
 
 # vim
 ln -sf ${BASEDIR}/vim/vimrc ~/.vimrc
+ln -sf ~/.vimrc ~/.vim/init.vim
+ln -sf ~/.vim ~/.config/nvim
 
 mkdir -pv ~/.vim/colors
 for file in $(dir ${BASEDIR}/vim/colors); do
