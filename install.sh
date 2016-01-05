@@ -18,7 +18,7 @@ ln -sf ${BASEDIR}/bspwm/bspwmrc ~/.config/bspwm/bspwmrc
 # fish
 mkdir -pv ~/.config/fish/functions
 ln -sf ${BASEDIR}/fish/config.fish ~/.config/fish/config.fish
-for gile in $(dir ${BASEDIR}/fish/functions); do
+for file in $(dir ${BASEDIR}/fish/functions); do
     ln -sf ${BASEDIR}/fish/functions/${file} ~/.config/fish/functions/${file}
 done
 
