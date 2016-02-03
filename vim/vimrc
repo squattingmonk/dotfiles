@@ -98,3 +98,6 @@ endfunction
 
 autocmd BufRead,BufNewFile *.md setfiletype markdown
 autocmd FileType markdown :call <SID>MDSettings()
+
+" Automatically turn on spell-checking for markdown files
+autocmd FileType markdown setlocal spell
