@@ -40,6 +40,16 @@ ln -sf ${BASEDIR}/vim/vimrc ~/.vimrc
 ln -sf ~/.vimrc ~/.vim/init.vim
 ln -sf ~/.vim ~/.config/nvim
 
+mkdir -pv ~/.vim/ftdetect
+for file in $(dir ${BASEDIR}/vim/ftdetect); do
+    ln -sf ${BASEDIR}/vim/ftdetect/${file} ~/.vim/ftdetect/${file}
+done
+
+mkdir -pv ~/.vim/ftplugin
+for file in $(dir ${BASEDIR}/vim/ftplugin); do
+    ln -sf ${BASEDIR}/vim/ftplugin/${file} ~/.vim/ftplugin/${file}
+done
+
 mkdir -pv ~/.vim/colors
 for file in $(dir ${BASEDIR}/vim/colors); do
     ln -sf ${BASEDIR}/vim/colors/${file} ~/.vim/colors/${file}

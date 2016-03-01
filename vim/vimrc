@@ -69,6 +69,7 @@ cmap W w !sudo tee % > /dev/null
 if has("autocmd")
 	" Enable file type detection
 	filetype on
+    filetype plugin on
 
 	" Syntax of these languages is fussy over tabs vs spaces
 	autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
@@ -78,26 +79,3 @@ if has("autocmd")
 	autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab
 	autocmd FileType css setlocal ts=4 sts=4 sw=4 expandtab
 endif
-
-"-- pandoc Markdown+LaTeX -------------------------------------------
-
-function s:MDSettings()
-    inoremap <buffer> <Leader>n \note[item]{}<Esc>i
-    noremap <buffer> <Leader>b :! pandoc -t beamer % -o %<.pdf<CR><CR>
-    noremap <buffer> <Leader>l :! pandoc -t latex % -o %<.pdf<CR>
-    noremap <buffer> <Leader>v :! evince %<.pdf 2>&1 >/dev/null &<CR><CR>
-
-    " adjust syntax highlighting for LaTeX parts
-    "   inline formulas:
-    syntax region Statement oneline matchgroup=Delimiter start="\$" end="\$"
-    "   environments:
-    syntax region Statement matchgroup=Delimiter start="\\begin{.*}" end="\\end{.*}" contains=Statement
-    "   commands:
-    syntax region Statement matchgroup=Delimiter start="{" end="}" contains=Statement
-endfunction
-
-autocmd BufRead,BufNewFile *.md setfiletype markdown
-autocmd FileType markdown :call <SID>MDSettings()
-
-" Automatically turn on spell-checking for markdown files
-autocmd FileType markdown setlocal spell
