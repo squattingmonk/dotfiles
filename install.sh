@@ -40,6 +40,11 @@ ln -sf ${BASEDIR}/vim/vimrc ~/.vimrc
 ln -sf ~/.vimrc ~/.vim/init.vim
 ln -sf ~/.vim ~/.config/nvim
 
+mkdir -pv ~/.vim/syntax
+for file in $(dir ${BASEDIR}/vim/syntax); do
+    ln -sf ${BASEDIR}/vim/syntax/${file} ~/.vim/syntax/${file}
+done
+
 mkdir -pv ~/.vim/ftdetect
 for file in $(dir ${BASEDIR}/vim/ftdetect); do
     ln -sf ${BASEDIR}/vim/ftdetect/${file} ~/.vim/ftdetect/${file}
