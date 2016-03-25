@@ -20,7 +20,8 @@ urxvtd -f -o -q
 urxvtc &
 
 # Launch our keybind daemon
-sxhkd $HOME/.config/sxhkd/sxhkdrc.bspwm > /dev/null &
+sxhkd > /dev/null &
+#sxhkd $HOME/.config/sxhkd/sxhkdrc.bspwm > /dev/null &
 
 # Panel configuration
 
@@ -41,8 +42,8 @@ bspc monitor -d term web docs comms media
 bspc rule -a Chromium desktop=^2 fullscreen=on floating=on
 bspc rule -a libreoffice desktop=^3 fullscreen=on floating=on
 
-bspwm desktop web -l monocle
-bspwm desktop docs -l monocle
+bspc desktop web -l monocle
+bspc desktop docs -l monocle
 
 # Panel
 #panel &
