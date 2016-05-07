@@ -16,7 +16,7 @@ unclutter -idle 1 &
 source $HOME/.fehbg &
 
 # Start our compositor
-compton &
+compton --xrender-sync --xrender-sync-fence &
 
 # Start a terminal
 urxvtd -f -o -q
