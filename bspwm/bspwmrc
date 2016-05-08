@@ -10,7 +10,7 @@ setxkbmap -option caps:escape
 xsetroot -cursor_name left_ptr &
 
 # Now hide it
-unclutter -idle 1 &
+#unclutter -idle 1 &
 
 # Set our background wallpaper
 source $HOME/.fehbg &
