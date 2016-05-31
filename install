@@ -1,11 +1,4 @@
-#!/bin/fish
+#!/bin/sh
 # vim: set ft=fish:
 
-set BASEDIR (dirname (status -f))
-
-# bin
-mkdir -pv ~/.bin
-for file in (dir $BASEDIR/bin);
-    echo $BASEDIR/bin$file
-    #    ln -sf $BASEDIR/bin/$file ~/.bin/$file
-end
+stow -n (ls -F | grep / | sed 's/\// /g')
