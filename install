@@ -1,8 +1,3 @@
-#!/bin/fish
-# vim: set ft=fish:
-
-cd (dirname (status --current-filename))
-for package in */;
-    echo "Installing $package..."
-    stow -v $package
-end
+#!/bin/bash
+cd "$(dirname "$0")"
+stow -vv */

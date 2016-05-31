@@ -8,7 +8,7 @@ Clone the repository:
 $ git clone https://github.com/squattingmonk/dotfiles
 ```
 
-If you have [fish](https://fishshell.com) installed, run the install script:
+If you wish to install all the config files, run the install script:
 
 ```bash
 $ dotfiles/install
