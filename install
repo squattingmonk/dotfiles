@@ -1,4 +1,8 @@
-#!/bin/sh
+#!/bin/fish
 # vim: set ft=fish:
 
-stow -n (ls -F | grep / | sed 's/\// /g')
+cd (dirname (status --current-filename))
+for package in */;
+    echo "Installing $package..."
+    stow -v $package
+end
