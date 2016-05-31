@@ -11,7 +11,7 @@ $ git clone https://github.com/squattingmonk/dotfiles
 If you have [fish](https://fishshell.com) installed, run the install script:
 
 ```bash
- dotfiles/install
+$ dotfiles/install
  ```
 
 Otherwise, switch to the repository directory and manually stow the packages you wish to install:
