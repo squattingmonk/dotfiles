@@ -7,7 +7,7 @@ set fish_greeting
 env -i HOME=$HOME dash -l -c 'export -p' | sed -e "/PWD/d; /PATH/s/'//g;/PATH/s/:/ /g;s/=/ /;s/^export/set -x/" | source
 
 # Set our path
-set -U fish_user_paths $HOME/.bin $fish_user_paths
+set -U fish_user_paths $HOME/.bin $fish_user_paths $HOME/.gem/ruby/2.3.0/bin
 
 # Environment variables
 set -x BROWSER     chromium
