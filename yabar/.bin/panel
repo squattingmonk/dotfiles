@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ "$(pidof yabar)" ]; then
+    pkill yabar
+    bspc config top_padding 0
+else
+    bspc config top_padding 24
+    yabar &
+fi

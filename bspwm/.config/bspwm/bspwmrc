@@ -25,13 +25,9 @@ urxvtc &
 # Launch our keybind daemon
 sxhkd $HOME/.config/sxhkd/sxhkdrc.bspwm > /dev/null &
 
-# Panel configuration
-
-
 # bspwm configuration
 bspc config border_width        2
 bspc config window_gap         12
-#bspc config top_padding $PANEL_HEIGHT
 
 bspc config split_ratio           0.50
 bspc config borderless_monocle    true
@@ -44,6 +40,3 @@ bspc monitor -d term web docs comms media
 
 bspc rule -a Chromium desktop=^2 fullscreen=on floating=on
 bspc rule -a libreoffice desktop=^3 fullscreen=on floating=on
-
-# Panel
-#panel &
