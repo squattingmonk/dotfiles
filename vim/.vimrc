@@ -11,6 +11,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'baskerville/vim-sxhkdrc'
 Plug 'dag/vim-fish'
+Plug 'AGhost-7/vim-nwscript'
 
 call plug#end()
 
@@ -69,15 +70,15 @@ cmap W w !sudo tee % > /dev/null
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
-	" Enable file type detection
-	filetype on
+    " Enable file type detection
+    filetype on
     filetype plugin on
 
-	" Syntax of these languages is fussy over tabs vs spaces
-	autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
-	autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab
+    " Syntax of these languages is fussy over tabs vs spaces
+    autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
+    autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab
 
-	" Customizations based on house-style (arbitrary)
-	autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab
-	autocmd FileType css setlocal ts=4 sts=4 sw=4 expandtab
+    " Customizations based on house-style (arbitrary)
+    autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType css setlocal ts=4 sts=4 sw=4 expandtab
 endif
