@@ -1,0 +1,6 @@
+[options]
+font = Droid Sans Mono for Powerline 11
+
+[colors]
+background = #222222
+foreground = #999999
