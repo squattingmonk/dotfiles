@@ -1,6 +1,42 @@
 [options]
 font = Droid Sans Mono for Powerline 11
+mouse_autohide = true
 
 [colors]
-background = #222222
-foreground = #999999
+# special
+background      = #222222
+foreground      = #999999
+foreground_bold = #999999
+cursor          = #999999
+
+# black
+color0  = #333333
+color8  = #474747
+
+# red
+color1  = #8a2f58
+color9  = #cf4f88
+
+# green
+color2  = #287373
+color10 = #53a6a6
+
+# yellow
+color3  = #914e89
+color11 = #bf85cc
+
+# blue
+color4  = #395573
+color12 = #4779b3
+
+# magenta
+color5  = #5e468c
+color13 = #7f62b3
+
+# cyan
+color6  = #2b7694
+color14 = #58aeb1
+
+# white
+color7  = #899ca1
+color15 = #c0c0c0
