@@ -1,0 +1,20 @@
+rofi.dpi:               96
+rofi.color-enabled:     true
+rofi.color-window:      #222222, #999999, #999999
+rofi.color-normal:      #222222, #ffffff, #222222, #474747, #c0c0c0
+rofi.bw:                0
+rofi.width:             100
+rofi.padding:           200
+rofi.fullscreen:        true
+rofi.sidebar-mode:      true
+rofi.fixed-num-lines:   true
+rofi.lines:             10
+rofi.line-margin:       8
+rofi.separator-style:   solid
+rofi.hide-scrollbar:    true
+rofi.font:              Droid Sans 11
+rofi.modi:              drun,window,ssh
+rofi.display-drun:      Run
+rofi.display-window:    Windows
+rofi.display-ssh:       SSH
+rofi.terminal:          termite
