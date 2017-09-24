@@ -33,6 +33,9 @@ let g:airline_theme = 'papercolor'
 " be iMproved
 set nocompatible
 
+" Enable mouse support
+set mouse=a
+
 " Turn line numbers on
 set nu
 
