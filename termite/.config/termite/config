@@ -4,39 +4,39 @@ mouse_autohide = true
 
 [colors]
 # special
-background      = #222222
-foreground      = #999999
-foreground_bold = #999999
-cursor          = #999999
+background      = rgba(11, 40, 48, 0.9)
+foreground      = #c7fefe
+foreground_bold = #c7fefe
+cursor          = #c7fefe
 
 # black
-color0  = #333333
-color8  = #474747
+color0  = #003549
+color8  = #036495
 
 # red
-color1  = #8a2f58
-color9  = #cf4f88
+color1  = #da4b8e
+color9  = #f973b4
 
 # green
-color2  = #287373
-color10 = #53a6a6
+color2  = #12677f
+color10 = #009bc2
 
 # yellow
-color3  = #914e89
-color11 = #bf85cc
+color3  = #c4bdbe
+color11 = #f6e8ef
 
 # blue
-color4  = #395573
-color12 = #4779b3
+color4  = #004f77
+color12 = #005490
 
 # magenta
-color5  = #5e468c
-color13 = #7f62b3
+color5  = #cd4383
+color13 = #ea7db2
 
 # cyan
-color6  = #2b7694
-color14 = #58aeb1
+color6  = #00cdfe
+color14 = #37edf7
 
 # white
-color7  = #899ca1
-color15 = #c0c0c0
+color7  = #c7fefe
+color15 = #fefefe

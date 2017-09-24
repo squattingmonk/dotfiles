@@ -47,7 +47,9 @@ set spelllang=en
 set spellfile=$HOME/Dropbox/vim/spell/en.utf-8.add
 
 " Set color scheme
-color miro8
+" color miro8
+color bleh
+set background=dark
 
 " Make sure the statusline is always on
 set laststatus=2
