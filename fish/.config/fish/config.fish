@@ -6,8 +6,14 @@ set fish_greeting
 # Source all files in /etc/profile.d
 env -i HOME=$HOME dash -l -c 'export -p' | sed -e "/PWD/d; /PATH/s/'//g;/PATH/s/:/ /g;s/=/ /;s/^export/set -x/" | source
 
+# Set up rubygems if needed
+if type -q gem
+    set GEM_PATH (ruby -e 'print Gem.user_dir')/bin
+    mkdir -p $GEM_PATH
+end
+
 # Set our path
-set -U fish_user_paths $HOME/.bin $fish_user_paths $HOME/.gem/ruby/2.3.0/bin
+set -U fish_user_paths $HOME/.bin $GEM_PATH $fish_user_paths
 
 # Environment variables
 set -x BROWSER chromium
