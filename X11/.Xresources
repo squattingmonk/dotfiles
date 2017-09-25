@@ -1,60 +1,14 @@
 ! Colors
-!#include "~/.config/colors/dark"
+#include ".config/colors/autobahn"
 
-#define bg           #222222
-#define fg           #999999
+*font: xft:Droid Sans Mono for Powerline:size=11
 
-#define black        #333333
-#define red          #8A2F58
-#define green        #287373
-#define yellow       #914E89
-#define blue         #395573
-#define magenta      #5E468C
-#define cyan         #2B7694
-#define white        #899ca1
-
-#define bold_black   #474747
-#define bold_red     #CF4F88
-#define bold_green   #53A6A6
-#define bold_yellow  #BF85CC
-#define bold_blue    #4779B3
-#define bold_magenta #7F62B3
-#define bold_cyan    #58AEB1
-#define bold_white   #C0C0C0
-
-! X11 colors
-*color0:  black
-*color1:  red
-*color2:  green
-*color3:  yellow
-*color4:  blue
-*color5:  magenta
-*color6:  cyan
-*color7:  white
-*color8:  bold_black
-*color9:  bold_red
-*color10: bold_green
-*color11: bold_yellow
-*color12: bold_blue
-*color13: bold_magenta
-*color14: bold_cyan
-*color15: bold_white
-
-! Urxvt
-URxvt.scrollBar: false
-URxvt*.termName: rxvt-unicode-256color
-URxvt.font: xft:Droid Sans Mono for Powerline:size=11
-URxvt*.depth: 32
-URxvt.background: bg
-URxvt.foreground: fg
-URxvt*scrollWithBuffer: true
-URxvt*scrollTtyKeypress: true
-URxvt.secondaryScreen: 1
-URxvt.secondaryScroll: 0
-
-! Xft settings
+! Xft
 Xft.dpi:       96
 Xft.antialias: true
-Xft.rgba:      rgb
 Xft.hinting:   false
-Xft.hintstyle: hintslight
+Xft.hintstyle: hintnone
+Xft.lcdfilter: lcddefault
+Xft.rgba:      rgb
+
+! vim: set ft=xdefaults :

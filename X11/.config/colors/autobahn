@@ -1,0 +1,40 @@
+! autobahn colorscheme by tudurom
+
+! special
+*.foreground:   #c7fefe
+*.background:   #0b2830
+*.cursorColor:  #c7fefe
+
+! black
+*.color0:       #003549
+*.color8:       #036495
+
+! red
+*.color1:       #da4b8e
+*.color9:       #f973b4
+
+! green
+*.color2:       #12677f
+*.color10:      #009bc2
+
+! yellow
+*.color3:       #c4bdbe
+*.color11:      #f6e8ef
+
+! blue
+*.color4:       #004f77
+*.color12:      #005490
+
+! magenta (or orange)
+*.color5:       #cd4383
+*.color13:      #ea7db2
+
+! cyan
+*.color6:       #00cdfe
+*.color14:      #37edf7
+
+! white
+*.color7:       #c7fefe
+*.color15:      #fefefe
+
+! vim: set ft=xdefaults :
