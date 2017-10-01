@@ -37,4 +37,12 @@
 *.color7:       #c7fefe
 *.color15:      #fefefe
 
+! rofi window      background, border,  separator
+rofi.color-window: #e60b2830,  #c7fefe, #c7fefe
+
+! rofi row state   bg,        fg,      bgalt,     hlbg,    hlfg
+rofi.color-normal: #000b2830, #c7fefe, #000b2830, #003549, #fefefe
+rofi.color-urgent: #99da4b83, #fefefe, #66da4b83, #da4b83, #003549
+rofi.color-active: #cc12677f, #c7fefe, #9912677f, #009bc2, #fefefe
+
 ! vim: set ft=xdefaults :
