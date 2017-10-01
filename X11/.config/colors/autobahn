@@ -41,8 +41,8 @@
 rofi.color-window: #e60b2830,  #c7fefe, #c7fefe
 
 ! rofi row state   bg,        fg,      bgalt,     hlbg,    hlfg
-rofi.color-normal: #000b2830, #c7fefe, #000b2830, #003549, #fefefe
-rofi.color-urgent: #99da4b83, #fefefe, #66da4b83, #da4b83, #003549
-rofi.color-active: #cc12677f, #c7fefe, #9912677f, #009bc2, #fefefe
+rofi.color-normal: #000b2830, #c7fefe, #000b2830, #003549, #c7fefe
+rofi.color-urgent: #000b2830, #da4b83, #000b2830, #003549, #da4b8e
+rofi.color-active: #000b2830, #009bc2, #000b2830, #003549, #009bc2
 
 ! vim: set ft=xdefaults :
