@@ -31,5 +31,7 @@ set notification-fg "#c7fefe"
 set tabbar-focus-bg "#003549"
 set tabbar-focus-fg "#c7fefe"
 
+set recolor true
+
 set recolor-darkcolor "#c7fefe"
 set recolor-lightcolor "#0b2830"
