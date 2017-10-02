@@ -44,3 +44,4 @@ fi
 
 bspc rule -a Chromium desktop=^2 fullscreen=on floating=on
 bspc rule -a libreoffice desktop=^3 fullscreen=on floating=on
+bspc rule -a Zathura state=tiled
