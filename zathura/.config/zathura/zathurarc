@@ -1,0 +1,35 @@
+# Zathura configuration file
+# See 'man zathurarc'
+
+# Open fit to width by default
+set adjust-open "width"
+
+# Hide status bar by default
+set guioptions ""
+
+# Theme
+set font "Droid Sans Mono for Powerline 11"
+
+set default-bg "#0b2830"
+set default-fg "#c7fefe"
+
+set inputbar-bg "#003549"
+set inputbar-fg "#c7fefe"
+
+set completion-bg "#0b2830"
+set completion-fg "#c7fefe"
+
+set completion-highlight-bg "#0b2830"
+set completion-highlight-fg "#009bc2"
+
+set completion-group-bg "#003549"
+set completion-group-fg "#c7fefe"
+
+set notification-bg "#0b2830"
+set notification-fg "#c7fefe"
+
+set tabbar-focus-bg "#003549"
+set tabbar-focus-fg "#c7fefe"
+
+set recolor-darkcolor "#c7fefe"
+set recolor-lightcolor "#0b2830"
