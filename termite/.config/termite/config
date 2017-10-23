@@ -1,5 +1,5 @@
 [options]
-font = Droid Sans Mono for Powerline 11
+font = Liberation Mono 11
 mouse_autohide = true
 
 [colors]

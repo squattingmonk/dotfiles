@@ -1,7 +1,7 @@
 ! Colors
 #include ".config/colors/autobahn"
 
-*font: xft:Droid Sans Mono for Powerline:size=11
+*font: xft:Liberation Mono:size=11
 
 ! Xft
 Xft.dpi:       96

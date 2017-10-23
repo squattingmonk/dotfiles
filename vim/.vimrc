@@ -4,8 +4,6 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/vim-easy-align'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
@@ -21,11 +19,6 @@ vmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-
-" Airline plugin
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'papercolor'
 
 " end plugins
 " ------------------------------------------------------------------------------
