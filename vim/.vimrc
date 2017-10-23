@@ -70,6 +70,15 @@ nnoremap gO O<Esc>j
 " Allow saving of files as sudo when I forget to start vim using sudo
 cmap W w !sudo tee % > /dev/null
 
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
     " Enable file type detection
