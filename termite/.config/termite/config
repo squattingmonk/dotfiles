@@ -1,5 +1,5 @@
 [options]
-font = Liberation Mono 11
+font = Monospace 12
 mouse_autohide = true
 
 [colors]

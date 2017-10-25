@@ -1,10 +1,9 @@
 ! Colors
 #include ".config/colors/autobahn"
 
-*font: xft:Liberation Mono:size=11
+*font: xft:Monospace:size=12
 
 ! Xft
-Xft.dpi:       96
 Xft.antialias: true
 Xft.hinting:   false
 Xft.hintstyle: hintnone
