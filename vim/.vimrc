@@ -8,7 +8,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'baskerville/vim-sxhkdrc'
-Plug 'dag/vim-fish'
 Plug 'AGhost-7/vim-nwscript'
 
 call plug#end()
