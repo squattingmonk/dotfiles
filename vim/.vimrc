@@ -37,6 +37,9 @@ set rnu
 " Turn on syntax highlighting
 syntax on
 
+" Turn on line limit hint
+set colorcolumn=80
+
 " Set spelling options
 set spelllang=en
 set spellfile=$HOME/Dropbox/vim/spell/en.utf-8.add
