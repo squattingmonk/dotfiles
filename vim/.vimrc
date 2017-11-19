@@ -31,6 +31,9 @@ set mouse=a
 " Turn line numbers on
 set nu
 
+" Turn on relative numbering
+set rnu
+
 " Turn on syntax highlighting
 syntax on
 
