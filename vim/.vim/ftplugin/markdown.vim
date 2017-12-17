@@ -1,6 +1,10 @@
 " Turn on spell-checking
 setlocal spell
 
+" Turn on Goyo by default and add hotkey
+nmap <Leader>g :Goyo<CR>
+imap <Leader>g :Goyo<CR>
+
 "-- pandoc Markdown+LaTeX -------------------------------------------
 
 nnoremap <Leader>c a$\ce{}$<Esc>hi
