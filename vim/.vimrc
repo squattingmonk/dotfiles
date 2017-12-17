@@ -122,4 +122,5 @@ if has("autocmd")
     " Customizations based on house-style (arbitrary)
     autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType css setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
 endif
