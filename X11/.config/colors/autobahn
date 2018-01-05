@@ -1,5 +1,7 @@
 ! autobahn colorscheme by tudurom
 
+#define bg #0b2830
+
 ! special
 *.foreground:   #c7fefe
 *.background:   #0b2830

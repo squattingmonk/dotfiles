@@ -16,7 +16,7 @@ end
 set -U fish_user_paths $HOME/.bin $GEM_PATH $fish_user_paths
 
 # Environment variables
-set -x BROWSER chromium
+set -x BROWSER firefox
 set -x EDITOR  vim
 
 # Ensure fish plays nicely with sxhkd

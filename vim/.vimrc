@@ -97,6 +97,9 @@ nnoremap <down> ddp
 nnoremap go o<Esc>k
 nnoremap gO O<Esc>j
 
+" Allow copying and pasting to/from the system clipboard
+set clipboard=unnamedplus
+
 " Allow saving of files as sudo when I forget to start vim using sudo
 cmap W w !sudo tee % > /dev/null
 

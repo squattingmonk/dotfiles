@@ -1,5 +1,5 @@
 [options]
-font = Roboto Mono Medium 12
+font = monospace 12
 mouse_autohide = true
 
 [colors]

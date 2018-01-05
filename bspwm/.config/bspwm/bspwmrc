@@ -1,10 +1,13 @@
 #! /bin/sh
 
 # Load our X resources
-xrdb -load .Xresources
+xrdb -load ~/.Xresources
 
 # Make caps-lock useful
 setxkbmap -option caps:escape
+
+# Turn num lock on by default
+numlockx
 
 # Make our cursor nice and pretty
 xsetroot -cursor_name left_ptr &
@@ -19,7 +22,8 @@ source $HOME/.fehbg &
 compton --xrender-sync --xrender-sync-fence &
 
 # Start a terminal
-termite &
+urxvtd -q -f -o
+urxvtc &
 
 # Launch our keybind daemon
 sxhkd > /dev/null &
