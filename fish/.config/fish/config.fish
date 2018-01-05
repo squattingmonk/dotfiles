@@ -22,6 +22,17 @@ set -x EDITOR  vim
 # Ensure fish plays nicely with sxhkd
 set -x -g SXHKD_SHELL /bin/sh
 
+# Set up our colors
+set fish_color_normal       normal
+set fish_color_command      brblue
+set fish_color_comment      brblack
+set fish_color_error        brred
+set fish_color_param        cyan
+set fish_color_quote        green
+set fish_color_operator     bryellow
+set fish_color_redirection  brblue
+set fish_color_search_match --background=white
+
 # Start X at login
 if status --is-login
     if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
