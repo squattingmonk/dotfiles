@@ -9,7 +9,7 @@
 
 ! black
 *.color0:       #003549
-*.color8:       #036495
+*.color8:       #006b8d
 
 ! red
 *.color1:       #da4b8e
@@ -40,7 +40,7 @@
 *.color15:      #fefefe
 
 ! rofi window      background, border,  separator
-rofi.color-window: #e60b2830,  #c7fefe, #c7fefe
+rofi.color-window: #0b2830,  #c7fefe, #c7fefe
 
 ! rofi row state   bg,        fg,      bgalt,     hlbg,    hlfg
 rofi.color-normal: #000b2830, #c7fefe, #000b2830, #003549, #c7fefe

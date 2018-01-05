@@ -10,10 +10,15 @@ rofi.lines:             10
 rofi.line-margin:       8
 rofi.separator-style:   solid
 rofi.hide-scrollbar:    true
-rofi.font:              Droid Sans 11
+rofi.font:              sans-serif 12
 rofi.modi:              drun,run,window,ssh
 rofi.display-drun:      Launch
 rofi.display-run:       Run
 rofi.display-window:    Windows
 rofi.display-ssh:       SSH
-rofi.terminal:          termite
+rofi.terminal:          urxvtc
+
+! Make rofi work with fish shell
+rofi.run-command: fish -c '{cmd}'
+
+! vim: set ft=xdefaults : 
