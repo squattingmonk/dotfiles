@@ -13,7 +13,7 @@ if type -q gem
 end
 
 # Set our path
-set -U fish_user_paths $HOME/.bin $GEM_PATH $fish_user_paths
+set -x PATH $HOME/.bin $GEM_PATH $PATH
 
 # Environment variables
 set -x BROWSER firefox
