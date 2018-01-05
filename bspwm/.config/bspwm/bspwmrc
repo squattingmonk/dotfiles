@@ -19,7 +19,7 @@ xsetroot -cursor_name left_ptr &
 source $HOME/.fehbg &
 
 # Start our compositor
-compton --xrender-sync --xrender-sync-fence &
+compton -b
 
 # Start a terminal
 urxvtd -q -f -o
@@ -29,9 +29,8 @@ urxvtc &
 sxhkd > /dev/null &
 
 # bspwm configuration
-bspc config border_width        2
-bspc config window_gap         12
-
+bspc config border_width          0
+bspc config window_gap            12
 bspc config split_ratio           0.50
 bspc config borderless_monocle    true
 bspc config gapless_monocle       true
