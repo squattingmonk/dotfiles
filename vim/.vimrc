@@ -10,6 +10,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'baskerville/vim-sxhkdrc'
 Plug 'AGhost-7/vim-nwscript'
+Plug 'dag/vim-fish'
 
 call plug#end()
 
