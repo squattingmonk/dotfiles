@@ -115,9 +115,8 @@ endfunc
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
-    " Enable file type detection
-    filetype on
-    filetype plugin on
+    " Enable file type detection and indentation
+    filetype plugin indent on
 
     " Syntax of these languages is fussy over tabs vs spaces
     autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
