@@ -11,6 +11,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'baskerville/vim-sxhkdrc'
 Plug 'AGhost-7/vim-nwscript'
 Plug 'dag/vim-fish'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
