@@ -10,7 +10,7 @@ imap <Leader>g :Goyo<CR>
 nnoremap <Leader>c a$\ce{}$<Esc>hi
 inoremap <Leader>c $\ce{}$<Esc>hi
 
-noremap <buffer> <Leader>l :! pandoc -t latex % -o %<.pdf<CR>
+noremap <buffer> <Leader>l :Pandoc pdf<CR>
 noremap <buffer> <Leader>v :! zathura %<.pdf 2>&1 >/dev/null &<CR><CR>
 
 

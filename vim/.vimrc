@@ -13,6 +13,8 @@ Plug 'AGhost-7/vim-nwscript'
 Plug 'dag/vim-fish'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
 call plug#end()
 
@@ -46,6 +48,10 @@ endfunction
 
 autocmd! User GoyoEnter call <SID>goyo_enter()
 autocmd! User GoyoLeave call <SID>goyo_leave()
+
+" vim-pandoc
+let g:pandoc#syntax#conceal#use = 0
+let g:pandoc#folding#level = 99
 
 " end plugins
 " ------------------------------------------------------------------------------
