@@ -52,6 +52,7 @@ autocmd! User GoyoLeave call <SID>goyo_leave()
 " vim-pandoc
 let g:pandoc#syntax#conceal#use = 0
 let g:pandoc#folding#level = 99
+let g:pandoc#hypertext#create_if_no_alternates_exist = 1
 
 " end plugins
 " ------------------------------------------------------------------------------
