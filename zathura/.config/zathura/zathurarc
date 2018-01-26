@@ -28,8 +28,8 @@ set completion-group-fg "#c7fefe"
 set notification-bg "#0b2830"
 set notification-fg "#c7fefe"
 
-set tabbar-focus-bg "#003549"
-set tabbar-focus-fg "#c7fefe"
+#set tabbar-focus-bg "#003549"
+#set tabbar-focus-fg "#c7fefe"
 
 set recolor true
 
