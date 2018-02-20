@@ -9,12 +9,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'baskerville/vim-sxhkdrc'
-Plug 'AGhost-7/vim-nwscript'
 Plug 'dag/vim-fish'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'squattingmonk/vim-nwscript'
 
 call plug#end()
 
@@ -54,6 +54,7 @@ let g:pandoc#syntax#conceal#blacklist = ['atx', 'list']
 let g:pandoc#syntax#conceal#urls = 1
 let g:pandoc#folding#level = 1
 let g:pandoc#hypertext#create_if_no_alternates_exist = 1
+let g:pandoc#formatting#mode = 'haA'
 
 " end plugins
 " ------------------------------------------------------------------------------
