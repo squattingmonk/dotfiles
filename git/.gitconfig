@@ -3,6 +3,7 @@
 	name = Michael A. Sinclair
 [core]
 	editor = vim
+	excludesfile = ~/.gitignore
 [push]
 	default = simple
 [credential]

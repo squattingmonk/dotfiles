@@ -1,0 +1,7 @@
+# NWN Item Blueprints
+*.uti
+*.utt
+*.utw
+
+# Ctags
+tags
