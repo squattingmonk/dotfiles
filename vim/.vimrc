@@ -14,6 +14,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'SirVer/ultisnips'
 Plug 'squattingmonk/vim-nwscript'
 
 call plug#end()
@@ -55,6 +56,10 @@ let g:pandoc#syntax#conceal#urls = 1
 let g:pandoc#folding#level = 1
 let g:pandoc#hypertext#create_if_no_alternates_exist = 1
 let g:pandoc#formatting#mode = 'haA'
+
+" vim-nwscript
+let g:nwscript#snippets#url = 'https://github.com/squattingmonk/'
+let g:nwscript#snippets#author = 'Michael A. Sinclair (Squatting Monk) <squattingmonk@gmail.com>'
 
 " end plugins
 " ------------------------------------------------------------------------------
