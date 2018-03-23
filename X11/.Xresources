@@ -1,5 +1,5 @@
 ! Colors
-#include ".config/colors/miro8"
+#include ".config/colors/autobahn"
 
 *font: xft:Monospace:size=12
 
@@ -15,7 +15,6 @@ urxvt.scrollBar: false
 urxvt.iso14755:  false
 
 urxvt.depth: 32
-urxvt.background: [95]bg
 
 ! Open URLs in the browser with left-click
 urxvt.perl-ext-common: default,matcher

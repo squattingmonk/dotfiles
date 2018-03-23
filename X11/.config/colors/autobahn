@@ -1,7 +1,5 @@
 ! autobahn colorscheme by tudurom
 
-#define bg #0b2830
-
 ! special
 *.foreground:   #c7fefe
 *.background:   #0b2830
@@ -39,8 +37,11 @@
 *.color7:       #c7fefe
 *.color15:      #fefefe
 
+! urxvt
+urxvt.background: [90]#0b2830
+
 ! rofi window      background, border,  separator
-rofi.color-window: #0b2830,  #c7fefe, #c7fefe
+rofi.color-window: #e60b2830,  #c7fefe, #c7fefe
 
 ! rofi row state   bg,        fg,      bgalt,     hlbg,    hlfg
 rofi.color-normal: #000b2830, #c7fefe, #000b2830, #003549, #c7fefe
