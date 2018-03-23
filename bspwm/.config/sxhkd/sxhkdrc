@@ -33,7 +33,8 @@ super + b
 
 # quit polybar
 super + shift + b
-    killall polybar
+    killall polybar; \
+    bspc config top_padding 0
 
 # quit bspwm normally
 super + alt + Escape
