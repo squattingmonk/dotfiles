@@ -14,7 +14,7 @@ Xft.rgba:      rgb
 urxvt.depth:          32
 urxvt.scrollBar:      false
 urxvt.iso14755:       false
-urxvt.internalBorder: 5
+urxvt.internalBorder: 12
 
 ! Open URLs in the browser with left-click
 urxvt.perl-ext-common: default,matcher
