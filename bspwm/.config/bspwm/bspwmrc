@@ -1,30 +1,5 @@
 #! /bin/sh
 
-# Load our X resources
-xrdb -load ~/.Xresources
-
-# Make caps-lock useful
-setxkbmap -option caps:escape
-
-# Turn num lock on by default
-numlockx
-
-# Make our cursor nice and pretty
-xsetroot -cursor_name left_ptr &
-
-# Now hide it
-#unclutter -idle 1 &
-
-# Set our background wallpaper
-source $HOME/.fehbg &
-
-# Start our compositor
-compton -b
-
-# Start a terminal
-urxvtd -q -f -o
-urxvtc &
-
 # Launch our keybind daemon
 sxhkd > /dev/null &
 
