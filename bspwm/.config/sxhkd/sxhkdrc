@@ -7,7 +7,7 @@ super + Return
 	urxvtc
 
 # program launcher
-super + p
+super + space
 	rofi -show drun
 
 # make sxhkd reload its configuration files:
@@ -132,3 +132,33 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	xdo move {-x -20,-y +20,-y -20,-x +20}
+
+# change window gap
+super + {button4,button5}
+    bspc config -d focused window_gap $((`bspc config -d focused window_gap` {+,-} 2 ))
+
+# reset window gap
+super + button2
+    bspc config -d focused window_gap 12
+
+# increase window padding
+super + shift + button4
+	bspc config -d focused left_padding $((`bspc config -d focused left_padding` + 20 )); \
+	bspc config -d focused right_padding $((`bspc config -d focused right_padding` + 20 )); \
+	bspc config -d focused bottom_padding $((`bspc config -d focused bottom_padding` + 20 )); \
+    bspc config -d focused top_padding $((`bspc config -d focused top_padding` + 20 ));
+
+# decrease window padding
+super + shift + button5
+	bspc config -d focused left_padding $((`bspc config -d focused left_padding` - 20 )); \
+	bspc config -d focused right_padding $((`bspc config -d focused right_padding` - 20 )); \
+	bspc config -d focused bottom_padding $((`bspc config -d focused bottom_padding` - 20 )); \
+    bspc config -d focused top_padding $((`bspc config -d focused top_padding` - 20 ));
+
+# reset window padding
+super + shift + button2
+    bspc config -d focused right_padding 0; \
+    bspc config -d focused left_padding 0; \
+    bspc config -d focused bottom_padding 0; \
+    bspc config -d focused top_padding 0;
+
