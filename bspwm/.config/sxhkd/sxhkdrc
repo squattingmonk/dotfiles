@@ -143,17 +143,17 @@ super + button2
 
 # increase window padding
 super + shift + button4
-	bspc config -d focused left_padding $((`bspc config -d focused left_padding` + 20 )); \
-	bspc config -d focused right_padding $((`bspc config -d focused right_padding` + 20 )); \
-	bspc config -d focused bottom_padding $((`bspc config -d focused bottom_padding` + 20 )); \
-    bspc config -d focused top_padding $((`bspc config -d focused top_padding` + 20 ));
+	bspc config -d focused left_padding $((`bspc config -d focused left_padding` + 2 )); \
+	bspc config -d focused right_padding $((`bspc config -d focused right_padding` + 2 )); \
+	bspc config -d focused bottom_padding $((`bspc config -d focused bottom_padding` + 2 )); \
+    bspc config -d focused top_padding $((`bspc config -d focused top_padding` + 2 ));
 
 # decrease window padding
 super + shift + button5
-	bspc config -d focused left_padding $((`bspc config -d focused left_padding` - 20 )); \
-	bspc config -d focused right_padding $((`bspc config -d focused right_padding` - 20 )); \
-	bspc config -d focused bottom_padding $((`bspc config -d focused bottom_padding` - 20 )); \
-    bspc config -d focused top_padding $((`bspc config -d focused top_padding` - 20 ));
+	bspc config -d focused left_padding $((`bspc config -d focused left_padding` - 2 )); \
+	bspc config -d focused right_padding $((`bspc config -d focused right_padding` - 2 )); \
+	bspc config -d focused bottom_padding $((`bspc config -d focused bottom_padding` - 2 )); \
+    bspc config -d focused top_padding $((`bspc config -d focused top_padding` - 2 ));
 
 # reset window padding
 super + shift + button2
