@@ -27,9 +27,13 @@ XF86MonBrightness{Down,Up}
 # bspwm hotkeys
 #
 
-# Panel toggle
+# toggle polybar
 super + b
-    panel
+    bar-toggle
+
+# quit polybar
+super + shift + b
+    killall polybar
 
 # quit bspwm normally
 super + alt + Escape

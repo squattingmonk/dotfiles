@@ -1,0 +1,219 @@
+[colors]
+background = ${xrdb:background}
+background-alt = ${xrdb:color0}
+foreground = ${xrdb:foreground}
+foreground-alt = ${xrdb:foreground}
+primary = ${xrdb:color8}
+secondary = ${xrdb:color6}
+alert = ${xrdb:color1}
+
+[bar/top]
+bottom = false
+width = 100%
+height = 32
+offset-x = 0
+offset-y = 0
+fixed-center = true
+background = ${colors.background}
+foreground = ${colors.foreground}
+border-bottom-size = 4
+border-bottom-color = ${colors.primary}
+padding = 2
+module-margin-left = 0
+module-margin-right = 2
+
+font-0 = "NotoSans-Regular:size=11;2"
+font-1 = "Material Icons:size=13;4"
+
+wm-restack = bspwm
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+modules-left = bspwm
+
+[bar/solstice]
+inherit = bar/top
+modules-center = xwindow
+modules-right = wlan-solstice volume date powermenu
+
+[bar/equinox]
+inherit = bar/top
+modules-right = wlan-equinox xbacklight volume battery date powermenu
+
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+
+
+[module/bspwm]
+type = internal/bspwm
+fuzzy-match = true
+
+ws-icon-0 = term;
+ws-icon-1 = web;
+ws-icon-2 = docs;
+ws-icon-3 = comms;
+ws-icon-4 = games;
+
+label-focused = %icon% %name%
+label-focused-foreground = ${colors.foreground}
+label-focused-padding = 2
+
+label-occupied = %icon% %name%
+label-occupied-foreground = ${colors.secondary}
+label-occupied-padding = 2
+
+label-urgent = %icon% %name%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %icon% %name%
+label-empty-foreground = ${colors.primary}
+label-empty-padding = 2
+
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label> <bar>
+label = BL
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = #ff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.foreground-alt}
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = intel_backlight
+
+
+[module/wlan]
+type = internal/network
+interface = 
+interval = 3.0
+
+format-connected = <label-connected>
+format-connected-underline = #9f78e1
+label-connected =  %essid%
+
+format-disconnected = <label-disconnected>
+label-disconnected =  %ifname%
+label-disconnected-foreground = ${colors.alert}
+
+format-packet-loss = <label-packetloss>
+label-packetloss =  %essid%
+label-packetloss-foreground = ${colors.alert}
+
+[module/wlan-solstice]
+inherit = module/wlan
+interface = wlp4s0
+
+[module/wlan-equinox]
+inherit = module/wlan
+interface = wlp1s0
+
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = 
+date-alt = " %A %B %d, %Y"
+
+time = "%l:%M %p"
+time-alt = %H:%M:%S
+
+format-prefix = ""
+format-prefix-padding-left = 2
+
+label = %date% %time%
+
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume> <label-volume>
+
+label-muted =  mute
+label-muted-padding-left = 2
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-padding-left = 2
+
+label-volume = %percentage%%
+label-volume-foreground = ${root.foreground}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = #ffb52a
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+
+
+[module/powermenu]
+type = custom/menu
+
+expand-right = false
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.secondary}
+;label-open-padding-left = 2
+label-close =  cancel
+label-close-foreground = ${colors.secondary}
+label-separator = " |"
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = reboot
+
+menu-2-0 = power off
+menu-2-0-exec = poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini
