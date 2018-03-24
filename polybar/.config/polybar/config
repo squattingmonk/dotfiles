@@ -176,29 +176,24 @@ type = custom/menu
 
 expand-right = false
 
-format-spacing = 1
-
 label-open = 
 label-open-foreground = ${colors.secondary}
-;label-open-padding-left = 2
+label-open-padding-left = 1
 label-close =  cancel
 label-close-foreground = ${colors.secondary}
-label-separator = " |"
+label-separator = "|"
+label-separator-padding = 2
 
-menu-0-0 = reboot
+menu-0-0 = "reboot "
 menu-0-0-exec = menu-open-1
 menu-0-1 = power off
 menu-0-1-exec = menu-open-2
 
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = reboot
+menu-1-0 = reboot
+menu-1-0-exec = reboot
 
 menu-2-0 = power off
 menu-2-0-exec = poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
 
 [settings]
 screenchange-reload = true
