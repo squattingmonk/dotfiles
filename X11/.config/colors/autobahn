@@ -26,8 +26,8 @@
 *.color12:      #005490
 
 ! magenta (or orange)
-*.color5:       #cd4383
-*.color13:      #ea7db2
+*.color5:       #5e468c
+*.color13:      #7f62b3
 
 ! cyan
 *.color6:       #00cdfe
