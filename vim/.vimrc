@@ -80,7 +80,7 @@ set rnu
 syntax on
 
 " Turn on line limit hint
-set colorcolumn=80
+"set colorcolumn=80
 
 " Set spelling options
 set spelllang=en
