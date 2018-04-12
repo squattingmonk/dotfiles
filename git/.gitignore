@@ -3,5 +3,8 @@
 *.utt
 *.utw
 
+# Compiled NWScript
+*.ncs
+
 # Ctags
 tags
