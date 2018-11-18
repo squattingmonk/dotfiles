@@ -30,8 +30,7 @@ source ~/.fehbg &
 compton -b
 
 # Start a terminal
-urxvtd -q -f -o
-urxvtc &
+alacritty
 
 # Start our window manager
 exec bspwm
