@@ -19,6 +19,7 @@ bspc rule -a Firefox desktop=^2 fullscreen=on floating=on
 bspc rule -a libreoffice desktop=^3 fullscreen=on
 bspc rule -a Zathura state=tiled
 bspc rule -a discord desktop=^4
+bspc rule -a Gnome-calculator state=floating
 
 # Launch our bar
 bar
