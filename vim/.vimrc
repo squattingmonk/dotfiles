@@ -94,7 +94,7 @@ set colorcolumn=80
 
 " Set spelling options
 set spelllang=en
-set spellfile=$HOME/Dropbox/vim/spell/en.utf-8.add
+set spellfile=$HOME/Sync/vim/spell/en.utf-8.add
 
 " Set color scheme
 " color miro8
