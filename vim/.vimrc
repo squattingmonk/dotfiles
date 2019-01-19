@@ -75,6 +75,11 @@ set nocompatible
 " Enable mouse support
 set mouse=a
 
+" Make mouse support alacritty
+if !has('nvim')
+    set ttymouse=xterm2
+endif
+
 " Turn line numbers on
 set nu
 
