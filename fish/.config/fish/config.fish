@@ -12,8 +12,11 @@ if type -q gem
     mkdir -p $GEM_PATH
 end
 
+# Add choosenim's nimble location
+set NIMBLE_PATH $HOME/.nimble/bin
+
 # Set our path
-set -x PATH $HOME/.bin $GEM_PATH $PATH
+set -x PATH $HOME/.bin $NIMBLE_PATH $GEM_PATH $PATH
 
 # Environment variables
 set -x BROWSER firefox
