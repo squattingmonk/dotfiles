@@ -15,6 +15,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'SirVer/ultisnips'
+Plug 'rhysd/vim-crystal'
+Plug 'zah/nim.vim'
 Plug 'squattingmonk/vim-nwscript'
 
 call plug#end()
@@ -80,7 +82,7 @@ set rnu
 syntax on
 
 " Turn on line limit hint
-"set colorcolumn=80
+set colorcolumn=80
 
 " Set spelling options
 set spelllang=en
@@ -138,5 +140,6 @@ if has("autocmd")
     " Customizations based on house-style (arbitrary)
     autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab
     autocmd FileType css setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType crystal setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
 endif
