@@ -59,6 +59,9 @@ let g:pandoc#folding#level = 1
 let g:pandoc#hypertext#create_if_no_alternates_exist = 1
 let g:pandoc#formatting#mode = 'haA'
 
+" UltiSnips
+let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
+
 " vim-nwscript
 let g:nwscript#snippets#url = 'https://github.com/squattingmonk/'
 let g:nwscript#snippets#author = 'Michael A. Sinclair (Squatting Monk) <squattingmonk@gmail.com>'
