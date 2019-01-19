@@ -36,6 +36,9 @@ set fish_color_operator     bryellow
 set fish_color_redirection  brblue
 set fish_color_search_match --background=white
 
+# Settings for Spacefish Theme
+set SPACEFISH_PROMPT_ORDER user dir host git line_sep vi_mode jobs char
+
 # Start X at login
 if status --is-login
     if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
