@@ -80,9 +80,9 @@ super + {_,shift + }{h,j,k,l}
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
-# focus the next/previous node
-super + {_,shift + }c
-	bspc node -f {next,prev}
+# focus the next/previous node on the same desktop
+super + {_,shift + }n
+	bspc node -f {next,prev}.local
 
 # focus the next/previous desktop
 super + bracket{left,right}

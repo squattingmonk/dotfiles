@@ -10,10 +10,6 @@ bspc config focused_border_color  '#006b8d'
 bspc config normal_border_color   '#003549'
 bspc config window_gap            12
 bspc config split_ratio           0.50
-bspc config borderless_monocle    true
-bspc config gapless_monocle       true
-bspc config paddingless_monocle   true
-bspc config focus_by_distance     true
 bspc config focus_follows_pointer true
 
 bspc monitor -d term web docs comms games
