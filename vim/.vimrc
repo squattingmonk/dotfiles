@@ -18,6 +18,7 @@ Plug 'SirVer/ultisnips'
 Plug 'rhysd/vim-crystal'
 Plug 'zah/nim.vim'
 Plug 'squattingmonk/vim-nwscript'
+Plug 'alok/notational-fzf-vim'
 
 call plug#end()
 
@@ -65,6 +66,11 @@ let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 " vim-nwscript
 let g:nwscript#snippets#url = 'https://github.com/squattingmonk/'
 let g:nwscript#snippets#author = 'Michael A. Sinclair (Squatting Monk) <squattingmonk@gmail.com>'
+
+" Notational FZF
+let g:nv_search_paths = ['~/Notes']
+let g:nv_use_short_pathnames = 1
+nnoremap <silent> <c-s> :NV<CR>
 
 " end plugins
 " ------------------------------------------------------------------------------
