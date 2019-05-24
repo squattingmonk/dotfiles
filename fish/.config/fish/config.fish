@@ -20,7 +20,7 @@ set -x PATH $HOME/.bin $NIMBLE_PATH $GEM_PATH $PATH
 
 # Environment variables
 set -x BROWSER firefox
-set -x EDITOR  vim
+set -x EDITOR  nvim
 
 # Ensure fish plays nicely with sxhkd
 set -x -g SXHKD_SHELL /bin/sh

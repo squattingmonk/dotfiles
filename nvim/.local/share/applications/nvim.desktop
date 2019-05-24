@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=Vim Text Editor
+Name=NeoVim Text Editor
 Comment=Edit text files
-Exec=vim 
+Exec=nvim 
 Terminal=true
 Type=Application
 Icon=terminal

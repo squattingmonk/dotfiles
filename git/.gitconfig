@@ -2,7 +2,7 @@
 	email = squattingmonk@gmail.com
 	name = Michael A. Sinclair
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = ~/.gitignore
 	whitespace = cr-at-eol
 [push]
