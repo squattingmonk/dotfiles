@@ -1,7 +1,7 @@
 " begin plugins
 " ------------------------------------------------------------------------------
 " Run our plugin manager
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/goyo.vim'
@@ -61,7 +61,7 @@ let g:pandoc#hypertext#create_if_no_alternates_exist = 1
 let g:pandoc#formatting#mode = 'haA'
 
 " UltiSnips
-let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
+let g:UltiSnipsSnippetDirectories = ['~/.local/share/nvim/UltiSnips', 'UltiSnips']
 
 " vim-nwscript
 let g:nwscript#snippets#url = 'https://github.com/squattingmonk/'
@@ -75,16 +75,8 @@ nnoremap <silent> <c-s> :NV<CR>
 " end plugins
 " ------------------------------------------------------------------------------
 
-" be iMproved
-set nocompatible
-
 " Enable mouse support
 set mouse=a
-
-" Make mouse support alacritty
-if !has('nvim')
-    set ttymouse=xterm2
-endif
 
 " Turn line numbers on
 set nu
