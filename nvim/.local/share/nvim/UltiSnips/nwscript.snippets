@@ -1,0 +1,28 @@
+snippet repo "Git repository name"
+https://github.com/squattingmonk/`#!/usr/bin/fish
+basename (git rev-parse --show-toplevel)
+`
+endsnippet
+
+snippet hookdoc	 "Documentation boilerplate for event hooks"
+// ${1:(Object)} ${2:(Event)} event script. Place this script on the $2 event under $1 Properties.
+$0
+endsnippet
+
+snippet hook "Event hook boilerplate"
+// -----------------------------------------------------------------------------
+//    File: `!v expand('%:t')`
+//  System: Core Framework (event script)
+//     URL: https://github.com/squattingmonk/nwn-core-framework
+// Authors: Michael A. Sinclair (Squatting Monk) <squattingmonk@gmail.com>
+// -----------------------------------------------------------------------------
+// ${1:(Object)} ${2:(Event)} event script. Place this script on the $2 event under $1 Properties.
+// -----------------------------------------------------------------------------
+
+#include "core_i_events"
+
+void main()
+{
+    RunEvent($0);
+}
+endsnippet
