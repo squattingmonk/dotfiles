@@ -3,55 +3,17 @@
 " Run our plugin manager
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdtree'
-Plug 'baskerville/vim-sxhkdrc'
-Plug 'dag/vim-fish'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'SirVer/ultisnips'
-Plug 'rhysd/vim-crystal'
-Plug 'zah/nim.vim'
 Plug 'squattingmonk/vim-nwscript'
-Plug 'alok/notational-fzf-vim'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
-
-" EasyAlign Plugin
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-" Goyo Plugin
-" Set linebreak and mark vim quit when Goyo is quit
-function! s:goyo_enter()
-    set linebreak
-    let b:quitting = 0
-    let b:quitting_bang = 0
-    autocmd QuitPre <buffer> let b:quitting = 1
-    cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
-endfunction
-
-function! s:goyo_leave()
-    " Quit Vim if this is the only remaining buffer
-    if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-        if b:quitting_bang
-            qa!
-        else
-            qa
-        endif
-    endif
-endfunction
-
-autocmd! User GoyoEnter call <SID>goyo_enter()
-autocmd! User GoyoLeave call <SID>goyo_leave()
 
 " vim-pandoc
 let g:pandoc#syntax#conceal#blacklist = ['atx', 'list']
@@ -66,11 +28,6 @@ let g:UltiSnipsSnippetDirectories = ['~/.local/share/nvim/UltiSnips', 'UltiSnips
 " vim-nwscript
 let g:nwscript#snippets#url = 'https://github.com/squattingmonk/'
 let g:nwscript#snippets#author = 'Michael A. Sinclair (Squatting Monk) <squattingmonk@gmail.com>'
-
-" Notational FZF
-let g:nv_search_paths = ['~/Notes']
-let g:nv_use_short_pathnames = 1
-nnoremap <silent> <c-s> :NV<CR>
 
 " end plugins
 " ------------------------------------------------------------------------------
