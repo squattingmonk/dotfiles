@@ -56,12 +56,6 @@ set spellfile=$HOME/Sync/vim/spell/en.utf-8.add
 color bleh
 set background=dark
 
-" Make sure the statusline is always on
-set laststatus=2
-
-" Default indentation: 4 spaces
-set ts=4 sts=4 sw=4 expandtab
-
 " Remap j and k to move up a row instead of a line
 " (useful for line wraps)
 nnoremap j gj
@@ -91,18 +85,15 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-" Only do this part when compiled with support for autocommands
-if has("autocmd")
-    " Enable file type detection and indentation
-    filetype plugin indent on
+" Default indentation: 4 spaces
+set ts=4 sts=4 sw=4 expandtab
 
-    " Syntax of these languages is fussy over tabs vs spaces
-    autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
-    autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab
+" Syntax of these languages is fussy over tabs vs spaces
+autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
+autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab
 
-    " Customizations based on house-style (arbitrary)
-    autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType css setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType crystal setlocal ts=2 sts=2 sw=2 expandtab
-    autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
-endif
+" Customizations based on house-style (arbitrary)
+autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType css setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType crystal setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
