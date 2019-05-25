@@ -36,10 +36,10 @@ let g:nwscript#snippets#author = 'Michael A. Sinclair (Squatting Monk) <squattin
 set mouse=a
 
 " Turn line numbers on
-set nu
+set number
 
 " Turn on relative numbering
-set rnu
+set relativenumber
 
 " Turn on syntax highlighting
 syntax on
