@@ -30,7 +30,8 @@ source ~/.fehbg &
 compton -b
 
 # Start a terminal
-alacritty &
+kitty &
+#alacritty &
 #urxvtd -q -f -o
 #urxvtc &
 

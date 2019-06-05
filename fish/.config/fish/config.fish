@@ -38,6 +38,7 @@ set fish_color_search_match --background=white
 
 # Settings for Spacefish Theme
 set SPACEFISH_PROMPT_ORDER user dir host git line_sep vi_mode jobs char
+set SPACEFISH_CHAR_SYMBOL '->'
 
 # Start X at login
 if status --is-login
