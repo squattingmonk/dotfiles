@@ -41,7 +41,7 @@
     selected-normal-background:  @nord3;
     border-color:                @nord10;
     spacing:                     2;
-    separatorcolor:              @blue;
+    separatorcolor:              @nord3;
     urgent-background:           @background;
     selected-urgent-background:  @nord3;
     alternate-urgent-foreground: @urgent-foreground;
@@ -60,7 +60,8 @@
 }
 
 #mainbox {
-    border:  2;
+    border:  4;
+    border-color: @separatorcolor;
     padding: 10;
 }
 
