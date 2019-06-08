@@ -3,6 +3,7 @@
 " Run our plugin manager
 call plug#begin('~/.local/share/nvim/plugged')
 
+Plug 'arcticicestudio/nord-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf'
@@ -11,6 +12,9 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'SirVer/ultisnips'
 Plug 'squattingmonk/vim-nwscript'
+Plug 'alaviss/nim.nvim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
 Plug 'sheerun/vim-polyglot'
 
 call plug#end()
@@ -24,10 +28,37 @@ let g:pandoc#formatting#mode = 'haA'
 
 " UltiSnips
 let g:UltiSnipsSnippetDirectories = ['~/.local/share/nvim/UltiSnips', 'UltiSnips']
+let g:UltiSnipsExpandTrigger="<C-Tab>"
+
+" nim
+nmap gd <Plug>NimGoToDefBuf
+nmap gS <Plug>NimGoToDefSplit
+nmap gV <Plug>NimGoToDefVSplit
 
 " vim-nwscript
 let g:nwscript#snippets#url = 'https://github.com/squattingmonk/'
 let g:nwscript#snippets#author = 'Michael A. Sinclair (Squatting Monk) <squattingmonk@gmail.com>'
+
+" asyncompete
+let g:asyncomplete_auto_completeopt = 0
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" asyncomplete + nim
+au User asyncomplete_setup call asyncomplete#register_source({
+    \ 'name': 'nim',
+    \ 'whitelist': ['nim'],
+    \ 'completor': {opt, ctx -> nim#suggest#sug#GetAllCandidates({start, candidates -> asyncomplete#complete(opt['name'], ctx, start, candidates)})}
+    \ })
+
+" asyncomplete + UltiSnips
+call asyncomplete#register_source(asyncomplete#sources#ultisnips#get_source_options({
+    \ 'name': 'ultisnips',
+    \ 'whitelist': ['*'],
+    \ 'completor': function('asyncomplete#sources#ultisnips#completor'),
+    \ }))
 
 " end plugins
 " ------------------------------------------------------------------------------
@@ -47,13 +78,24 @@ syntax on
 " Turn on line limit hint
 set colorcolumn=80
 
+" Turn off word wrap
+set nowrap
+
+" Set completion popup options
+set completeopt=menu,menuone,preview,noselect,noinsert
+
+" Set position of new splits
+set splitbelow
+set splitright
+
 " Set spelling options
 set spelllang=en
 set spellfile=$HOME/Sync/vim/spell/en.utf-8.add
 
 " Set color scheme
 " color miro8
-color bleh
+"color bleh
+colorscheme nord
 set background=dark
 
 " Remap j and k to move up a row instead of a line
@@ -76,15 +118,6 @@ nnoremap gO O<Esc>j
 " Allow copying and pasting to/from the system clipboard
 set clipboard=unnamedplus
 
-" Show syntax highlighting groups for word under cursor
-nmap <C-S-P> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
-
 " Default indentation: 4 spaces
 set ts=4 sts=4 sw=4 expandtab
 
@@ -95,5 +128,6 @@ autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab
 " Customizations based on house-style (arbitrary)
 autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType nim setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType crystal setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab

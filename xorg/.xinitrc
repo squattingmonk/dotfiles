@@ -24,14 +24,14 @@ numlockx
 xsetroot -cursor_name left_ptr &
 
 # Set our background wallpaper
-source ~/.fehbg &
+#source ~/.fehbg &
+xsetroot -solid "#2e3440"
 
 # Start our compositor
 compton -b
 
 # Start a terminal
 kitty &
-#alacritty &
 #urxvtd -q -f -o
 #urxvtc &
 

@@ -1,0 +1,15 @@
+configuration {
+	modi: "drun,run,window,ssh";
+	width: 750;
+	lines: 10;
+	font: "sans-serif 12";
+  theme: ".config/rofi/nord";
+	separator-style: "solid";
+	terminal: "kitty";
+	run-command: "fish -c '{cmd}'";
+	hide-scrollbar: true;
+	display-window: "Windows";
+	display-run: "Run";
+	display-ssh: "SSH";
+	display-drun: "Launch";
+}

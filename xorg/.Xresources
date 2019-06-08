@@ -1,5 +1,5 @@
 ! Colors
-#include ".config/colors/autobahn"
+#include ".config/colors/nord"
 
 *font: xft:Monospace:size=12
 

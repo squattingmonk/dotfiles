@@ -6,6 +6,7 @@ foreground-alt = ${xrdb:foreground}
 primary = ${xrdb:color8}
 secondary = ${xrdb:color6}
 alert = ${xrdb:color1}
+background-nord = #f32e3440
 
 [bar/top]
 bottom = false
@@ -14,7 +15,7 @@ height = 32
 offset-x = 0
 offset-y = 0
 fixed-center = true
-background = ${colors.background}
+background = ${colors.background-nord}
 foreground = ${colors.foreground}
 border-bottom-size = 4
 border-bottom-color = ${colors.primary}
