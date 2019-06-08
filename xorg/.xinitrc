@@ -28,7 +28,7 @@ xsetroot -cursor_name left_ptr &
 xsetroot -solid "#2e3440"
 
 # Start our compositor
-compton -b
+#compton -b
 
 # Start a terminal
 kitty &
