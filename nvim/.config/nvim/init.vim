@@ -29,7 +29,7 @@ let g:pandoc#formatting#mode = 'haA'
 
 " UltiSnips
 let g:UltiSnipsSnippetDirectories = ['~/.local/share/nvim/UltiSnips', 'UltiSnips']
-let g:UltiSnipsExpandTrigger="<C-Tab>"
+let g:UltiSnipsExpandTrigger="<C-e>"
 
 " nim
 nmap gd <Plug>NimGoToDefBuf
