@@ -16,6 +16,7 @@ Plug 'alaviss/nim.nvim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
