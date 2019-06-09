@@ -14,7 +14,9 @@ Plug 'SirVer/ultisnips'
 Plug 'squattingmonk/vim-nwscript'
 Plug 'alaviss/nim.nvim'
 Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
 Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
+Plug 'yami-beta/asyncomplete-omni.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 
@@ -40,12 +42,29 @@ nmap gV <Plug>NimGoToDefVSplit
 let g:nwscript#snippets#url = 'https://github.com/squattingmonk/'
 let g:nwscript#snippets#author = 'Michael A. Sinclair (Squatting Monk) <squattingmonk@gmail.com>'
 
-" asyncompete
+" asyncomplete
 let g:asyncomplete_auto_completeopt = 0
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+inoremap <expr> <C-y>   pumvisible() ? asyncomplete#close_popup() : "\<C-y>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" asyncomplete-buffer
+call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+    \ 'name': 'buffer',
+    \ 'whitelist': ['*'],
+    \ 'blacklist': ['go'],
+    \ 'completor': function('asyncomplete#sources#buffer#completor'),
+    \ }))
+
+" asyncomplete-omni
+call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+    \ 'name': 'omni',
+    \ 'whitelist': ['*'],
+    \ 'blacklist': ['c', 'cpp', 'html'],
+    \ 'completor': function('asyncomplete#sources#omni#completor')
+    \  }))
 
 " asyncomplete + nim
 au User asyncomplete_setup call asyncomplete#register_source({
@@ -60,6 +79,7 @@ call asyncomplete#register_source(asyncomplete#sources#ultisnips#get_source_opti
     \ 'whitelist': ['*'],
     \ 'completor': function('asyncomplete#sources#ultisnips#completor'),
     \ }))
+
 
 " end plugins
 " ------------------------------------------------------------------------------
