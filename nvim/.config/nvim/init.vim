@@ -21,6 +21,7 @@ Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
 Plug 'yami-beta/asyncomplete-omni.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -82,6 +83,21 @@ call asyncomplete#register_source(asyncomplete#sources#ultisnips#get_source_opti
     \ 'completor': function('asyncomplete#sources#ultisnips#completor'),
     \ }))
 
+" Status line {{{
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ }
+
+let g:lightline.separator = {
+	\   'left': '', 'right': ''
+	\}
+let g:lightline.subseparator = {
+	\   'left': '', 'right': ''
+	\}
+
+" Hide extra mode information
+set noshowmode
+" }}}
 
 " end plugins
 " ------------------------------------------------------------------------------
@@ -101,6 +117,9 @@ syntax on
 " Turn on line limit hint
 set colorcolumn=80
 
+" Highlight the current line
+set cursorline
+
 " Turn off word wrap
 set nowrap
 
@@ -116,8 +135,6 @@ set spelllang=en
 set spellfile=$HOME/Sync/vim/spell/en.utf-8.add
 
 " Set color scheme
-" color miro8
-"color bleh
 colorscheme nord
 set background=dark
 
