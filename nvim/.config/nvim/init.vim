@@ -15,14 +15,13 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'SirVer/ultisnips'
 Plug 'squattingmonk/vim-nwscript'
 Plug 'alaviss/nim.nvim'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-buffer.vim'
-Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
-Plug 'prabirshrestha/asyncomplete-tags.vim'
-Plug 'yami-beta/asyncomplete-omni.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'itchyny/lightline.vim'
+
+" Autocomplete
+Plug 'shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+Plug 'deoplete-plugins/deoplete-tag'
 
 call plug#end()
 
@@ -46,55 +45,21 @@ nmap gV <Plug>NimGoToDefVSplit
 let g:nwscript#snippets#url = 'https://github.com/squattingmonk/'
 let g:nwscript#snippets#author = 'Michael A. Sinclair (Squatting Monk) <squattingmonk@gmail.com>'
 
-" asyncomplete {{{
-let g:asyncomplete_auto_completeopt = 0
-set shortmess+=c
+" deoplete {{{
+let g:deoplete#enable_at_startup = 1
 set completeopt=menuone,noinsert,noselect,preview
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+set shortmess+=c
+
+" Tab completion
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
-inoremap <expr> <C-y>   pumvisible() ? asyncomplete#close_popup() : "\<C-y>"
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" asyncomplete-buffer
-call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
-    \ 'name': 'buffer',
-    \ 'whitelist': ['*'],
-    \ 'blacklist': ['go'],
-    \ 'completor': function('asyncomplete#sources#buffer#completor'),
-    \ }))
+" Select with Enter
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
-" asyncomplete-omni
-call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
-    \ 'name': 'omni',
-    \ 'whitelist': ['*'],
-    \ 'blacklist': ['c', 'cpp', 'html'],
-    \ 'completor': function('asyncomplete#sources#omni#completor')
-    \  }))
+" Close preview window when selection is done
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" asyncomplete + nim
-au User asyncomplete_setup call asyncomplete#register_source({
-    \ 'name': 'nim',
-    \ 'whitelist': ['nim'],
-    \ 'completor': {opt, ctx -> nim#suggest#sug#GetAllCandidates({start, candidates -> asyncomplete#complete(opt['name'], ctx, start, candidates)})}
-    \ })
-
-" asyncomplete + UltiSnips
-call asyncomplete#register_source(asyncomplete#sources#ultisnips#get_source_options({
-    \ 'name': 'ultisnips',
-    \ 'whitelist': ['*'],
-    \ 'completor': function('asyncomplete#sources#ultisnips#completor'),
-    \ }))
-
-" asyncomplete + tags
-call asyncomplete#register_source(asyncomplete#sources#tags#get_source_options({
-    \ 'name': 'tags',
-    \ 'whitelist': ['c', 'nwscript'],
-    \ 'completor': function('asyncomplete#sources#tags#completor'),
-    \ 'config': {
-    \    'max_file_size': 50000000,
-    \  },
-    \ }))
 " }}}
 
 " Status line {{{
