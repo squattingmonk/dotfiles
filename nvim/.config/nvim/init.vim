@@ -1,93 +1,116 @@
-" begin plugins
-" ------------------------------------------------------------------------------
-" Run our plugin manager
+" vim:foldmethod=marker:foldlevel=0
+
+" Plugins {{{
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'arcticicestudio/nord-vim'
+" Appearance {{{
+    " Theme
+    Plug 'arcticicestudio/nord-vim'
+
+    " Status line {{{
+    Plug 'itchyny/lightline.vim'
+        let g:lightline = {
+            \ 'colorscheme': 'nord',
+            \ 'separator': { 'left': '', 'right': '' },
+            \ 'subseparator': { 'left': '', 'right': '' }
+            \ }
+ 
+        " Hide extra mode information
+        set noshowmode
+    " }}}
+" }}}
+
+" Filetypes {{{
+    " Pandoc {{{
+    Plug 'vim-pandoc/vim-pandoc'
+    Plug 'vim-pandoc/vim-pandoc-syntax'
+        let g:pandoc#syntax#conceal#blacklist = ['atx', 'list']
+        let g:pandoc#syntax#conceal#urls = 1
+        let g:pandoc#folding#level = 1
+        let g:pandoc#hypertext#create_if_no_alternates_exist = 1
+        let g:pandoc#formatting#mode = 'haA'
+    " }}}
+
+    " nim {{{
+    Plug 'alaviss/nim.nvim'
+        nmap gd <Plug>NimGoToDefBuf
+        nmap gS <Plug>NimGoToDefSplit
+        nmap gV <Plug>NimGoToDefVSplit
+    " }}}
+
+    " NWScript {{{
+    Plug 'squattingmonk/vim-nwscript'
+        let g:nwscript#snippets#url = 'https://github.com/squattingmonk/'
+        let g:nwscript#snippets#author = 'Michael A. Sinclair (Squatting Monk) <squattingmonk@gmail.com>'
+    " }}}
+
+    " Catch-all
+    Plug 'sheerun/vim-polyglot'
+" }}}
+
+" UltiSnips {{{
+Plug 'sirver/ultisnips'
+    " Make tab-select from pop-up menu compatible
+    inoremap <expr> <CR> pumvisible() ?
+        \   "\<C-y><C-R>=UltiSnips#ExpandSnippetOrJump()<CR>" :
+        \   "\<CR>"
+    let g:UltiSnipsExpandTrigger="<nop>"
+    let g:UltiSnipsJumpForwardTrigger="<Tab>"
+    let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+
+" Default snippets
+Plug 'honza/vim-snippets'
+
+" }}}
+
+" Autocomplete {{{
+Plug 'shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+    let g:deoplete#enable_at_startup = 1
+    set completeopt=menuone,noinsert,noselect,preview
+
+    " Hide completion messages
+    set shortmess+=c
+
+    " Tab completion
+    inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+    " Select with Enter
+    "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+
+    " Close preview window when selection is done
+    autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+    
+    " Disable the truncate feature.
+    autocmd VimEnter * call deoplete#custom#source('_', 'max_abbr_width', 0)
+    autocmd VimEnter * call deoplete#custom#source('_', 'max_menu_width', 0)
+
+    " Add tag completion source
+    Plug 'deoplete-plugins/deoplete-tag'
+
+    " Display function signature on autocomplete
+    Plug 'shougo/echodoc.vim'
+        let g:echodoc#enable_at_startup = 1
+
+" }}}
+
+" Autopairs {{{
+Plug 'jiangmiao/auto-pairs'
+    let g:AutoPairsMapBS = 0
+" }}}
+
+" Convenience {{{
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'SirVer/ultisnips'
-Plug 'squattingmonk/vim-nwscript'
-Plug 'alaviss/nim.nvim'
-Plug 'sheerun/vim-polyglot'
-Plug 'jiangmiao/auto-pairs'
-Plug 'itchyny/lightline.vim'
-
-" Autocomplete
-Plug 'shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-Plug 'deoplete-plugins/deoplete-tag'
-Plug 'shougo/echodoc.vim'
+" }}}
 
 call plug#end()
-
-" vim-pandoc
-let g:pandoc#syntax#conceal#blacklist = ['atx', 'list']
-let g:pandoc#syntax#conceal#urls = 1
-let g:pandoc#folding#level = 1
-let g:pandoc#hypertext#create_if_no_alternates_exist = 1
-let g:pandoc#formatting#mode = 'haA'
-
-" UltiSnips
-let g:UltiSnipsSnippetDirectories = ['~/.local/share/nvim/UltiSnips', 'UltiSnips']
-let g:UltiSnipsExpandTrigger="<C-e>"
-
-" nim
-nmap gd <Plug>NimGoToDefBuf
-nmap gS <Plug>NimGoToDefSplit
-nmap gV <Plug>NimGoToDefVSplit
-
-" vim-nwscript
-let g:nwscript#snippets#url = 'https://github.com/squattingmonk/'
-let g:nwscript#snippets#author = 'Michael A. Sinclair (Squatting Monk) <squattingmonk@gmail.com>'
-
-" deoplete {{{
-let g:deoplete#enable_at_startup = 1
-set completeopt=menuone,noinsert,noselect,preview
-set shortmess+=c
-
-" Tab completion
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Select with Enter
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
-
-" Close preview window when selection is done
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" echodoc {{{
-let g:echodoc#enable_at_startup = 1
-
-
-
 " }}}
 
-" }}}
-
-" Status line {{{
-let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ }
-
-let g:lightline.separator = {
-	\   'left': '', 'right': ''
-	\}
-let g:lightline.subseparator = {
-	\   'left': '', 'right': ''
-	\}
-
-" Hide extra mode information
-set noshowmode
-" }}}
-
-" end plugins
-" ------------------------------------------------------------------------------
 
 " Enable mouse support
 set mouse=a
@@ -97,6 +120,11 @@ set number
 
 " Turn on relative numbering
 set relativenumber
+
+" Set color scheme
+colorscheme nord
+set background=dark
+set termguicolors
 
 " Turn on syntax highlighting
 syntax on
@@ -117,10 +145,6 @@ set splitright
 " Set spelling options
 set spelllang=en
 set spellfile=$HOME/Sync/vim/spell/en.utf-8.add
-
-" Set color scheme
-colorscheme nord
-set background=dark
 
 " Remap j and k to move up a row instead of a line
 " (useful for line wraps)
