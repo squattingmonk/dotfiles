@@ -18,6 +18,7 @@ Plug 'alaviss/nim.nvim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-buffer.vim'
 Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
+Plug 'prabirshrestha/asyncomplete-tags.vim'
 Plug 'yami-beta/asyncomplete-omni.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
@@ -82,6 +83,17 @@ call asyncomplete#register_source(asyncomplete#sources#ultisnips#get_source_opti
     \ 'whitelist': ['*'],
     \ 'completor': function('asyncomplete#sources#ultisnips#completor'),
     \ }))
+
+" asyncomplete + tags
+call asyncomplete#register_source(asyncomplete#sources#tags#get_source_options({
+    \ 'name': 'tags',
+    \ 'whitelist': ['c', 'nwscript'],
+    \ 'completor': function('asyncomplete#sources#tags#completor'),
+    \ 'config': {
+    \    'max_file_size': 50000000,
+    \  },
+    \ }))
+" }}}
 
 " Status line {{{
 let g:lightline = {
