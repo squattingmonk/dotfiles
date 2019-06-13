@@ -46,8 +46,10 @@ nmap gV <Plug>NimGoToDefVSplit
 let g:nwscript#snippets#url = 'https://github.com/squattingmonk/'
 let g:nwscript#snippets#author = 'Michael A. Sinclair (Squatting Monk) <squattingmonk@gmail.com>'
 
-" asyncomplete
+" asyncomplete {{{
 let g:asyncomplete_auto_completeopt = 0
+set shortmess+=c
+set completeopt=menuone,noinsert,noselect,preview
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
@@ -134,9 +136,6 @@ set cursorline
 
 " Turn off word wrap
 set nowrap
-
-" Set completion popup options
-set completeopt=menu,menuone,preview,noselect,noinsert
 
 " Set position of new splits
 set splitbelow
