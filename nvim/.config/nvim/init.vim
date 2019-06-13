@@ -22,6 +22,7 @@ Plug 'itchyny/lightline.vim'
 " Autocomplete
 Plug 'shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'deoplete-plugins/deoplete-tag'
+Plug 'shougo/echodoc.vim'
 
 call plug#end()
 
@@ -59,6 +60,13 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
 " Close preview window when selection is done
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" echodoc {{{
+let g:echodoc#enable_at_startup = 1
+
+
+
+" }}}
 
 " }}}
 
