@@ -53,9 +53,13 @@ call plug#begin('~/.local/share/nvim/plugged')
 
     " nim {{{
     Plug 'alaviss/nim.nvim'
-        nmap gd <Plug>NimGoToDefBuf
-        nmap gS <Plug>NimGoToDefSplit
-        nmap gV <Plug>NimGoToDefVSplit
+        augroup nim
+            autocmd!
+            autocmd FileType nim nmap gd <Plug>NimGoToDefBuf
+            autocmd FileType nim nmap gS <Plug>NimGoToDefSplit
+            autocmd FileType nim nmap gV <Plug>NimGoToDefVSplit
+            autocmd FileType nim set foldlevel=20
+        augroup END
     " }}}
 
     " NWScript {{{
