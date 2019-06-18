@@ -1,4 +1,4 @@
-" vim:foldmethod=marker:foldlevel=0
+" vim:foldmethod=marker:foldlevel=1
 
 " Plugins {{{
 call plug#begin('~/.local/share/nvim/plugged')
@@ -179,3 +179,9 @@ autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType nim setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType crystal setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
+
+" Automatically reload vimrc when it's saved
+augroup reload_vimrc
+    autocmd!
+    autocmd BufWritePost $MYVIMRC nested so $MYVIMRC
+augroup END
