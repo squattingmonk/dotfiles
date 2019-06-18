@@ -17,6 +17,26 @@ call plug#begin('~/.local/share/nvim/plugged')
  
         " Hide extra mode information
         set noshowmode
+
+        " Show vim-obsession status in statusline
+        function! LightlineObsession()
+            return '%{ObsessionStatus()}'
+        endfunction
+
+        let g:lightline.active = {
+		    \ 'left': [ [ 'mode', 'paste' ],
+		    \           [ 'readonly', 'filename', 'modified' ] ],
+		    \ 'right': [ [ 'lineinfo' ],
+		    \            [ 'percent' ],
+            \ [ 'fileformat', 'fileencoding', 'filetype' ],
+            \ [ 'obsession' ] ] }
+
+        let g:lightline.component_expand = {
+            \ 'obsession': 'LightlineObsession',
+            \ }
+
+        " Make tmux statusline match vim
+        Plug 'edkolev/tmuxline.vim'
     " }}}
 " }}}
 
@@ -100,6 +120,7 @@ Plug 'jiangmiao/auto-pairs'
 " }}}
 
 " Convenience {{{
+Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
