@@ -14,7 +14,7 @@ call plug#begin('~/.local/share/nvim/plugged')
             \ 'separator': { 'left': '', 'right': '' },
             \ 'subseparator': { 'left': '', 'right': '' }
             \ }
- 
+
         " Hide extra mode information
         set noshowmode
 
@@ -58,14 +58,11 @@ call plug#begin('~/.local/share/nvim/plugged')
             autocmd FileType nim nmap gd <Plug>NimGoToDefBuf
             autocmd FileType nim nmap gS <Plug>NimGoToDefSplit
             autocmd FileType nim nmap gV <Plug>NimGoToDefVSplit
-            autocmd FileType nim set foldlevel=20
-        augroup END
-    " }}}
+            autocmd FileType nim set foldmethod=manual
 
-    " NWScript {{{
-    Plug 'squattingmonk/vim-nwscript'
-        let g:nwscript#snippets#url = 'https://github.com/squattingmonk/'
-        let g:nwscript#snippets#author = 'Michael A. Sinclair (Squatting Monk) <squattingmonk@gmail.com>'
+            " Remove trailing whitepace on save
+            autocmd BufWritePre <buffer> %s/\s\+$//e
+        augroup END
     " }}}
 
     " Catch-all
@@ -81,6 +78,7 @@ Plug 'sirver/ultisnips'
     let g:UltiSnipsExpandTrigger="<nop>"
     let g:UltiSnipsJumpForwardTrigger="<Tab>"
     let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+    let g:UltiSnipsSnippetDirectories=[$HOME.'/.local/share/nvim/UltiSnips/', "UltiSnips"]
 
 " Default snippets
 Plug 'honza/vim-snippets'
@@ -104,7 +102,7 @@ Plug 'shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 
     " Close preview window when selection is done
     autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-    
+
     " Disable the truncate feature.
     autocmd VimEnter * call deoplete#custom#source('_', 'max_abbr_width', 0)
     autocmd VimEnter * call deoplete#custom#source('_', 'max_menu_width', 0)
@@ -120,7 +118,6 @@ Plug 'shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 
 " Autopairs {{{
 Plug 'jiangmiao/auto-pairs'
-    let g:AutoPairsMapBS = 0
 " }}}
 
 " Convenience {{{
