@@ -1,28 +1,23 @@
-snippet repo "Git repository name"
-https://github.com/squattingmonk/`#!/usr/bin/fish
-basename (git rev-parse --show-toplevel)
-`
-endsnippet
-
-snippet hookdoc	 "Documentation boilerplate for event hooks"
-// ${1:(Object)} ${2:(Event)} event script. Place this script on the $2 event under $1 Properties.
+snippet meta "File metadata boilerplate" b
+// -----------------------------------------------------------------------------
+//    File: ${1:`!v expand('%:t')`}
+//  System: ${2}
+//     URL: https://github.com/squattingmonk/`#!/usr/bin/fish
+			basename (git rev-parse --show-toplevel)
+			`
+// Authors: Michael A. Sinclair (Squatting Monk) <squattingmonk@gmail.com>
+// -----------------------------------------------------------------------------
 $0
 endsnippet
 
-snippet hook "Event hook boilerplate"
-// -----------------------------------------------------------------------------
-//    File: `!v expand('%:t')`
-//  System: Core Framework (event script)
-//     URL: https://github.com/squattingmonk/nwn-core-framework
-// Authors: Michael A. Sinclair (Squatting Monk) <squattingmonk@gmail.com>
-// -----------------------------------------------------------------------------
-// ${1:(Object)} ${2:(Event)} event script. Place this script on the $2 event under $1 Properties.
+snippet cline "Commented divider line" b
 // -----------------------------------------------------------------------------
 
-#include "core_i_events"
+endsnippet
 
-void main()
-{
-    RunEvent($0);
-}
+snippet cblock "Commented centered text block" b
+// -----------------------------------------------------------------------------
+// `!p snip.rv = ' ' * (38 - len(t[1]) // 2)`${1:Centered Text}
+// -----------------------------------------------------------------------------
+$0
 endsnippet
