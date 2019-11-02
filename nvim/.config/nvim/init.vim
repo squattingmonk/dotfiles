@@ -65,6 +65,14 @@ call plug#begin('~/.local/share/nvim/plugged')
         augroup END
     " }}}
 
+    " NWScript {{{
+    Plug 'squattingmonk/vim-nwscript'
+        augroup nwscript
+            autocmd!
+            autocmd FileType nwscript set foldlevel=9
+        augroup END
+    " }}}
+
     " Catch-all
     Plug 'sheerun/vim-polyglot'
 " }}}
