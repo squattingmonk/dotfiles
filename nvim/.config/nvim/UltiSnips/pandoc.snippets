@@ -1,0 +1,37 @@
+global !p
+import os
+
+def sh(cmd):
+	stream = os.popen(cmd)
+	return stream.read().strip()
+
+def last_tag():
+	return sh("""git describe --tags --abbrev=0""")
+
+def prev_tag(tag):
+	if not tag:
+		tag = last_tag()
+
+	return sh("""git describe --tags --abbrev=0 {0}^""".format(tag))
+
+def tag_date(tag):
+	return sh("""git log -1 --format=%ad --date=format:"%B %d, %Y" {0}""".format(tag))
+
+def repo():
+	return sh("basename $(git config remote.origin.url || pwd)")
+
+def commits(tag):
+	return sh("""git log --pretty=format:"### %B" {0}...{1}""".format(prev_tag(tag), tag))
+endglobal
+
+snippet changelog "GitHub changelog entry" b
+## ${1:`!p snip.rv = last_tag()`}: `!p snip.rv = tag_date(t[1])`
+$0
+`!p snip.rv = commits(t[1])`
+
+---
+
+Details: https://github.com/squattingmonk/`!p snip.rv = repo()`/compare/`!p snip.rv = prev_tag(t[1])`...$1
+
+
+endsnippet

@@ -1,5 +1,5 @@
 ! Colors
-#include ".config/colors/nord"
+#include "colors/nord"
 
 *font: xft:Monospace:size=12
 
@@ -20,5 +20,5 @@ urxvt.internalBorder: 12
 urxvt.perl-ext-common: default,matcher
 urxvt.url-launcher:    /usr/bin/xdg-open
 urxvt.matcher.button:  1
- 
+
 ! vim: set ft=xdefaults :

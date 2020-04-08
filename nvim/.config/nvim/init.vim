@@ -1,7 +1,30 @@
 " vim:foldmethod=marker:foldlevel=1
 
 " Plugins {{{
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin($XDG_DATA_HOME.'/nvim/plugged')
+
+" Convenience {{{
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-eunuch'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+" }}}
+
+" Session Management {{{
+Plug 'tpope/vim-obsession'
+
+let g:session_dir = '~/.local/share/nvim/sessions'
+command! Sessions call fzf#run(fzf#wrap({'source': 'ls', 'dir': g:session_dir, 'sink': 'source'}))
+
+exec 'nnoremap <Leader>ss :Obsession ' . g:session_dir . '/'
+exec 'nnoremap <Leader>sr :so ' . g:session_dir . '/'
+nnoremap <Leader>sp :Obsession<CR>
+
+" Plug 'dhruvasagar/vim-prosession'
+" let g:prosession_dir = g:session_dir . '/'
+" }}}
 
 " Appearance {{{
     " Theme
@@ -18,9 +41,22 @@ call plug#begin('~/.local/share/nvim/plugged')
         " Hide extra mode information
         set noshowmode
 
+        " Always show the tabline
+        set showtabline=2
+
         " Show vim-obsession status in statusline
         function! LightlineObsession()
-            return '%{ObsessionStatus()}'
+            if exists(':Obsession') && exists('v:this_session')
+                let l:parts = split(v:this_session, '/')
+                let l:filename = l:parts[-1]
+                return '%{ObsessionStatus()} ' . l:filename
+            endif
+            return ''
+        endfunction
+
+        " Show current working directory in tab name
+        function! LightlineTabname(n) abort
+            return fnamemodify(getcwd(tabpagewinnr(a:n), a:n), ':t')
         endfunction
 
         let g:lightline.active = {
@@ -28,12 +64,21 @@ call plug#begin('~/.local/share/nvim/plugged')
 		    \           [ 'readonly', 'filename', 'modified' ] ],
 		    \ 'right': [ [ 'lineinfo' ],
 		    \            [ 'percent' ],
-            \ [ 'fileformat', 'fileencoding', 'filetype' ],
-            \ [ 'obsession' ] ] }
+            \ [ 'fileformat', 'fileencoding', 'filetype' ] ] }
+        let g:lightline.tabline = {
+            \ 'left': [ [ 'tabs' ] ],
+            \ 'right': [ [ 'close' ],
+            \            [ 'obsession' ] ] }
 
         let g:lightline.component_expand = {
-            \ 'obsession': 'LightlineObsession',
-            \ }
+            \ 'obsession': 'LightlineObsession' }
+
+        let g:lightline.tab = {
+            \ 'active': [ 'tabnum', 'tabname', 'modified' ],
+            \ 'inactive': [ 'tabnum', 'tabname', 'modified' ] }
+
+        let g:lightline.tab_component_function = {
+            \ 'tabname': 'LightlineTabname' }
 
         " Make tmux statusline match vim
         Plug 'edkolev/tmuxline.vim'
@@ -84,9 +129,10 @@ Plug 'sirver/ultisnips'
         \   "\<C-y><C-R>=UltiSnips#ExpandSnippetOrJump()<CR>" :
         \   "\<CR>"
     let g:UltiSnipsExpandTrigger="<nop>"
-    let g:UltiSnipsJumpForwardTrigger="<Tab>"
-    let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-    let g:UltiSnipsSnippetDirectories=[$HOME.'/.local/share/nvim/UltiSnips/', "UltiSnips"]
+    let g:UltiSnipsJumpForwardTrigger="<C-j>"
+    let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+    let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+    let g:UltiSnipsEditSplit="context"
 
 " Default snippets
 Plug 'honza/vim-snippets'
@@ -128,16 +174,6 @@ Plug 'shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'jiangmiao/auto-pairs'
 " }}}
 
-" Convenience {{{
-Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-eunuch'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-" }}}
-
 call plug#end()
 " }}}
 
@@ -176,6 +212,9 @@ set splitright
 set spelllang=en
 set spellfile=$HOME/Sync/vim/spell/en.utf-8.add
 
+" Don't mark URL-like things as spelling errors
+autocmd BufEnter * syn match UrlNoSpell '\w\+:\/\/[^[:space:]]\+' contains=@NoSpell
+
 " Remap j and k to move up a row instead of a line
 " (useful for line wraps)
 nnoremap j gj
@@ -192,6 +231,8 @@ nnoremap <down> ddp
 " Add lines above and below in normal mode
 nnoremap go o<Esc>k
 nnoremap gO O<Esc>j
+
+nnoremap <Leader>q :qa<CR>
 
 " Allow copying and pasting to/from the system clipboard
 set clipboard=unnamedplus
