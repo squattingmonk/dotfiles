@@ -12,13 +12,13 @@ bspc config window_gap            12
 bspc config split_ratio           0.50
 bspc config focus_follows_pointer true
 
-bspc monitor -d term web docs comms games
+bspc monitor -d term web comms games docs
 
 bspc rule -a Chromium desktop=^2 fullscreen=on floating=on
 bspc rule -a Firefox desktop=^2 fullscreen=on floating=on
-bspc rule -a libreoffice desktop=^3 fullscreen=on
+bspc rule -a libreoffice desktop=^5 fullscreen=on
 bspc rule -a Zathura state=tiled
-bspc rule -a discord desktop=^4
+bspc rule -a discord desktop=^3
 bspc rule -a Gnome-calculator state=floating
 
 # Launch our bar
