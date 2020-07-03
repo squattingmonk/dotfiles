@@ -54,6 +54,10 @@ set -x XAUTHORITY $XDG_RUNTIME_DIR/Xauthority
 set -x XINITRC $XDG_CONFIG_HOME/xorg/xinitrc
 set -x XRESOURCES $XDG_CONFIG_HOME/xorg/xresources
 
+# Steam helpers
+set -x STEAM_COMPAT_DATA_PATH $XDG_DATA_HOME/proton
+set -x STEAM_PATH $XDG_DATA_HOME/Steam/steamapps/common
+
 # Aliases for programs that dont's respect XDG
 if not functions -q tmux
     alias -s tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
