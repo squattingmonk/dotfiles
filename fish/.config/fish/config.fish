@@ -87,6 +87,9 @@ if type -q fd
     set -x FZF_DEFAULT_COMMAND "fd --type f --hidden --follow --exclude .git"
 end
 
+# Needed for typing GPG passwords in tty
+set -x GPG_TTY (tty)
+
 # Start X at login
 if status --is-login
     if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
