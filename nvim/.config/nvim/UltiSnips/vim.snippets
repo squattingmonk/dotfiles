@@ -1,0 +1,10 @@
+snippet letget "let var = default value" b
+let ${1:g:}${2:varname} = get($1, '$2', ${3})$0
+endsnippet
+
+snippet letnew "if !exists let var = value" b
+if !exists('${1:g:}${2:varname}')
+	let $1$2 = ${3}
+endif
+$0
+endsnippet
