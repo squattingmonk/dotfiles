@@ -30,8 +30,8 @@ if type -q gem
     mkdir -p $GEM_HOME $GEM_SPEC_CACHE
 end
 
-# Add choosenim's nimble location
-set NIMBLE_PATH $XDG_DATA_HOME/nimble/bin
+# Nim won't recognize nimble packages if we put then anywhere else
+set NIMBLE_PATH $HOME/.nimble/bin
 
 # Set our user paths if not set
 if not set -q -U fish_user_paths
