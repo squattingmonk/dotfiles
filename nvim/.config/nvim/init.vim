@@ -53,7 +53,6 @@ nnoremap <Leader>sp :Obsession<CR>
 " Appearance {{{
     " Theme
     Plug 'arcticicestudio/nord-vim'
-
     " Status line {{{
     Plug 'itchyny/lightline.vim'
         let g:lightline = {
@@ -136,10 +135,7 @@ nnoremap <Leader>sp :Obsession<CR>
 
     " NWScript {{{
     Plug 'squattingmonk/vim-nwscript'
-        augroup nwscript
-            autocmd!
-            autocmd FileType nwscript set foldlevel=9
-        augroup END
+        let g:nwscript#fold#level = 9
     " }}}
 
     " Catch-all
