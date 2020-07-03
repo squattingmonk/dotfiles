@@ -23,7 +23,7 @@ module-margin-left = 0
 module-margin-right = 2
 
 font-0 = "Fira Sans:style=Medium:size=12;3"
-font-1 = "Material Icons:size=11;4"
+font-1 = "FiraMono Nerd Font Mono:style=regular:size=18;4"
 
 wm-restack = bspwm
 scroll-up = bspwm-desknext
@@ -49,25 +49,25 @@ label = %title%
 type = internal/bspwm
 fuzzy-match = true
 
-ws-icon-0 = term;
-ws-icon-1 = web;
-ws-icon-2 = docs;
-ws-icon-3 = comms;
-ws-icon-4 = games;
+ws-icon-0 = term;
+ws-icon-1 = web;
+ws-icon-2 = comms;
+ws-icon-3 = games;
+ws-icon-4 = docs;
 
-label-focused = %icon% %name%
+label-focused = %icon%  %name%
 label-focused-foreground = ${colors.foreground}
 label-focused-padding = 2
 
-label-occupied = %icon% %name%
+label-occupied = %icon%  %name%
 label-occupied-foreground = ${colors.secondary}
 label-occupied-padding = 2
 
-label-urgent = %icon% %name%!
+label-urgent = %icon%  %name%!
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
-label-empty = %icon% %name%
+label-empty = %icon%  %name%
 label-empty-foreground = ${colors.primary}
 label-empty-padding = 2
 
@@ -75,13 +75,14 @@ label-empty-padding = 2
 [module/xbacklight]
 type = internal/xbacklight
 
-format = <ramp> <label>
+format = <ramp><label>
 label = %percentage%%
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 ramp-padding-left = 2
+ramp-padding-right = 2
 
 
 [module/wlan]
@@ -90,14 +91,14 @@ interface =
 interval = 3.0
 
 format-connected = <label-connected>
-label-connected =  %essid%
+label-connected =   %essid%
 
 format-disconnected = <label-disconnected>
-label-disconnected =  %ifname%
+label-disconnected =   %ifname%
 label-disconnected-foreground = ${colors.alert}
 
 format-packet-loss = <label-packetloss>
-label-packetloss =  %essid%
+label-packetloss =   %essid%
 label-packetloss-foreground = ${colors.alert}
 
 [module/wlan-solstice]
@@ -114,28 +115,30 @@ type = internal/date
 interval = 1
 
 date =
-date-alt = " %A %B %d, %Y"
+date-alt = " %A %B %d, %Y "
 
 time = "%l:%M %p"
 time-alt = %H:%M:%S
 
-format-prefix = ""
+format-prefix = ""
 format-prefix-padding-left = 2
+format-prefix-padding-right = 2
 
-label = %date% %time%
+label = %date%%time%
 
 [module/volume]
 type = internal/volume
 
 format-volume = <ramp-volume> <label-volume>
 
-label-muted =  mute
+label-muted =  mute
 label-muted-padding-left = 2
 
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
 ramp-volume-padding-left = 2
+ramp-volume-padding-right = 1
 
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
@@ -176,10 +179,10 @@ type = custom/menu
 
 expand-right = false
 
-label-open = 
+label-open = 
 label-open-foreground = ${colors.secondary}
 label-open-padding-left = 1
-label-close =  cancel
+label-close =  cancel
 label-close-foreground = ${colors.secondary}
 label-separator = "|"
 label-separator-padding = 2
