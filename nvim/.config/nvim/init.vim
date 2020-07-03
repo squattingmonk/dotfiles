@@ -1,4 +1,4 @@
-" vim:foldmethod=marker:foldlevel=1
+" vim:foldmethod=marker:foldlevel=9
 
 " Plugins {{{
 call plug#begin($XDG_DATA_HOME.'/nvim/plugged')
