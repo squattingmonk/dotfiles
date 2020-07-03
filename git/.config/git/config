@@ -1,6 +1,7 @@
 [user]
 	email = squattingmonk@gmail.com
 	name = Michael A. Sinclair
+	signingkey = 776866C3509CF036
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore
@@ -13,3 +14,5 @@
 	username = squattingmonk
 [credential "https://gitlab.com"]
     username = squattingmonk
+[commit]
+	gpgsign = true
