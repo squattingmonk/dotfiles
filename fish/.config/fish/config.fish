@@ -78,6 +78,11 @@ set fish_color_search_match --background=white
 set SPACEFISH_PROMPT_ORDER user dir host git line_sep vi_mode jobs char
 set SPACEFISH_CHAR_SYMBOL '->'
 
+# Use fd with fzf if it is available
+if type -q fd
+    set -x FZF_DEFAULT_COMMAND "fd --type f --hidden --follow --exclude .git"
+end
+
 # Start X at login
 if status --is-login
     if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
