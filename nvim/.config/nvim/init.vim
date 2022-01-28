@@ -62,6 +62,14 @@ nnoremap <Leader>sp :Obsession<CR>
 " Appearance {{{
     " Theme
     Plug 'arcticicestudio/nord-vim'
+
+    augroup nord-theme-overrides
+        autocmd!
+        " Use nord8 as color for toml tables
+        autocmd ColorScheme nord highlight tomlTable ctermfg=8 guifg=#88C0D0
+        autocmd ColorScheme nord highlight tomlTableArray ctermfg=8 guifg=#88C0D0
+    augroup END
+
     " Status line {{{
     Plug 'itchyny/lightline.vim'
         let g:lightline = {
