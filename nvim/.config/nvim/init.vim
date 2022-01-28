@@ -308,7 +308,7 @@ set ts=4 sts=4 sw=4 expandtab
 
 " Syntax of these languages is fussy over tabs vs spaces
 autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
-autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Customizations based on house-style (arbitrary)
 autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
