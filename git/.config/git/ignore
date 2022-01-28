@@ -8,6 +8,7 @@
 
 # Ctags
 tags
+.tags
 
 # Vim session files
 Session.vim
