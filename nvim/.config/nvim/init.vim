@@ -26,6 +26,10 @@ Plug 'junegunn/vim-easy-align'
     " Start interactive EasyAlign for a motion/text object (e.g. gaip)
     nmap ga <Plug>(EasyAlign)
 
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+
+Plug 'tpope/vim-dispatch'
+
 " }}}
 
 " FZF Utils {{{
