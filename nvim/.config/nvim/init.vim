@@ -218,7 +218,7 @@ Plug 'shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
     "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
     " Close preview window when selection is done
-    autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+    "autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
     " Disable the truncate feature.
     autocmd VimEnter * call deoplete#custom#source('_', 'max_abbr_width', 0)
