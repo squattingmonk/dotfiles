@@ -81,7 +81,7 @@ nnoremap <Leader>sp :Obsession<CR>
     augroup END
 
     " Status line {{{
-    Plug 'itchyny/lightline.vim'
+        Plug 'itchyny/lightline.vim'
         let g:lightline = {
             \ 'colorscheme': 'nord',
             \ 'separator': { 'left': '', 'right': '' },
@@ -147,7 +147,7 @@ nnoremap <Leader>sp :Obsession<CR>
     " }}}
 
     " nim {{{
-    Plug 'alaviss/nim.nvim'
+        Plug 'alaviss/nim.nvim'
         augroup nim
             autocmd!
             autocmd FileType nim nmap gd <Plug>NimGoToDefBuf
@@ -161,7 +161,7 @@ nnoremap <Leader>sp :Obsession<CR>
     " }}}
 
     " NWScript {{{
-    Plug 'squattingmonk/vim-nwscript'
+        Plug 'squattingmonk/vim-nwscript'
         let g:nwscript#fold#level = 9
     " }}}
 
