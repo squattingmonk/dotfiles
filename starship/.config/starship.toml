@@ -1,0 +1,17 @@
+[character]
+success_symbol = "[>](bold green) "
+error_symbol = "[>](bold red) "
+vicmd_symbol = "[<](bold green)"
+
+[cmd_duration]
+disabled = true
+
+[directory]
+read_only = " "
+
+[nim]
+symbol = " "
+
+[package]
+# disabled = true
+symbol = " "
