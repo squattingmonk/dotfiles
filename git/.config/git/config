@@ -14,5 +14,16 @@
 	username = squattingmonk
 [credential "https://gitlab.com"]
     username = squattingmonk
+[alias]
+	co = checkout
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	alias = "!f(){ git config --global alias.$1 }; f"
+	retag = tag $1 --force
 [commit]
 	gpgsign = true
+[pull]
+	rebase = false
+[init]
+	defaultBranch = master
