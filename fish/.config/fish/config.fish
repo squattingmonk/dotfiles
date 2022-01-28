@@ -76,7 +76,7 @@ set fish_color_param        cyan
 set fish_color_quote        green
 set fish_color_operator     bryellow
 set fish_color_redirection  green
-set fish_color_search_match --background=white
+set fish_color_search_match --background=brblack
 
 # Settings for Spacefish Theme
 set SPACEFISH_PROMPT_ORDER user dir host git line_sep vi_mode jobs char
