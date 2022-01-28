@@ -137,13 +137,13 @@ nnoremap <Leader>sp :Obsession<CR>
 
 " Filetypes {{{
     " Pandoc {{{
-    Plug 'vim-pandoc/vim-pandoc'
-    Plug 'vim-pandoc/vim-pandoc-syntax'
-        let g:pandoc#syntax#conceal#blacklist = ['atx', 'list']
-        let g:pandoc#syntax#conceal#urls = 1
-        let g:pandoc#folding#level = 1
-        let g:pandoc#hypertext#create_if_no_alternates_exist = 1
-        let g:pandoc#formatting#mode = 'haA'
+    " Plug 'vim-pandoc/vim-pandoc'
+    " Plug 'vim-pandoc/vim-pandoc-syntax'
+    "     let g:pandoc#syntax#conceal#blacklist = ['atx', 'list']
+    "     let g:pandoc#syntax#conceal#urls = 1
+    "     let g:pandoc#folding#level = 1
+    "     let g:pandoc#hypertext#create_if_no_alternates_exist = 1
+    "     let g:pandoc#formatting#mode = 'haA'
     " }}}
 
     " nim {{{
