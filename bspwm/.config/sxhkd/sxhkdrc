@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-    kitty
+    kitty --title term
 
 # program launcher
 super + space
