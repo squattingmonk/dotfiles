@@ -3,6 +3,15 @@
 " Plugins {{{
 call plug#begin($XDG_DATA_HOME.'/nvim/plugged')
 
+" Use nvim in the browser
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+if exists('g:started_by_firenvim')
+  set guifont=Fira\ Code\ Medium:h10
+  set laststatus=0
+  set wrap
+  set linebreak
+endif
+
 " Convenience {{{
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
