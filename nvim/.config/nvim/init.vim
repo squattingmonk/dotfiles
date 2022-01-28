@@ -153,7 +153,7 @@ nnoremap <Leader>sp :Obsession<CR>
             autocmd FileType nim nmap gd <Plug>NimGoToDefBuf
             autocmd FileType nim nmap gS <Plug>NimGoToDefSplit
             autocmd FileType nim nmap gV <Plug>NimGoToDefVSplit
-            autocmd FileType nim set foldmethod=manual
+            autocmd FileType nim set nofoldenable
 
             " Remove trailing whitepace on save
             autocmd BufWritePre <buffer> %s/\s\+$//e
