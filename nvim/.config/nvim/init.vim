@@ -264,6 +264,9 @@ set colorcolumn=80
 " Highlight the current line
 set cursorline
 
+" Turn off search highlighting
+set nohlsearch
+
 " Turn off word wrap
 set nowrap
 
