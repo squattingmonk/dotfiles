@@ -161,6 +161,21 @@ nnoremap <Leader>sp :Obsession<CR>
         let g:nwscript#fold#level = 9
     " }}}
 
+    " Markdown {{{
+        Plug 'godlygeek/tabular'
+        Plug 'plasticboy/vim-markdown'
+        augroup markdown
+            autocmd!
+            let g:vim_markdown_folding_style_pythonic = 1
+            let g:vim_markdown_folding_level = 6
+            let g:vim_markdown_override_foldtext = 0
+            let g:vim_markdown_auto_insert_bullets = 0
+
+            " Align GitHub-flavored Markdown tables
+            autocmd FileType markdown nmap <silent> <leader>t :execute "silent normal vip\<Plug>(EasyAlign)*<bar>"<cr>
+        augroup END
+    " }}}
+
     " Catch-all
     Plug 'sheerun/vim-polyglot'
 " }}}
