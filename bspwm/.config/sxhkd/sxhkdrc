@@ -81,8 +81,9 @@ super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous node on the same desktop
+# the .window attribute ensures no hidden nodes catch focus
 super + {_,shift + }n
-	bspc node -f {next,prev}.local
+	bspc node -f {next,prev}.local.window
 
 # focus the next/previous desktop
 super + bracket{left,right}
