@@ -268,7 +268,9 @@ set cursorline
 set nohlsearch
 
 " Turn off word wrap
-set nowrap
+if !exists('g:started_by_firenvim')
+    set nowrap
+endif
 
 " Set position of new splits
 set splitbelow
