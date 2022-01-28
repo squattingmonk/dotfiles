@@ -154,6 +154,7 @@ nnoremap <Leader>sp :Obsession<CR>
             autocmd FileType nim nmap gS <Plug>NimGoToDefSplit
             autocmd FileType nim nmap gV <Plug>NimGoToDefVSplit
             autocmd FileType nim set nofoldenable
+            autocmd FileType nim set textwidth=80
 
             " Remove trailing whitepace on save
             autocmd BufWritePre <buffer> %s/\s\+$//e
