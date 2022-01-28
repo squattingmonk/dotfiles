@@ -322,3 +322,9 @@ augroup reload_vimrc
     autocmd!
     autocmd BufWritePost $MYVIMRC nested so $MYVIMRC
 augroup END
+
+function! SynGroup()
+    let l:s = synID(line('.'), col('.'), 1)
+    echo synIDattr(l:s, 'name') . ' -> ' . synIDattr(synIDtrans(l:s), 'name')
+endfun
+nnoremap <Leader>g :call SynGroup()<cr>
