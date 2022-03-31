@@ -1,0 +1,54 @@
+{
+  "parser-directories": [
+    "/home/squattingmonk/.local/src"
+  ],
+  "theme": {
+    "punctuation.bracket": 239,
+    "embedded": null,
+    "constant.builtin": {
+      "color": 94,
+      "bold": true
+    },
+    "attribute": {
+      "italic": true,
+      "color": 124
+    },
+    "function.builtin": {
+      "color": 26,
+      "bold": true
+    },
+    "keyword": 56,
+    "function": 26,
+    "operator": {
+      "color": 239,
+      "bold": true
+    },
+    "property": 124,
+    "string": 28,
+    "tag": 18,
+    "type": 23,
+    "type.builtin": {
+      "color": 23,
+      "bold": true
+    },
+    "comment": {
+      "italic": true,
+      "color": 245
+    },
+    "constant": 94,
+    "string.special": 30,
+    "variable.builtin": {
+      "bold": true
+    },
+    "variable.parameter": {
+      "underline": true
+    },
+    "module": 136,
+    "punctuation.delimiter": 239,
+    "constructor": 136,
+    "number": {
+      "bold": true,
+      "color": 94
+    }
+  }
+}
