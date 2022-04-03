@@ -5,7 +5,8 @@ M.setup = function ()
     underline_option = "undercurl",
     italic = false,
     italic_comments = false,
-    alternate_backgrounds = true,
+    minimal_mode = false,
+    alternate_backgrounds = false,
 
     custom_colors = function (c, s, cs)
       -- c: color palette table
@@ -30,7 +31,7 @@ M.setup = function ()
         { { "NeoTreeGitUntracked" }, c.orange, c.none, cs.none },
       }
     end,
-}
+  }
 end
 
 return M

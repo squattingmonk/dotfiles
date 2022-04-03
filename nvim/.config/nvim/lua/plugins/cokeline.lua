@@ -72,7 +72,7 @@ M.setup = function ()
             and get_hex("Normal", "fg")
             or get_hex("Comment", "fg")
       end,
-      bg = get_hex("ColorColumn", "bg"),
+      bg = colors.black,
     },
 
     components = {
@@ -92,7 +92,7 @@ M.setup = function ()
         {
           text = "  NeoTree",
           fg = colors.yellow,
-          bg = get_hex("ColorColumn", "bg"),
+          bg = colors.black,
           style = "bold",
         }
       }
