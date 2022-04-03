@@ -83,3 +83,7 @@ map("n", "<leader>th", ":TSHighlightCapturesUnderCursor<cr>")
 
 -- Neotree
 map("n", "<leader>e", ":Neotree toggle<cr>")
+
+-- Color scheme
+map("n", "<leader>cc", ":lua require('plugins.nordic').setup()<cr>")
+

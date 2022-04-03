@@ -33,7 +33,10 @@ return require("packer").startup(function(use)
 
   -- Required by others {{{2
   use { "nvim-lua/plenary.nvim", module = "plenary" }
-  use { "kyazdani42/nvim-web-devicons" }
+  use {
+    "kyazdani42/nvim-web-devicons",
+    config = [[require("plugins.icons").setup()]]
+}
 
   -- LSP {{{2
   use {
@@ -99,15 +102,9 @@ return require("packer").startup(function(use)
 
   -- UI {{{2
   use {
-    "shaunsingh/nord.nvim",
-    config = function()
-      vim.g.nord_borders = true
-      require("nord").set()
-      vim.cmd [[
-        :highlight! link TSConstant Constant
-        :highlight! link TSVariable Variable
-        :highlight! link TSPunctBracket Delimiter
-      ]]
+    "andersevenrud/nordic.nvim",
+    config = function ()
+      require("plugins.nordic").setup()
     end
   }
 
@@ -120,28 +117,20 @@ return require("packer").startup(function(use)
 
   use {
     "nvim-neo-tree/neo-tree.nvim",
-    -- disable = true,
     branch = "v2.x",
     requires = {
       "nvim-lua/plenary.nvim",
-      "kyazdani42/nvim-web-devicons",
       "MunifTanjim/nui.nvim",
+      "kyazdani42/nvim-web-devicons",
     },
     setup = function()
       vim.g.neo_tree_remove_legacy_commands = 1
     end,
     config = function ()
-      require("neo-tree").setup {
-        filesystem = {
-          filtered_items = {
-            hide_dotfiles = false,
-            hide_gitignored = true,
-          }
-        }
-      }
-      -- vim.api.nvim_set_keymap("n", "<leader>e", ":NeoTreeShowToggle<cr>", { silent = true, noremap = true })
+      require("plugins.neotree").setup()
     end
   }
+
 
   -- Nim {{{2
   use { "alaviss/nim.nvim" }
