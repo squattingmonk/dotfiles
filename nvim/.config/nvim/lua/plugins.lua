@@ -131,6 +131,14 @@ return require("packer").startup(function(use)
     end
   }
 
+  use {
+    "noib3/nvim-cokeline",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function ()
+      require("plugins.cokeline").setup()
+    end
+  }
+
 
   -- Nim {{{2
   use { "alaviss/nim.nvim" }
