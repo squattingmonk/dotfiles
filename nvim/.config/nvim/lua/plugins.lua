@@ -139,6 +139,12 @@ return require("packer").startup(function(use)
     end
   }
 
+  use {
+    "rebelot/heirline.nvim",
+    config = function ()
+      require("plugins.heirline").setup()
+    end
+  }
 
   -- Nim {{{2
   use { "alaviss/nim.nvim" }
