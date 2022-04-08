@@ -148,6 +148,7 @@ return require("packer").startup(function(use)
 
   use {
     "rebelot/heirline.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
     config = function ()
       require("plugins.heirline").setup()
     end
