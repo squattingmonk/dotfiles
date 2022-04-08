@@ -32,7 +32,14 @@ return require("packer").startup(function(use)
   }
 
   -- Required by others {{{2
-  use { "nvim-lua/plenary.nvim", module = "plenary" }
+  use {
+    "nvim-lua/plenary.nvim",
+    module = "plenary",
+    config = function ()
+      require("plenary.filetype").add_file("nwscript")
+    end,
+  }
+
   use {
     "kyazdani42/nvim-web-devicons",
     config = [[require("plugins.icons").setup()]]
