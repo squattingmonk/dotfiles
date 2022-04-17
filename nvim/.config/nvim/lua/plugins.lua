@@ -178,6 +178,10 @@ return require("packer").startup(function(use)
   -- NWScript {{{2
   use { "squattingmonk/vim-nwscript" }
 
+  -- Editing {{{2
+  use { "tpope/vim-surround" }
+  use { "tpope/vim-repeat" }
+
   -- 2}}}
 end)
 
