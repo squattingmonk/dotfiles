@@ -29,6 +29,9 @@ M.setup = function ()
         { { "NeoTreeGitDeleted", }, c.red, c.none, cs.none },
         { { "NeoTreeGitModified" }, c.yellow, c.none, cs.none },
         { { "NeoTreeGitUntracked" }, c.orange, c.none, cs.none },
+
+        -- Nim
+        { { "nimSugResult", }, c.bright_cyan, s.bold }
       }
     end,
   }
