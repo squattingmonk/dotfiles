@@ -46,26 +46,26 @@ local fn = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false -- No complete if not explicitly selected
   },
-  nextItem = function(fallback)
+  nextItem = cmp.mapping(function(fallback)
     if cmp.visible() then
       cmp.select_next_item()
     elseif luasnip.expand_or_jumpable() then
-      vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+      luasnip.expand_or_jump()
     elseif not check_backspace() then
       cmp.complete()
     else
       fallback()
     end
-  end,
-  prevItem = function(fallback)
+  end, { "i", "s" }),
+  prevItem = cmp.mapping(function(fallback)
     if cmp.visible() then
       cmp.select_prev_item()
     elseif luasnip.jumpable(-1) then
-      vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
+      luasnip.jump(-1)
     else
       fallback()
     end
-  end,
+  end, { "i", "s" }),
   unobstrusive = function(fallback)
     if cmp.visible() then cmp.mapping.abort() end
     fallback()
