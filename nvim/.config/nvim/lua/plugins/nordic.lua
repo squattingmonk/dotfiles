@@ -30,6 +30,10 @@ M.setup = function ()
         { { "NeoTreeGitModified" }, c.yellow, c.none, cs.none },
         { { "NeoTreeGitUntracked" }, c.orange, c.none, cs.none },
 
+        -- Indent-Blankline
+        { { "IndentBlanklineChar", }, c.black, },
+        { { "IndentBlanklineContextChar", }, c.gray, },
+
         -- Nim
         { { "nimSugResult", }, c.bright_cyan, s.bold }
       }
