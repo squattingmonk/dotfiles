@@ -1,4 +1,6 @@
 local M = {}
+local cmp = require "cmp"
+local luasnip = require "luasnip"
 
 -- Symbols for autocomplete
 local lsp_symbols = {
@@ -28,19 +30,56 @@ local lsp_symbols = {
   Operator = "",
   TypeParameter = "",
 }
-
-local has_words_before = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+---checks if the character preceding the cursor is a space character
+---@return boolean true if it is a space character, false otherwise
+local check_backspace = function()
+  local col = vim.fn.col "." - 1
+  return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
-M.setup = function()
-  local cmp = require "cmp"
+local fn = {
+  completeSuggested = cmp.mapping.confirm {
+    behavior = cmp.ConfirmBehavior.Replace,
+    select = true -- As shown on ghost_text
+  },
+  completeSelected = cmp.mapping.confirm {
+    behavior = cmp.ConfirmBehavior.Replace,
+    select = false -- No complete if not explicitly selected
+  },
+  nextItem = function(fallback)
+    if cmp.visible() then
+      cmp.select_next_item()
+    elseif luasnip.expand_or_jumpable() then
+      vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-expand-or-jump', true, true, true), '')
+    elseif not check_backspace() then
+      cmp.complete()
+    else
+      fallback()
+    end
+  end,
+  prevItem = function(fallback)
+    if cmp.visible() then
+      cmp.select_prev_item()
+    elseif luasnip.jumpable(-1) then
+      vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Plug>luasnip-jump-prev', true, true, true), '')
+    else
+      fallback()
+    end
+  end,
+  unobstrusive = function(fallback)
+    if cmp.visible() then cmp.mapping.abort() end
+    fallback()
+  end
+}
 
+M.setup = function()
   cmp.setup {
 
     completion = {
-      completeopt = "menu,menuone,noinsert,noselect"
+      -- If autocomplete is on, it opens in nim files even when there's nothing
+      -- to complete.
+      autocomplete = false,
+      completeopt = "menu,menuone,noselect,preview",
     },
 
     snippet = {
@@ -49,63 +88,36 @@ M.setup = function()
       end
     },
 
-    mapping = {
-      ["<C-k>"] = cmp.mapping.select_prev_item(),
-      ["<C-j>"] = cmp.mapping.select_next_item(),
-      ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-      ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+    mapping = cmp.mapping.preset.insert({
+      ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-f>"] = cmp.mapping.scroll_docs(4),
 
       -- Pop up completion menu if not already showing
-      ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+      ["<C-Space>"] = cmp.mapping.complete(),
 
       -- Close completion menu.
-      ["<C-e>"] = cmp.mapping {
-        i = cmp.mapping.abort(),
-        c = cmp.mapping.close(),
-      },
+      ["<C-e>"] = cmp.mapping.abort(),
 
       -- Accept currently selected item. Selects the first item if one has not
       -- been selected.
-      ["<C-y>"] = cmp.mapping(
-        cmp.mapping.confirm {
-          behavior = cmp.ConfirmBehavior.Insert,
-          select = true,
-        }, { "i", "c" }
-      ),
+      ["<C-y>"] = fn.completeSuggested,
 
       -- Accept currently selected item. Will not auto-select an item unless
       -- select == true.
-      ["<CR>"] = cmp.mapping.confirm { select = false },
+      ["<CR>"] = fn.completeSelected,
 
-      -- Tab completion!
-      ["<Tab>"] = cmp.mapping(function(fallback)
-        local luasnip = require "luasnip"
-        if cmp.visible() then
-          cmp.select_next_item()
-        elseif luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
-        elseif has_words_before() then
-          cmp.complete()
-        else
-          fallback()
-        end
-      end, { "i", "s" }),
+      -- Selects the next/previous item in the completion menu if it is showing.
+      -- Otherwise, shows the completion menu.
+      ["<C-j>"] = fn.nextItem,
+      ["<C-k>"] = fn.prevItem,
+      ["<Tab>"] = fn.nextItem,
+      ["<S-Tab>"] = fn.prevItem,
+    }),
 
-      ["<S-Tab>"] = cmp.mapping(function(fallback)
-        local luasnip = require "luasnip"
-        if cmp.visible() then
-          cmp.select_prev_item()
-        elseif luasnip.jumpable(-1) then
-          luasnip.jump(-1)
-        else
-          fallback()
-        end
-      end, { "i", "s" }),
-    },
 
     sources = {
       { name = "path" },
-      { name = "nvim_lsp" },
+      { name = "nvim_lsp", max_item_count = 7, },
       { name = "nvim_lua" },
       { name = "luasnip" },
       { name = "buffer", keyword_length = 3 },
@@ -126,15 +138,9 @@ M.setup = function()
       end,
     },
 
-    documentation = {
-      border = "rounded",
-    },
-
     experimental = {
       ghost_text = true,
-      native_menu = false,
     },
-
   }
 end
 

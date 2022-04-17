@@ -93,7 +93,6 @@ return require("packer").startup(function(use)
   -- Snippets {{{2
   use {
     "L3MON4D3/LuaSnip",
-    after = "nvim-cmp",
     config = [[require("plugins.luasnip")]]
   }
 
