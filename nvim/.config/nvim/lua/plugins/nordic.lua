@@ -19,7 +19,7 @@ M.setup = function ()
       return {
         -- Tree-sitter corrections
         { { "TSField", }, c.dark_white, c.none, cs.none },
-        { { "TSType", "TSTypeBuiltin" }, c.blue, c.none, cs.none },
+        { { "TSType", "TSTypeBuiltin", "Type" }, c.blue, c.none, cs.none },
         { { "TSFunction", "TSKeywordFunction", "Function" }, c.bright_cyan, c.none, cs.none },
 
         -- NeoTree
