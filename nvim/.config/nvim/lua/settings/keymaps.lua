@@ -87,3 +87,4 @@ map("n", "<leader>e", ":Neotree toggle<cr>")
 -- Color scheme
 map("n", "<leader>cc", ":lua require('plugins.nordic').setup()<cr>")
 
+map({"n", "x"}, "ga", "<Plug>(EasyAlign)", { noremap = false })

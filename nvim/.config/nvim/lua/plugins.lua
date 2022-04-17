@@ -181,6 +181,7 @@ return require("packer").startup(function(use)
   -- Editing {{{2
   use { "tpope/vim-surround" }
   use { "tpope/vim-repeat" }
+  use { "junegunn/vim-easy-align" }
 
   -- 2}}}
 end)
