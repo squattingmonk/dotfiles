@@ -34,7 +34,7 @@ modules-left = bspwm
 [bar/solstice]
 inherit = bar/top
 modules-center = xwindow
-modules-right = wlan-solstice volume date powermenu
+modules-right = screencast wlan-solstice volume date powermenu
 
 [bar/equinox]
 inherit = bar/top
@@ -173,6 +173,15 @@ ramp-capacity-4 = 
 ramp-capacity-padding-left = 2
 ramp-capacity-0-foreground = ${colors.alert}
 
+[module/screencast]
+type = custom/script
+interval = 1
+label = %output%
+label-padding-right = 2
+click-left = screencast start &
+click-right = screencast stop &
+exec = screencast
+tail = true
 
 [module/powermenu]
 type = custom/menu

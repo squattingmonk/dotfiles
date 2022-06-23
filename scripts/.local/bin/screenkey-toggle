@@ -1,0 +1,3 @@
+#!/bin/sh
+
+killall screenkey &> /dev/null || screenkey -p fixed -g 1888x10%+16-16 &
