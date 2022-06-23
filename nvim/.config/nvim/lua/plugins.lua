@@ -77,7 +77,6 @@ return require("packer").startup(function(use)
   -- Completion {{{2
   use {
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
     requires = {
       { "hrsh7th/cmp-path", after = "nvim-cmp" },
       { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
@@ -86,6 +85,12 @@ return require("packer").startup(function(use)
       { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
     },
     config = [[require("plugins.completion").setup()]],
+  }
+
+  use {
+    "quangnguyen30192/cmp-nvim-tags",
+    requires = "nvim-cmp",
+    ft = { "nwscript", },
   }
 
   use { "jiangmiao/auto-pairs" }

@@ -118,9 +118,10 @@ M.setup = function()
     sources = {
       { name = "path" },
       { name = "nvim_lsp", max_item_count = 7, },
+      { name = "tags", max_item_count = 7, },
       { name = "nvim_lua" },
       { name = "luasnip" },
-      { name = "buffer", keyword_length = 3 },
+      { name = "buffer", },
     },
 
     formatting = {
@@ -132,6 +133,7 @@ M.setup = function()
           path = "[Path]",
           nvim_lua = "[Lua]",
           nvim_lsp = "[LSP]",
+          tags = "[Tag]",
         })[entry.source.name]
         return vim_item
       end,
