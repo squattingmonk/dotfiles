@@ -42,6 +42,7 @@ function M.mappings(bufnr)
   bmap("n", "gh", ":lua vim.lsp.buf.hover()<cr>")
   bmap("n", "gr", ":Telescope lsp_references<cr>")
   bmap("n", "K", ":lua vim.lsp.buf.signature_help()<cr>")
+  bmap("n", "<leader>r", ":lua vim.lsp.buf.rename()<cr>")
 end
 
 --- Make luajit runtime files discoverable to the server.
