@@ -1,11 +1,3 @@
-# NWN Item Blueprints
-*.uti
-*.utt
-*.utw
-
-# Compiled NWScript
-*.ncs
-
 # Ctags
 tags
 .tags
