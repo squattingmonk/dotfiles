@@ -4,7 +4,6 @@
 	signingkey = 776866C3509CF036
 [core]
 	editor = nvim
-	excludesfile = $XDG_CONFIG_HOME/git/ignore
 	whitespace = cr-at-eol
 [push]
 	default = simple
@@ -13,7 +12,7 @@
 [credential "https://github.com"]
 	username = squattingmonk
 [credential "https://gitlab.com"]
-    username = squattingmonk
+  username = squattingmonk
 [alias]
 	co = checkout
 	st = status
@@ -26,4 +25,4 @@
 [pull]
 	rebase = false
 [init]
-	defaultBranch = main
+	defaultBranch = master
