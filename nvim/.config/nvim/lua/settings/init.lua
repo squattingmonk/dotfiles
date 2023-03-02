@@ -21,7 +21,7 @@ local opts = {
   sidescrolloff = 8, -- show x columns beyond cursor when scrolling
 
   -- Line numbers
-  relativenumber = true, -- show relative lines numbers
+  relativenumber = false, -- show relative lines numbers
   number = true, -- show line number of current line
   signcolumn = "yes", -- show the sign column
 

@@ -4,9 +4,10 @@
 *font: xft:Monospace:size=12
 
 ! Xft
+Xft.dpi: 120
 Xft.antialias: true
-Xft.hinting:   false
-Xft.hintstyle: hintnone
+Xft.hinting:   true
+Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 Xft.rgba:      rgb
 

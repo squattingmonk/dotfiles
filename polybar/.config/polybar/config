@@ -10,7 +10,7 @@ alert = ${xrdb:color1}
 [bar/top]
 bottom = false
 width = 100%
-height = 32
+height = 40
 offset-x = 0
 offset-y = 0
 fixed-center = true
@@ -22,8 +22,8 @@ padding = 2
 module-margin-left = 0
 module-margin-right = 2
 
-font-0 = "Fira Sans:style=Medium:size=12;3"
-font-1 = "FiraMono Nerd Font Mono:style=regular:size=18;4"
+font-0 = "Fira Sans:style=Medium:size=14;3"
+font-1 = "FiraCode Nerd Font Mono:style=regular:size=20;4"
 
 wm-restack = bspwm
 scroll-up = bspwm-desknext

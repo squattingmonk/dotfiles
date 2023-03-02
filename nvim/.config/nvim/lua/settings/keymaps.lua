@@ -81,6 +81,9 @@ map("n", "<leader>fb", ":Telescope buffers<cr>")
 map("n", "<leader>tp", ":TSPlaygroundToggle<cr>")
 map("n", "<leader>th", ":TSHighlightCapturesUnderCursor<cr>")
 
+-- Neogen
+map("n", "<leader>nf", ":lua require('neogen').generate()<cr>")
+
 -- Neotree
 map("n", "<leader>e", ":Neotree toggle<cr>")
 

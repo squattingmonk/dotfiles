@@ -1,6 +1,7 @@
 local M = {}
 local cmp = require "cmp"
 local luasnip = require "luasnip"
+local neogen = require "neogen"
 
 -- Symbols for autocomplete
 local lsp_symbols = {
@@ -49,8 +50,6 @@ local fn = {
   nextItem = cmp.mapping(function(fallback)
     if cmp.visible() then
       cmp.select_next_item()
-    elseif luasnip.expand_or_jumpable() then
-      luasnip.expand_or_jump()
     elseif not check_backspace() then
       cmp.complete()
     else
@@ -60,9 +59,6 @@ local fn = {
   prevItem = cmp.mapping(function(fallback)
     if cmp.visible() then
       cmp.select_prev_item()
-    elseif luasnip.jumpable(-1) then
-      luasnip.jump(-1)
-    else
       fallback()
     end
   end, { "i", "s" }),
@@ -108,20 +104,39 @@ M.setup = function()
 
       -- Selects the next/previous item in the completion menu if it is showing.
       -- Otherwise, shows the completion menu.
-      ["<C-j>"] = fn.nextItem,
-      ["<C-k>"] = fn.prevItem,
       ["<Tab>"] = fn.nextItem,
       ["<S-Tab>"] = fn.prevItem,
+
+      -- Jump to the next/previous snippet node if available
+      ["<C-j>"] = cmp.mapping(function(fallback)
+        if neogen.jumpable() then
+          neogen.jump_next()
+        elseif luasnip.jumpable(1) then
+          luasnip.jump(1)
+        else
+          fallback()
+        end
+      end),
+      ["<C-k>"] = cmp.mapping(function(fallback)
+        if neogen.jumpable(true) then
+          neogen.jump_prev()
+        elseif luasnip.jumpable(-1) then
+          luasnip.jump(-1)
+        else
+          fallback()
+        end
+      end),
     }),
 
 
     sources = {
       { name = "path" },
+      -- { name = "nvim_lsp_signature_help" },
       { name = "nvim_lsp", max_item_count = 7, },
-      { name = "tags", max_item_count = 7, },
+      -- { name = "tags", max_item_count = 7, },
       { name = "nvim_lua" },
       { name = "luasnip" },
-      { name = "buffer", },
+      { name = "buffer", max_item_count = 5, },
     },
 
     formatting = {
@@ -133,7 +148,7 @@ M.setup = function()
           path = "[Path]",
           nvim_lua = "[Lua]",
           nvim_lsp = "[LSP]",
-          tags = "[Tag]",
+          -- tags = "[Tag]",
         })[entry.source.name]
         return vim_item
       end,

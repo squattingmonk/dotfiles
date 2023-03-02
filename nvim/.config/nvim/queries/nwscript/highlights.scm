@@ -28,17 +28,36 @@
   "-="
   "="
   "!="
+  "%"
+  "%="
   "*"
+  "*="
+  "/"
+  "/="
   "&"
   "&&"
+  "&="
   "+"
   "++"
   "+="
   "<"
+  "<<"
+  "<="
+  "<<="
   "="
   "=="
   ">"
+  ">>"
+  ">>>"
+  ">="
+  ">>="
+  ">>>="
+  "|"
   "||"
+  "|="
+  "^"
+  "^="
+  "~"
 ] @operator
 
 [ "." ";" "," ] @punctuation.delimiter
@@ -60,7 +79,7 @@
 (struct_declarator
   (identifier) @type)
 
-(struct_members 
+(struct_members
   (type_identifier) @type.builtin
   (identifier) @enum)
 
@@ -88,4 +107,4 @@
 
 (nwnsc_macro) @macro
 
-(comment) @comment
+; (comment) @comment

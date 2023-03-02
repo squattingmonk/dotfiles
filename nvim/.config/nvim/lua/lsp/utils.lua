@@ -3,7 +3,7 @@ local M = {}
 --- Format-on-save for LSPs that implement formatting.
 --- @param client table
 function M.format_on_save(client)
-  if client.resolved_capabilities.document_formatting then
+  if client.server_capabilities.document_formatting then
     vim.cmd [[
       augroup LspFormat
         autocmd! * <buffer>
@@ -16,14 +16,14 @@ end
 --- LSP server capabilities with nvim-cmp
 function M.capabilities()
   local capabilities = vim.lsp.protocol.make_client_capabilities()
-  return require("cmp_nvim_lsp").update_capabilities(capabilities)
+  return require("cmp_nvim_lsp").default_capabilities(capabilities)
 end
 
 --- Disables formatting for a server
 --- @param client table
 function M.disable_formatting(client)
-  client.resolved_capabilities.document_formatting = false
-  client.resolved_capabilities.document_range_formatting = false
+  client.server_capabilities.document_formatting = false
+  client.server_capabilities.document_range_formatting = false
 end
 
 --- LSP keymappings
@@ -43,6 +43,9 @@ function M.mappings(bufnr)
   bmap("n", "gr", ":Telescope lsp_references<cr>")
   bmap("n", "K", ":lua vim.lsp.buf.signature_help()<cr>")
   bmap("n", "<leader>r", ":lua vim.lsp.buf.rename()<cr>")
+  bmap("n", "<leader>lspf", ":lua vim.lsp.buf.formatting()<cr>")
+  bmap("n", "<leader>gn", ":lua vim.diagnostic.goto_next()<cr>")
+  bmap("n", "<leader>gp", ":lua vim.diagnostic.goto_prev()<cr>")
 end
 
 --- Make luajit runtime files discoverable to the server.

@@ -53,6 +53,14 @@ return require("packer").startup(function(use)
     config = [[require("lsp")]],
   }
 
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup()
+    end
+  }
+
   -- Telescope {{{2
   use {
     "nvim-telescope/telescope.nvim",
@@ -74,6 +82,18 @@ return require("packer").startup(function(use)
 
   use { "nvim-treesitter/playground" }
 
+  use {
+    "danymat/neogen",
+    config = function()
+      require("neogen").setup {
+        languages = {
+          nwscript = require("plugins.neogen.nwscript"),
+        },
+      }
+    end,
+    requires = "nvim-treesitter/nvim-treesitter",
+  }
+
   -- Completion {{{2
   use {
     "hrsh7th/nvim-cmp",
@@ -82,6 +102,8 @@ return require("packer").startup(function(use)
       { "hrsh7th/cmp-buffer", after = "nvim-cmp" },
       { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" },
       { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
+      { "hrsh7th/cmp-path", after = "nvim-cmp" },
+      -- { "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" },
       { "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
     },
     config = [[require("plugins.completion").setup()]],
@@ -94,6 +116,22 @@ return require("packer").startup(function(use)
   }
 
   use { "jiangmiao/auto-pairs" }
+
+  use {
+    "ray-x/lsp_signature.nvim",
+    config = function()
+      require "lsp_signature".setup({
+        bind = true,
+        handler_opts = {
+          border = "rounded",
+        },
+        toggle_key = "<C-k>",
+        hint_enable = false,
+        padding = " ",
+        floating_window_above_cur_line = false,
+      })
+    end,
+  }
 
   -- Snippets {{{2
   use {
@@ -146,7 +184,9 @@ return require("packer").startup(function(use)
     "noib3/nvim-cokeline",
     requires = "kyazdani42/nvim-web-devicons",
     config = function ()
-      require("plugins.cokeline").setup()
+      if not vim.g.started_by_firenvim then
+        require("plugins.cokeline").setup()
+      end
     end
   }
 
@@ -154,7 +194,9 @@ return require("packer").startup(function(use)
     "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons" },
     config = function ()
-      require("plugins.lualine").setup()
+      if not vim.g.started_by_firenvim then
+        require("plugins.lualine").setup()
+      end
     end,
   }
 
@@ -177,6 +219,13 @@ return require("packer").startup(function(use)
     end
   }
 
+  use {
+    "akinsho/toggleterm.nvim",
+    tag = "*",
+    config = function()
+      require("plugins.toggleterm")
+    end
+  }
   -- Nim {{{2
   use { "alaviss/nim.nvim" }
 
@@ -184,10 +233,24 @@ return require("packer").startup(function(use)
   use { "squattingmonk/vim-nwscript" }
 
   -- Editing {{{2
+  use { "tpope/vim-fugitive" }
   use { "tpope/vim-surround" }
   use { "tpope/vim-repeat" }
   use { "junegunn/vim-easy-align" }
 
+  use {
+    "andrewferrier/wrapping.nvim",
+    config = function()
+      require("wrapping").setup()
+    end,
+  }
+
+  use {
+    'glacambre/firenvim',
+    run = function()
+      vim.fn['firenvim#install'](0)
+    end
+  }
   -- 2}}}
 end)
 

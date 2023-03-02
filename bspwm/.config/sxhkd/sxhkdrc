@@ -23,6 +23,13 @@ XF86AudioMute
 XF86MonBrightness{Down,Up}
     xbacklight -{dec,inc} 10
 
+# screenshots
+@Print
+    scrot
+
+shift + @Print
+    scrot -s
+
 #
 # bspwm hotkeys
 #

@@ -26,3 +26,7 @@
 	rebase = false
 [init]
 	defaultBranch = master
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[url "aur@aur.archlinux.org:"]
+  insteadOf = https://aur.archlinux.org/

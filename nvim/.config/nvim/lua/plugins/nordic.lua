@@ -18,9 +18,9 @@ M.setup = function ()
       --  bg(name) -> default or alternate background color based on configuration
       return {
         -- Tree-sitter corrections
-        { { "TSField", }, c.dark_white, c.none, cs.none },
-        { { "TSType", "TSTypeBuiltin", "Type" }, c.blue, c.none, cs.none },
-        { { "TSFunction", "TSKeywordFunction", "Function" }, c.bright_cyan, c.none, cs.none },
+        { { "@field", }, c.dark_white, c.none, cs.none },
+        { { "@type.builtin", "Type" }, c.blue, c.none, cs.none },
+        { { "@function", "Function" }, c.bright_cyan, c.none, cs.none },
 
         -- NeoTree
         { { "NeoTreeDimText", }, c.black, c.none, cs.none },
@@ -35,7 +35,10 @@ M.setup = function ()
         { { "IndentBlanklineContextChar", }, c.gray, },
 
         -- Nim
-        { { "nimSugResult", }, c.bright_cyan, s.bold }
+        { { "nimSugResult", }, c.bright_cyan },
+
+        -- General
+        { { "Special", "SpecialComment" }, c.cyan },
       }
     end,
   }

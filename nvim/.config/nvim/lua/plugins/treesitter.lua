@@ -5,7 +5,7 @@ require("nvim-treesitter.configs").setup {
   highlight = {
     enable = true, -- enable highlighting
     disable = { "" }, -- Languages to disable highlighting for
-    additional_vim_regex_highlighting = false, -- Also runs vim's syntax
+    additional_vim_regex_highlighting = true, -- Also runs vim's syntax
   },
   indent = {
     enable = true, -- Enable treesitter-based indentation
