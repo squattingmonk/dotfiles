@@ -24,6 +24,7 @@ module-margin-right = 2
 
 font-0 = "Fira Sans:style=Medium:size=14;3"
 font-1 = "FiraCode Nerd Font Mono:style=regular:size=20;4"
+;font-2 = "Symbols Nerd Font Mono:size=20;4"
 
 wm-restack = bspwm
 scroll-up = bspwm-desknext
@@ -38,7 +39,7 @@ modules-right = screencast wlan-solstice volume date powermenu
 
 [bar/equinox]
 inherit = bar/top
-modules-right = wlan-equinox xbacklight volume battery date powermenu
+modules-right = wlan-equinox brightnessctl volume battery date powermenu
 
 [module/xwindow]
 type = internal/xwindow
@@ -84,6 +85,16 @@ ramp-2 = 
 ramp-padding-left = 2
 ramp-padding-right = 2
 
+[module/brightnessctl]
+type = custom/script
+exec = ~/.config/polybar/brightnessctl.sh
+
+scroll-up = exec brightnessctl set +5%
+scroll-down = exec brightnessctl set 5%-
+interval = 1
+label = %output%
+label-foreground = ${colors.foreground}
+label-padding-left = 2
 
 [module/wlan]
 type = internal/network
@@ -107,7 +118,7 @@ interface = wlan0
 
 [module/wlan-equinox]
 inherit = module/wlan
-interface = wlp1s0
+interface = wlan0
 
 
 [module/date]
@@ -148,6 +159,7 @@ type = internal/battery
 battery = BAT0
 adapter = ADP0
 full-at = 98
+low-at = 10
 
 format-charging = <label-charging>
 format-charging-underline = #ffb52a
@@ -157,7 +169,7 @@ format-discharging-underline = ${self.format-charging-underline}
 
 format-full = <label-full>
 
-label-charging =  %percentage%%
+label-charging = <animation-charging> %percentage%%
 label-charging-padding-left = 2
 
 label-discharging = %percentage%%
@@ -165,11 +177,19 @@ label-discharging = %percentage%%
 label-full =  %percentage%%
 label-full-padding-left = 2
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+animation-charging-0 = 
+
+ramp-capacity-0 = 󱃍
+ramp-capacity-1 = 󰁺
+ramp-capacity-2 = 󰁻
+ramp-capacity-3 = 󰁼
+ramp-capacity-4 = 󰁽
+ramp-capacity-5 = 󰁾
+ramp-capacity-6 = 󰁿
+ramp-capacity-7 = 󰂀
+ramp-capacity-8 = 󰂁
+ramp-capacity-9 = 󰂂
+ramp-capacity-10 = 󰁹
 ramp-capacity-padding-left = 2
 ramp-capacity-0-foreground = ${colors.alert}
 
