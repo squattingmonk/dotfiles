@@ -161,7 +161,7 @@ adapter = ADP0
 full-at = 98
 low-at = 10
 
-format-charging = <label-charging>
+format-charging = <animation-charging> <label-charging>
 format-charging-underline = #ffb52a
 
 format-discharging = <ramp-capacity> <label-discharging>
@@ -169,15 +169,20 @@ format-discharging-underline = ${self.format-charging-underline}
 
 format-full = <label-full>
 
-label-charging = <animation-charging> %percentage%%
-label-charging-padding-left = 2
+label-charging = %percentage%%
 
 label-discharging = %percentage%%
 
-label-full =  %percentage%%
+label-full =  %percentage%%
 label-full-padding-left = 2
 
-animation-charging-0 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 500
+animation-charging-padding-left = 2
 
 ramp-capacity-0 = 󱃍
 ramp-capacity-1 = 󰁺
