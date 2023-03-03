@@ -1,0 +1,4 @@
+#!/usr/bin/fish
+pushd "$NWN_ROOT/bin/linux-x86"
+./nwmain-linux $argv > /dev/null 2>&1 &
+popd

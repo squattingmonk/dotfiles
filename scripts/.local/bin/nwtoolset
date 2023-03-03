@@ -1,0 +1,4 @@
+#!/usr/bin/fish
+pushd "$NWN_ROOT/bin/win32"
+wine nwtoolset.exe &> /dev/null &
+popd
