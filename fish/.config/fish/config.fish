@@ -17,9 +17,9 @@ if not functions -q fisher
 end
 
 # Source all files in /etc/profile.d
-# Requires 'fisher add "edc/bass"'
+# Requires 'fisher install "edc/bass"'
 if not functions -q bass
-    fisher add "edc/bass"
+    fisher install "edc/bass"
 end
 bass source /etc/profile
 
