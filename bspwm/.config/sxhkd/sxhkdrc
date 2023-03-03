@@ -20,8 +20,8 @@ XF86Audio{Raise,Lower}Volume
 XF86AudioMute
     amixer sset Master toggle
 
-XF86MonBrightness{Down,Up}
-    xbacklight -{dec,inc} 10
+XF86MonBrightness{Up,Down}
+    brightnessctl set {+10%,10%-}
 
 # screenshots
 @Print
