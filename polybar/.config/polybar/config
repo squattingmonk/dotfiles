@@ -173,7 +173,7 @@ label-charging = %percentage%%
 
 label-discharging = %percentage%%
 
-label-full =  %percentage%%
+label-full =  %percentage%%
 label-full-padding-left = 2
 
 animation-charging-0 = 
