@@ -8,11 +8,27 @@ return {
   },
 
   {
+    "danymat/neogen",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    keys = {
+      { "<leader>nf", ":Neogen<cr>", desc = "Generate annotation" },
+    },
+    config = function()
+      require("neogen").setup({
+        languages = {
+          nwscript = require("plugins.neogen.nwscript"),
+        },
+      })
+    end,
+  },
+
+  {
     "hrsh7th/nvim-cmp",
     ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local cmp = require("cmp")
       local luasnip = require("luasnip")
+      local neogen = require("neogen")
 
       local fn = {
         -- Accept the currently suggested completion item, replacing the current
@@ -36,6 +52,8 @@ return {
         nextItem = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
+          elseif neogen.jumpable() then
+            neogen.jump_next()
           elseif luasnip.expand_or_locally_jumpable() then
             luasnip.expand_or_jump()
           else
@@ -50,6 +68,8 @@ return {
         prevItem = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
+          elseif neogen.jumpable(-1) then
+            neogen.jump_prev()
           elseif luasnip.locally_jumpable(-1) then
             luasnip.jump(-1)
           else
