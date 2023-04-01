@@ -24,6 +24,15 @@ return {
         callback = function()
           hl(0, "LspCodeLens", { link = "Comment" })
           hl(0, "Special", { fg = colors.teal })
+          hl(0, "SpecialComment", { fg = colors.teal })
+
+          hl(0, "NeoTreeGitAdded", { fg = colors.green })
+          hl(0, "NeoTreeGitConflict", { fg = colors.orange })
+          hl(0, "NeoTreeGitDeleted", { fg = colors.red })
+          hl(0, "NeoTreeGitModified", { fg = colors.yellow })
+          hl(0, "NeoTreeGitUntracked", { fg = colors.orange })
+          hl(0, "NeoTreeFilename", { fg = colors.darkest_white })
+          hl(0, "NeoTreeDimText", { fg = colors.gray })
         end,
       })
     end,
