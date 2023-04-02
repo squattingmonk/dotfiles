@@ -12,11 +12,3 @@ vim.opt.colorcolumn = "+1"
 vim.opt.spelllang = { "en_us", "medical" }
 vim.opt.spellfile = os.getenv("HOME") .. "Sync/vim/spell/en.utf-8.add" -- extra words
 vim.opt.spelloptions = "camel" -- Split camelCase words when spellchecking
-
--- Folding
-vim.opt.foldenable = true
-vim.opt.foldlevel = 99
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldcolumn = "1"
--- TODO: set fold fillchars

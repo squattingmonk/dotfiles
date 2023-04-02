@@ -26,6 +26,9 @@ return {
           hl(0, "Special", { fg = colors.teal })
           hl(0, "SpecialComment", { fg = colors.teal })
 
+          hl(0, "FoldColumn", { fg = colors.glacier })
+          hl(0, "UfoFoldedEllipsis", { link = "FoldColumn" })
+
           hl(0, "NeoTreeGitAdded", { fg = colors.green })
           hl(0, "NeoTreeGitConflict", { fg = colors.orange })
           hl(0, "NeoTreeGitDeleted", { fg = colors.red })
