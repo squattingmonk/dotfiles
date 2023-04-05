@@ -1,15 +1,4 @@
+local ccls = require("plugins.lsp.ccls")
 return {
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   opts = {
-  --     servers = {
-  --       jsonls = {
-  --         mason = false,
-  --       },
-  --       lua_ls = {
-  --         mason = false,
-  --       },
-  --     },
-  --   },
-  -- },
+  ccls,
 }

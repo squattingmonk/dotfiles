@@ -4,6 +4,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   command = [[%s/\s\+$//e]],
 })
 
+-- Disable autoformat for c/cpp files
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "c", "cpp" },
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})
+
 -- Set options for FireNvim
 vim.api.nvim_create_autocmd("UIEnter", {
   command = [[
