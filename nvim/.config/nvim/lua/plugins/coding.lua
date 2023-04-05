@@ -88,7 +88,7 @@ return {
       }
 
       opts.completion = {
-        completeopt = "menu,menuone,noselect,preview",
+        completeopt = "menu,menuone,preview",
       }
 
       opts.mapping = cmp.mapping.preset.insert({
