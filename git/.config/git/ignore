@@ -4,3 +4,9 @@ tags
 
 # Vim session files
 Session.vim
+
+# C++
+.ccls-cache
+compile_commands.json
+CPackConfig.cmake
+CPackSourceConfig.cmake
