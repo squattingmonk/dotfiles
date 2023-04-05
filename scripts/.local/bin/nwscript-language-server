@@ -1,0 +1,2 @@
+#!/bin/fish
+node "$HOME/.local/src/nwscript-ee-language-server/server/out/server.js" --stdio
