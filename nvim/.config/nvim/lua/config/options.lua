@@ -10,5 +10,5 @@ vim.opt.colorcolumn = "+1"
 -- Spelling
 -- medical spellfile from https://github.com/melvio/medical-spell-files
 vim.opt.spelllang = { "en_us", "medical" }
-vim.opt.spellfile = os.getenv("HOME") .. "Sync/vim/spell/en.utf-8.add" -- extra words
+vim.opt.spellfile = os.getenv("HOME") .. "/Sync/vim/spell/en.utf-8.add" -- extra words
 vim.opt.spelloptions = "camel" -- Split camelCase words when spellchecking
