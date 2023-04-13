@@ -19,7 +19,7 @@ end
 # Source all files in /etc/profile.d
 # Requires 'fisher install "edc/bass"'
 if not functions -q bass
-    fisher install "edc/bass"
+    fisher install edc/bass
 end
 bass source /etc/profile
 
@@ -40,14 +40,14 @@ end
 
 # Default programs
 set -x BROWSER firefox
-set -x EDITOR  nvim
+set -x EDITOR nvim
 
 # Clean up home directory
 set -x DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 set -x GTK2_RC_FILES $XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0
 set -x SQLITE_HISTORY $XDG_DATA_HOME/sqlite3/history
 set -x INPUTRC $XDG_CONFIG_HOME/readline/inputrc
-set -x LESSHISTFILE "-"
+set -x LESSHISTFILE -
 set -x MYSQL_HISTFILE $XDG_DATA_HOME/mysql/history
 set -x WINEPREFIX $XDG_DATA_HOME/wineprefixes/default
 set -x XAUTHORITY $XDG_RUNTIME_DIR/Xauthority
@@ -68,15 +68,15 @@ end
 set -x -g SXHKD_SHELL /bin/sh
 
 # Set up our colors
-set fish_color_normal       normal
-set fish_color_command      brblue
-set fish_color_comment      brblack
-set fish_color_error        brred
-set fish_color_end          green
-set fish_color_param        cyan
-set fish_color_quote        green
-set fish_color_operator     bryellow
-set fish_color_redirection  green
+set fish_color_normal normal
+set fish_color_command brblue
+set fish_color_comment brblack
+set fish_color_error brred
+set fish_color_end green
+set fish_color_param cyan
+set fish_color_quote green
+set fish_color_operator bryellow
+set fish_color_redirection green
 set fish_color_search_match --background=brblack
 
 # Settings for Spacefish Theme
