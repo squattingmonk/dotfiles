@@ -8,7 +8,7 @@ function ft.ftplugin()
 end
 
 function ft.syntax()
-  vim.cmd[[
+  vim.cmd([[
     set syntax=nwscript.doxygen
     hi! link doxygenStartL Comment
     hi! link doxygenParam Special
@@ -19,7 +19,7 @@ function ft.syntax()
     hi! link doxygenBriefWord Special
     hi! link doxygenBrief Comment
     hi! TSComment gui=NONE
-  ]]
+  ]])
 end
 
 return ft
