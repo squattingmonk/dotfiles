@@ -1,3 +1,4 @@
+local util = require("lspconfig.util")
 return {
   {
     "neovim/nvim-lspconfig",
@@ -13,6 +14,7 @@ return {
           init_options = {
             compilationDatabaseDirectory = "build",
           },
+          root_dir = util.root_pattern(".git", "build"),
         },
       },
     },
