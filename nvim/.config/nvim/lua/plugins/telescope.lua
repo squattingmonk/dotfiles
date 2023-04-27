@@ -4,7 +4,6 @@ return {
     event = "BufReadPre",
     dependencies = {
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-      { "nvim-telescope/telescope-ui-select.nvim" },
     },
     opts = {
       defaults = {
@@ -28,7 +27,23 @@ return {
       local telescope = require("telescope")
       telescope.setup(opts)
       telescope.load_extension("fzf")
-      telescope.load_extension("ui-select")
     end,
+  },
+  {
+    "stevearc/dressing.nvim",
+    opts = {
+      select = {
+        telescope = {
+          layout_config = {
+            width = function(_, columns, _)
+              return math.min(columns, 80)
+            end,
+            height = function(_, _, lines)
+              return math.min(lines, 20)
+            end,
+          },
+        },
+      },
+    },
   },
 }
