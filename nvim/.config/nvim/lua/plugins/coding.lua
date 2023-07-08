@@ -5,6 +5,10 @@ return {
     keys = function()
       return {}
     end,
+    config = function()
+      local path = os.getenv("XDG_CONFIG_HOME") .. "/nvim/snippets"
+      require("luasnip.loaders.from_lua").lazy_load({ paths = path })
+    end,
   },
 
   {
