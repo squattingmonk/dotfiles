@@ -7,11 +7,11 @@ vicmd_symbol = "[<](bold green)"
 disabled = true
 
 [directory]
-read_only = " "
+read_only = "󰷪 "
 
 [nim]
-symbol = " "
+symbol = "󱇐 "
 
 [package]
 # disabled = true
-symbol = " "
+symbol = "󰏗 "
