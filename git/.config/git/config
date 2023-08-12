@@ -5,6 +5,7 @@
 [core]
 	editor = nvim
 	whitespace = cr-at-eol
+	pager = less -x1,5
 [push]
 	default = simple
 [credential]
@@ -12,7 +13,7 @@
 [credential "https://github.com"]
 	username = squattingmonk
 [credential "https://gitlab.com"]
-  username = squattingmonk
+	username = squattingmonk
 [alias]
 	co = checkout
 	st = status
@@ -29,4 +30,4 @@
 [url "ssh://git@github.com/"]
 	insteadOf = https://github.com/
 [url "aur@aur.archlinux.org:"]
-  insteadOf = https://aur.archlinux.org/
+	insteadOf = https://aur.archlinux.org/
