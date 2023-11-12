@@ -20,6 +20,7 @@ return {
         "lua",
         "markdown",
         "markdown_inline",
+        "nim",
         "nwscript",
         "python",
         "query",
