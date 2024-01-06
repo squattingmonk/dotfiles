@@ -1,0 +1,35 @@
+# Launch with drun mode
+drun-launch = true
+
+# Put frequent results closer to the top
+history = true
+
+# Using the path to the font speeds up load time
+# font = /usr/share/fonts/TTF/RobotoMonoNerdFont-Medium.ttf
+font = "Fira Sans Medium"
+font-size = 14
+hide-cursor = true
+text-cursor = true
+height = 25%
+width = 25%
+outline-width = 0
+border-width = 4
+border-color = "#434C5E"
+background-color = "#2E3440"
+text-color = "#D8DEE9"
+placeholder-text = Search...
+placeholder-color = "#434C5E"
+prompt-padding = 24
+prompt-text = 
+prompt-color = "#88C0D0"
+input-color = "#88C0D0"
+selection-color = "#ECEFF4"
+selection-match-color = "#88C0D0"
+matching-algorithm = fuzzy
+padding-top = 12
+padding-right = 12
+padding-bottom = 12
+padding-left = 12
+result-spacing = 4
+
+# vim:set ft=conf
