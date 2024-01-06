@@ -115,4 +115,15 @@ return {
       })
     end,
   },
+
+  {
+    "NvChad/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup({
+        filetypes = {
+          css = { names = false, mode = "virtualtext" },
+        },
+      })
+    end,
+  },
 }
