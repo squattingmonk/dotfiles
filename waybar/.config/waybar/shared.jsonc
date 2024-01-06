@@ -1,0 +1,74 @@
+{
+  "layer": "top",
+  "margin-bottom": -10,
+  "river/window": {
+    "format": "{}",
+    "max-length": 50,
+    "tooltip": false
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "󰃞",
+      "󰃟",
+      "󰃠"
+    ]
+  },
+  "battery": {
+    "states": {
+      "full": 95,
+      "warning": 25,
+      "critical": 10
+    },
+    "format": "{icon} {capacity}%",
+    "format-full": "󰁹 {capacity}%",
+    "format-charging": "󰂅 {capacity}%",
+    "format-icons": [
+      "󱃍",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
+  },
+  "network": {
+    "interface": "wlan0",
+    "interval": 1,
+    "format-wifi": "{icon} {essid}",
+    "format-disconnected": "󰣽 {ifname}",
+    "format-icons": [
+      "󰣾",
+      "󰣴",
+      "󰣶",
+      "󰣸",
+      "󰣺"
+    ],
+    "tooltip-format": " {bandwidthUpBits} /  {bandwidthDownBits}"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon}󰂯 {volume}%",
+    "format-muted": " mute",
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol"
+  },
+  "clock": {
+    "interval": 1,
+    "format": "{: %I:%M %p   %b %d, %Y}",
+    "tooltip": true,
+    "tooltip-format": "<big>{:%D %T}</big>\n<small><tt>{calendar}</tt></small>"
+  }
+}

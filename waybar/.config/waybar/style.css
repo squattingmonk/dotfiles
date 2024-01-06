@@ -1,0 +1,115 @@
+@define-color nord_0 #2E3440;
+@define-color nord_1 #3B4252;
+@define-color nord_2 #434C5E;
+@define-color nord_3 #4C566A;
+@define-color nord_4 #D8DEE9;
+@define-color nord_5 #E5E9F0;
+@define-color nord_6 #ECEFF4;
+@define-color nord_7 #8FBCBB;
+@define-color nord_8 #88C0D0;
+@define-color nord_9 #81A1C1;
+@define-color nord_10 #5E81AC;
+@define-color nord_11 #BF616A;
+@define-color nord_12 #D08770;
+@define-color nord_13 #EBCB8B;
+@define-color nord_14 #A3BE8C;
+@define-color nord_15 #B48EAD;
+
+@define-color bg @nord_0;
+@define-color bg_bright @nord_1;
+@define-color bg_brighter @nord_2;
+@define-color bg_brightest @nord_3;
+@define-color fg @nord_4;
+@define-color fg_bright @nord_5;
+@define-color fg_brighter @nord_6;
+@define-color cyan @nord_8;
+@define-color blue @nord_10;
+@define-color blue_bright @nord_9;
+@define-color red @nord_11;
+@define-color orange @nord_12;
+@define-color yellow @nord_13;
+@define-color green @nord_14;
+@define-color green_bright @nord_7;
+@define-color purple @nord_15;
+
+
+* {
+  border: none;
+  font-family: "Fira Sans", "FiraCode Nerd Font Propo";
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0.3em 0 0.3em;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+#window {
+  background: @bg;
+}
+
+window > box {
+  margin: 8px;
+  padding: 5px 0 5px 0;
+  background-color: @bg;
+}
+
+tooltip {
+  background-color: @bg_bright;
+  opacity: 0.8;
+  border-radius: 4px;
+}
+
+#tags {
+  background: @bg_bright;
+  border-radius: 5px;
+  margin-left: 5px
+}
+
+#tags button {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+  color: @fg;
+}
+
+#tags button.occupied {
+  color: @fg_bright;
+  background: @bg_brightest;
+}
+
+#tags button.focused {
+  color: @bg;
+  background: @fg;
+}
+
+#tags button.urgent {
+  background: @red;
+}
+
+#tags button:hover {
+  background: @cyan;
+  color: @bg;
+}
+
+#window, #backlight, #battery, #network, #pulseaudio, #clock {
+  padding-left: 6px;
+  padding-right: 6px;
+  background: @bg_bright;
+  border-radius: 5px;
+}
+
+#battery.warning {
+  background: @yellow;
+}
+
+#battery.critical {
+  background: @red;
+}
+
+#network.disconnected {
+  background: @red;
+}

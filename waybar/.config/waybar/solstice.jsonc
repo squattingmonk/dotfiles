@@ -1,0 +1,17 @@
+{
+  "id": "solstice",
+  "include": [
+    "~/.config/waybar/shared.jsonc"
+  ],
+  "modules-left": [
+    "river/tags"
+  ],
+  "modules-center": [
+    "river/window"
+  ],
+  "modules-right": [
+    "network",
+    "pulseaudio",
+    "clock"
+  ]
+}
