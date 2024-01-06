@@ -1,0 +1,104 @@
+#!/bin/sh
+
+# Have to launch the terminal here for some reason
+riverctl spawn kitty
+
+# -- Keybinds
+
+# Start terminal
+riverctl map normal Super Return spawn kitty
+
+# Toggle status bar
+riverctl map normal Super B spawn "killall -SIGUSR1 waybar"
+
+# Close focused window
+riverctl map normal Super W close
+
+# Exit river
+riverctl map normal Super+Shift W exit
+
+# Application launcher
+riverctl map normal Super Space spawn tofi-drun
+
+# Focus next/previous view in the layout stack
+riverctl map normal Super J focus-view next
+riverctl map normal Super K focus-view previous
+
+# Swap focused view with next/previous view in the layout stack
+riverctl map normal Super+Shift J swap next
+riverctl map normal Super+Shift K swap previous
+
+# Move the foused view to the top of the layout stack
+riverctl map normal Super Z zoom
+
+# Toggle float
+riverctl map normal Super S toggle-float
+
+# Toggle fullscreen
+riverctl map normal Super F toggle-fullscreen
+
+# Move views with Super + left mouse button
+riverctl map-pointer normal Super BTN_LEFT move-view
+
+# Resize views with Super + right mouse button
+riverctl map-pointer normal Super BTN_RIGHT resize-view
+
+# Toggle float with Super + middle mouse button
+riverctl map-pointer normal Super BTN_MIDDLE toggle-float
+
+# -- Media Buttons
+riverctl map normal None XF86AudioRaiseVolume spawn "pamixer -i 1"
+riverctl map normal None XF86AudioLowerVolume spawn "pamixer -d 1"
+riverctl map normal None XF86AudioMute spawn "pamixer --toggle-mute"
+riverctl map normal None XF86AudioPlay spawn "playerctl play-pause"
+riverctl map normal None XF86AudioNext spawn "playerctl next"
+
+# -- Tags
+
+for i in $(seq 1 9); do
+	tags=$((1 << ($i - 1)))
+
+	# Super+[1-9] to focus tag [0-8]
+	riverctl map normal Super $i set-focused-tags $tags
+
+	# Super+Shift+[1-9] to tag focused view with tag [0-8]
+	riverctl map normal Super+Shift $i set-view-tags $tags
+
+	# Super+Control+[1-9] to toggle focus of tag [0-8]
+	riverctl map normal Super+Control $i toggle-focused-tags $tags
+
+	# Super+Shift_Control+[1-9] to toggle tag [0-8] of focused view
+	riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
+done
+
+# Super+0 to focus all tags
+# Super+Shift+0 to tag focused view with all tags
+all_tags=$(((1 << 32) - 1))
+riverctl map normal Super 0 set-focused-tags $all_tags
+riverctl map normal Super+Shift 0 set-view-tags $all_tags
+
+# Super + Tab to swap between previously focused tags
+riverctl map normal Super Tab focus-previous-tags
+
+# -- UI
+# Set default colors
+riverctl background-color 0x2e3440
+riverctl border-color-focused 0x4c556a
+riverctl border-color-unfocused 0x3b4252
+
+# Borders and padding
+riverctl border-width 4
+
+# -- Inputs
+# Mouse pointer
+riverctl focus-follows-cursor normal
+
+# Keyboard
+riverctl keyboard-layout -options caps:escape us
+
+# Use rivertile as the default layout generator
+riverctl spawn rivertile
+riverctl default-layout rivertile
+
+# Launch our bar
+riverctl spawn $(waybar --config "$XDG_CONFIG_HOME/waybar/$(cat /etc/hostname).jsonc")
