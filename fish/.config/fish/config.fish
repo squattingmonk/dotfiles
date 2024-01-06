@@ -88,22 +88,18 @@ if type -q fd
     set -x FZF_DEFAULT_COMMAND "fd --type f --hidden --follow --exclude .git"
 end
 
-# Needed for typing GPG passwords in tty
-set -x GPG_TTY (tty)
-
-# Use gpg-agent for ssh-agent
-set -e SSH_AUTH_SOCK
-set -U -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
-
-# Start or re-use gpg-agent
-gpgconf --launch gpg-agent
-
-# Refresh gpg-agent tty in case user switches into an X session
-gpg-connect-agent updatestartuptty /bye >/dev/null
-
 # Start X at login
 if status --is-login
     if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
         exec startx $XINITRC -- -keeptty
     end
+end
+if status is-interactive
+    # Use gpg-agent for ssh-agent
+    set -e SSH_AGENT_PID
+    set -e SSH_AUTH_SOCK
+    set -g -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+    set -g -x GPG_TTY (tty)
+    systemctl --user start gpg-agent.service
+    dbus-update-activation-environment --systemd --all
 end
