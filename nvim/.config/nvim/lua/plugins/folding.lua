@@ -75,7 +75,7 @@ return {
         provider_selector = function(_, filetype, _)
           return ftmap[filetype] or { "treesitter", "indent" }
         end,
-        close_fold_kinds = { "imports" },
+        close_fold_kinds_for_ft = { default = { "imports" } },
       })
     end,
   },
