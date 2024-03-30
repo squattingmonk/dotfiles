@@ -1,7 +1,7 @@
 [user]
 	email = squattingmonk@gmail.com
 	name = Michael A. Sinclair
-	signingkey = 776866C3509CF036
+	signingkey = FD08AA9C1558EC0F
 [core]
 	editor = nvim
 	whitespace = cr-at-eol
