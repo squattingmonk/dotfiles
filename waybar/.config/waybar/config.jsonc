@@ -6,6 +6,29 @@
     "max-length": 50,
     "tooltip": false
   },
+  "modules-left": [
+    "river/tags"
+  ],
+  "modules-center": [
+    "river/window"
+  ],
+  "modules-right": [
+    "backlight",
+    "battery",
+    "network",
+    "pulseaudio",
+    "clock"
+  ],
+  "river/tags": {
+    "num-tags": 5,
+    "tag-labels": [
+      "",
+      "",
+      "󰭹",
+      "",
+      "󰈙"
+    ]
+  },
   "backlight": {
     "format": "{icon} {percent}%",
     "format-icons": [
@@ -67,7 +90,7 @@
   },
   "clock": {
     "interval": 1,
-    "format": "{: %I:%M %p   %b %d, %Y}",
+    "format": " {:%I:%M %p   %b %d, %Y}",
     "tooltip": true,
     "tooltip-format": "<big>{:%D %T}</big>\n<small><tt>{calendar}</tt></small>"
   }

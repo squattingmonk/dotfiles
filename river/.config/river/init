@@ -108,4 +108,4 @@ riverctl spawn rivertile
 riverctl default-layout rivertile
 
 # Launch our bar
-riverctl spawn $(waybar --config "$XDG_CONFIG_HOME/waybar/$(cat /etc/hostname).jsonc")
+riverctl spawn waybar
