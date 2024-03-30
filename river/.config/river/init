@@ -93,8 +93,14 @@ riverctl border-color-unfocused 0x3b4252
 # Borders and padding
 riverctl border-width 4
 
+# -- Rules
+
 # Firefox on tag 2
 riverctl rule-add -app-id firefox tags 2
+riverctl rule-add -app-id firefox ssd
+
+riverctl rule-add -app-id discord tags 4
+riverctl rule-add -app-id steam tags 8
 
 # Pop up volume control panel beneath bar on right side
 riverctl rule-add -app-id pavucontrol float
