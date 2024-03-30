@@ -20,13 +20,17 @@ riverctl map normal Super+Shift W exit
 # Application launcher
 riverctl map normal Super Space spawn tofi-drun
 
-# Focus next/previous view in the layout stack
-riverctl map normal Super J focus-view next
-riverctl map normal Super K focus-view previous
+# Focus view in the layout stack
+riverctl map normal Super H focus-view left
+riverctl map normal Super J focus-view down
+riverctl map normal Super K focus-view up
+riverctl map normal Super L focus-view right
 
-# Swap focused view with next/previous view in the layout stack
-riverctl map normal Super+Shift J swap next
-riverctl map normal Super+Shift K swap previous
+# Swap focused view with another view in the layout stack
+riverctl map normal Super+Shift H swap left
+riverctl map normal Super+Shift J swap down
+riverctl map normal Super+Shift K swap up
+riverctl map normal Super+Shift L swap right
 
 # Move the foused view to the top of the layout stack
 riverctl map normal Super Z zoom
@@ -58,7 +62,7 @@ riverctl map normal None XF86AudioNext spawn "playerctl next"
 for i in $(seq 1 9); do
 	tags=$((1 << ($i - 1)))
 
-	# Super+[1-9] to focus tag [0-8]
+	# Super+[1-9] to set focus to tag [0-8]
 	riverctl map normal Super $i set-focused-tags $tags
 
 	# Super+Shift+[1-9] to tag focused view with tag [0-8]
@@ -67,7 +71,7 @@ for i in $(seq 1 9); do
 	# Super+Control+[1-9] to toggle focus of tag [0-8]
 	riverctl map normal Super+Control $i toggle-focused-tags $tags
 
-	# Super+Shift_Control+[1-9] to toggle tag [0-8] of focused view
+	# Super+Shift_Control+[1-9] to toggle tag [0-8] on focused view
 	riverctl map normal Super+Shift+Control $i toggle-view-tags $tags
 done
 
