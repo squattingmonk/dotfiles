@@ -5,10 +5,14 @@ return {
     keys = function()
       return {}
     end,
-    config = function()
+    config = function(_, opts)
       local path = os.getenv("XDG_CONFIG_HOME") .. "/nvim/snippets"
       require("luasnip.loaders.from_lua").lazy_load({ paths = path })
+      require("luasnip").setup(opts)
     end,
+    opts = {
+      enable_autosnippets = true,
+    },
   },
   {
     "rafamadriz/friendly-snippets",
@@ -101,7 +105,7 @@ return {
         completeopt = "menu,menuone,preview",
       }
 
-      opts.mapping = cmp.mapping.preset.insert({
+      opts.mapping = vim.tbl_extend("force", opts.mapping, {
         -- Scroll through docs in preview window.
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
