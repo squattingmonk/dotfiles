@@ -18,7 +18,7 @@ riverctl map normal Super W close
 riverctl map normal Super+Shift W exit
 
 # Application launcher
-riverctl map normal Super Space spawn tofi-drun
+riverctl map normal Super Space spawn "rofi -show drun"
 
 # Focus view in the layout stack
 riverctl map normal Super H focus-view left
