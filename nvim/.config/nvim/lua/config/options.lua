@@ -12,3 +12,5 @@ vim.opt.colorcolumn = "+1"
 vim.opt.spelllang = { "en_us", "medical" }
 vim.opt.spellfile = os.getenv("HOME") .. "/Sync/vim/spell/en.utf-8.add" -- extra words
 vim.opt.spelloptions = "camel" -- Split camelCase words when spellchecking
+
+vim.lsp.inlay_hint = false
