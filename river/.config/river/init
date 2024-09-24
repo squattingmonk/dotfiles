@@ -109,6 +109,7 @@ riverctl rule-add -app-id pavucontrol position 5000 20
 # -- Inputs
 # Mouse pointer
 riverctl focus-follows-cursor normal
+riverctl input '*Touchpad' tap enabled
 
 # Keyboard
 riverctl keyboard-layout -options caps:escape us
