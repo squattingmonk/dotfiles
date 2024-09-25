@@ -41,8 +41,3 @@ if type -q gem
     set -gx GEM_SPEC_CACHE $XDG_CACHE_HOME/gem
     mkdir -p $GEM_HOME $GEM_SPEC_CACHE
 end
-
-# Use fd with fzf if it is available
-if type -q fd
-    set -x FZF_DEFAULT_COMMAND "fd --hidden --follow --exclude .git"
-end
