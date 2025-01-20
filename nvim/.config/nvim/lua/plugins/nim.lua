@@ -3,7 +3,10 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        nimls = {},
+        nim_langserver = {
+          inlayHints = false,
+        },
+        -- nimls = {},
       },
     },
   },
