@@ -1,6 +1,7 @@
 {
   "extras": [
     "lazyvim.plugins.extras.coding.luasnip",
+    "lazyvim.plugins.extras.coding.mini-surround",
     "lazyvim.plugins.extras.coding.neogen",
     "lazyvim.plugins.extras.lang.clangd",
     "lazyvim.plugins.extras.lang.cmake",
@@ -10,7 +11,7 @@
     "lazyvim.plugins.extras.lang.toml"
   ],
   "news": {
-    "NEWS.md": "6520"
+    "NEWS.md": "10960"
   },
-  "version": 6
+  "version": 7
 }
