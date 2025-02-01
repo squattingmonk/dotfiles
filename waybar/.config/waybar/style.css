@@ -61,6 +61,7 @@ tooltip {
 .modules-left, .modules-center, .modules-right {
   border: 4px solid @bg_brightest;
   border-radius: 0.5em;
+  background-color: @bg_bright;
 }
 
 .modules-left {
