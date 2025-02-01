@@ -46,13 +46,9 @@ window#waybar {
   background: transparent;
 }
 
-#window {
-  background: @bg;
-}
-
 window > box {
-  margin: 8px;
-  padding: 5px 0 5px 0;
+  margin: 20px 20px 10px 20px;
+  padding: 0;
   background-color: @bg;
 }
 
@@ -62,44 +58,49 @@ tooltip {
   border-radius: 4px;
 }
 
-#tags {
-  background: @bg_bright;
-  border-radius: 5px;
-  margin-left: 5px
+.modules-left, .modules-center, .modules-right {
+  border: 4px solid @bg_brightest;
+  border-radius: 0.5em;
 }
 
-#tags button {
-  margin-top: 4px;
-  margin-bottom: 4px;
-  padding-left: 6px;
-  padding-right: 6px;
+.modules-left {
+  margin-left: 0;
+}
+
+.modules-right {
+  margin-right: 0;
+}
+
+#tags, #workspaces {
+  margin: 0;
+}
+
+#tags button, #workspaces button {
+  margin: 5px;
   color: @fg;
 }
 
-#tags button.occupied {
+#tags button.occupied, #workspaces button.visible {
   color: @fg_bright;
   background: @bg_brightest;
 }
 
-#tags button.focused {
+#tags button.focused, #workspaces button.active {
   color: @bg;
   background: @fg;
 }
 
-#tags button.urgent {
+#tags button.urgent, #workspaces button.urgent {
   background: @red;
 }
 
-#tags button:hover {
+#tags button:hover, #workspaces button:hover {
   background: @cyan;
   color: @bg;
 }
 
 #window, #backlight, #battery, #network, #pulseaudio, #clock {
-  padding-left: 6px;
-  padding-right: 6px;
   background: @bg_bright;
-  border-radius: 5px;
 }
 
 #battery.warning {

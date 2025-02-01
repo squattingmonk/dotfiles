@@ -7,10 +7,10 @@
     "tooltip": false
   },
   "modules-left": [
-    "river/tags"
+    "hyprland/workspaces"
   ],
   "modules-center": [
-    "river/window"
+    "hyprland/window"
   ],
   "modules-right": [
     "backlight",
@@ -19,6 +19,19 @@
     "pulseaudio",
     "clock"
   ],
+  "hyprland/workspaces": {
+    "format": "{icon}  {name}",
+    "format-icons": {
+      "term": "",
+      "web": "",
+      "comms": "󰭹",
+      "games": "",
+      "5": "󰈙"
+    }
+    // "format-icons": [
+    //   "󰭹",
+    // ]
+  },
   "river/tags": {
     "num-tags": 5,
     "tag-labels": [
