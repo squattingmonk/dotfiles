@@ -13,14 +13,14 @@
     "hyprland/window"
   ],
   "modules-right": [
+    "network",
     "backlight",
     "battery",
-    "network",
     "pulseaudio",
     "clock"
   ],
   "hyprland/workspaces": {
-    "format": "{icon}  {name}",
+    "format": "{icon}",
     "format-icons": {
       "term": "",
       "web": "",
@@ -28,9 +28,6 @@
       "games": "",
       "5": "󰈙"
     }
-    // "format-icons": [
-    //   "󰭹",
-    // ]
   },
   "river/tags": {
     "num-tags": 5,

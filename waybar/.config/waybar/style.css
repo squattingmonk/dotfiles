@@ -64,26 +64,25 @@ tooltip {
   background-color: @bg_bright;
 }
 
-.modules-left {
-  margin-left: 0;
-}
-
-.modules-right {
-  margin-right: 0;
+.modules-left, .modules-center, .modules-right {
+  margin: 0;
 }
 
 #tags, #workspaces {
+  padding: 4px 0 4px 4px;
   margin: 0;
 }
 
 #tags button, #workspaces button {
-  margin: 5px;
+  margin: 0 4px 0 0;
+  padding: 2px 4px 2px 4px;
   color: @fg;
+  background: @bg_brightest;
 }
 
 #tags button.occupied, #workspaces button.visible {
   color: @fg_bright;
-  background: @bg_brightest;
+  background: @bg_bright;
 }
 
 #tags button.focused, #workspaces button.active {
@@ -101,7 +100,19 @@ tooltip {
 }
 
 #window, #backlight, #battery, #network, #pulseaudio, #clock {
+  background: @bg_brightest;
+  margin: 4px;
+  padding: 2px 4px 2px 4px;
+  border-radius: 4px;
+}
+
+#window {
   background: @bg_bright;
+}
+
+#window:hover, #backlight:hover, #battery:hover, #network:hover, #pulseaudio:hover, #clock:hover {
+  background: @cyan;
+  color: @bg;
 }
 
 #battery.warning {
