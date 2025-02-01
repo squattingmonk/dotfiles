@@ -22,10 +22,10 @@
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "term": "",
-      "web": "",
-      "comms": "󰭹",
-      "games": "",
+      "1": "",
+      "2": "",
+      "3": "󰭹",
+      "4": "",
       "5": "󰈙"
     }
   },
