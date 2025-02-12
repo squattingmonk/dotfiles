@@ -2,10 +2,9 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      inlay_hints = { enabled = false },
       servers = {
-        nim_langserver = {
-          inlayHints = false,
-        },
+        nim_langserver = {},
         -- nimls = {},
       },
     },
