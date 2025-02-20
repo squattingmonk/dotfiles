@@ -13,13 +13,14 @@
     "hyprland/window"
   ],
   "modules-right": [
-    "network",
     "backlight",
     "battery",
+    "network",
     "pulseaudio",
     "clock"
   ],
   "hyprland/workspaces": {
+    "active-only": false,
     "format": "{icon}",
     "format-icons": {
       "1": "",
@@ -27,6 +28,9 @@
       "3": "󰭹",
       "4": "",
       "5": "󰈙"
+    },
+    "persistent-workspaces": {
+      "*": 5
     }
   },
   "river/tags": {
