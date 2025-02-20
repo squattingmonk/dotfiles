@@ -12,4 +12,4 @@ configuration {
 	display-ssh: "SSH";
 	display-drun: "Launch";
 }
-@theme "nord"
+@theme "rounded-nord"
