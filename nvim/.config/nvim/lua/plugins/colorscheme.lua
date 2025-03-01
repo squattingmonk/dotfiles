@@ -14,4 +14,14 @@ return {
       },
     },
   },
+
+  {
+    "catppuccin/nvim",
+    enabled = false,
+  },
+
+  {
+    "folke/toyonight.nvim",
+    enabled = false,
+  },
 }
