@@ -1,0 +1,16 @@
+#!/usr/bin/fish
+set -f BUILD $argv[1]
+if test -z "$BUILD"
+    set -f BUILD default
+end
+
+set -f EXE "$HOME/Code/nwn/build/$BUILD/game/nwmain/nwmain"
+if test -x $EXE
+    echo "Running nwmain with build $BUILD"
+    cd "$NWN_ROOT/bin/linux-x86"
+    $EXE #>/dev/null 2>&1 &
+else
+    echo "Error: no executable for build $BUILD"
+    echo "$EXE"
+    return 1
+end
