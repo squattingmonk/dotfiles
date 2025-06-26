@@ -12,7 +12,7 @@ set -gx XDG_PICTURES_DIR $HOME/Pictures
 set -gx XDG_VIDEOS_DIR $HOME/Videos
 
 # Default programs
-set -gx BROWSER firefox
+set -gx BROWSER zen-browser
 set -gx EDITOR nvim
 
 # Clean up home directory
