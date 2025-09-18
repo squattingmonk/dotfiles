@@ -34,21 +34,21 @@ return {
         "yaml",
       },
     },
-    config = function(_, opts)
-      -- Create NWScript grammar
-      local parser_config =
-        require("nvim-treesitter.parsers").get_parser_configs()
-      parser_config.nwscript = {
-        install_info = {
-          url = "https://github.com/tinygiant98/tree-sitter-nwscript",
-          files = { "src/parser.c" },
-          generate_requires_npm = false,
-          requires_generate_from_grammar = false,
-        },
-        filestype = "nwscript",
-      }
-
-      require("nvim-treesitter.configs").setup(opts)
+    init = function()
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "TSUpdate",
+        callback = function()
+          ---@diagnostic disable missing-fields
+          require("nvim-treesitter.parsers").nwscript = {
+            install_info = {
+              url = "https://github.com/squattingmonk/tree-sitter-nwscript",
+              branch = "master",
+            },
+            filestype = "nwscript",
+            tier = 2,
+          }
+        end,
+      })
     end,
   },
 }
