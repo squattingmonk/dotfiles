@@ -4,7 +4,7 @@ local configs = require("lspconfig.configs")
 if not configs.nwscript then
   configs.nwscript = {
     default_config = {
-      cmd = { "nwscript-ee-language-server" },
+      cmd = { "nwscriptd" },
       filetypes = { "nwscript" },
       root_dir = util.root_pattern("nasher.cfg", ".git"),
     },
