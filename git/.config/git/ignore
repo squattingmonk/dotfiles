@@ -11,3 +11,5 @@ compile_commands.json
 CPackConfig.cmake
 CPackSourceConfig.cmake
 CMakeUserPresets.json
+
+**/.claude/settings.local.json
